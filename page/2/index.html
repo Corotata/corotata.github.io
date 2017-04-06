@@ -196,132 +196,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-2016-2-20在swift中使用CocoaPods" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/20/2016-2-20在swift中使用CocoaPods/" class="article-date">
-  	<time datetime="2016-02-20T02:38:06.000Z" itemprop="datePublished">2016-02-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/20/2016-2-20在swift中使用CocoaPods/">在swift中使用CocoaPods</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在swift中使用CocoaPods和Objective-C中其实没啥区别，<br>在工程路径下使用，pod init 创建Profile文件<br>打开Profile文件，以下以添加SnapKit和Alamofire为例，在文件中写入</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Uncomment this line to define a global platform for your project</span></div><div class="line"><span class="comment"># platform :ios, '8.0'</span></div><div class="line"><span class="comment"># Uncomment this line if you're using Swift</span></div><div class="line"><span class="comment"># use_frameworks!</span></div><div class="line"></div><div class="line">target <span class="string">'CRWeiBo'</span> <span class="keyword">do</span></div><div class="line">pod <span class="string">'SnapKit'</span>, <span class="string">'0.18.0'</span></div><div class="line">pod <span class="string">'Alamofire'</span>, <span class="string">'3.1.3'</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'CRWeiBoTests'</span> <span class="keyword">do</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'CRWeiBoUITests'</span> <span class="keyword">do</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>如profile前面提示的，如果在swift环境下添加use_frameworks!，因为我们是直接生成的Profile文件，所以直接取消上面那行注释就可以了</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Uncomment this line to define a global platform for your project</span></div><div class="line"><span class="comment"># platform :ios, '8.0'</span></div><div class="line"><span class="comment"># Uncomment this line if you're using Swift</span></div><div class="line">use_frameworks!</div><div class="line"></div><div class="line">target <span class="string">'CRWeiBo'</span> <span class="keyword">do</span></div><div class="line">pod <span class="string">'SnapKit'</span>, <span class="string">'0.18.0'</span></div><div class="line">pod <span class="string">'Alamofire'</span>, <span class="string">'3.1.3'</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'CRWeiBoTests'</span> <span class="keyword">do</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'CRWeiBoUITests'</span> <span class="keyword">do</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>如果是自己手动创建的，则需要自己补上</p>
-<hr>
-<p>注：版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-2016-2-19-Swift中如何从xib中加载类" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/20/2016-2-19-Swift中如何从xib中加载类/" class="article-date">
-  	<time datetime="2016-02-20T02:25:08.000Z" itemprop="datePublished">2016-02-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/20/2016-2-19-Swift中如何从xib中加载类/">Swift中如何从xib中加载类</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我写了一个UIView的类方法</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIView</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">viewFromXIB</span>() -&gt; <span class="title">UIView</span> </span>&#123;</div><div class="line">        <span class="keyword">let</span> classString = <span class="type">NSStringFromClass</span>(<span class="keyword">self</span>) <span class="keyword">as</span> <span class="type">NSString</span></div><div class="line">        <span class="keyword">let</span> view = <span class="type">NSBundle</span>.mainBundle().loadNibNamed(classString.pathExtension, owner: <span class="literal">nil</span>, options: <span class="literal">nil</span>).first <span class="keyword">as</span>! <span class="type">UIView</span></div><div class="line">        <span class="keyword">return</span> view</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这边使用NSStringFromClass(self) as NSString，由类取得类名的字符串，这边使用NSString，主要是swift的String方法我没有找到简便的方法来实现我的需求，比如现在的一个控件叫做CRLabel，而项目名为：Test01,那么由上面的操作，classString的值就会是Test01.CRLabel,在这里面Test01为命名空间，意思就是Test01命名空间下面的CRLabel文件，由于是去加载XIB文件，我们只需要后面CRLabel部分，而不需要命名空间，所以我们需要做截取工作，而.pathExtension方法正好满足我们的需求，故有了上面的写法。</p>
-<p>写完了此分类后，以后从XIB加载文件，都可以愉快如下使用了：</p>
-<pre><code class="Swift"><span class="built_in">lazy</span> <span class="keyword">var</span> label :<span class="type">CRLabel</span> = {
-        <span class="keyword">let</span> view = <span class="type">CRLabel</span>.viewFromXIB() <span class="keyword">as</span>! <span class="type">CRLabel</span>
-        <span class="keyword">return</span> view
-}()
-</code></pre>
-<hr>
-<p>注：版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-2016-2-20解决xcode7很卡，而且经常崩溃的问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -919,6 +793,142 @@
       
         <p class="article-more-link">
           <a  href="/2015/08/27/2015-8-27-与自己的对话/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-OC-札记02" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/23/OC-札记02/" class="article-date">
+  	<time datetime="2015-07-23T11:56:01.000Z" itemprop="datePublished">2015-07-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/23/OC-札记02/">OC-札记02</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##C程序<br>代码<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"123\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>结果<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cc -c <span class="number">01</span><span class="selector-class">.first</span><span class="selector-class">.m</span></div><div class="line">cc <span class="number">01</span><span class="selector-class">.first</span><span class="selector-class">.o</span></div><div class="line">./<span class="selector-tag">a</span><span class="selector-class">.out</span> </div><div class="line"></div><div class="line">输入结果：<span class="number">123</span></div><div class="line">这其中的过程分为，编译-链接-执行</div></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/23/OC-札记02/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-OC-札记01" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/23/OC-札记01/" class="article-date">
+  	<time datetime="2015-07-23T01:38:22.000Z" itemprop="datePublished">2015-07-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/23/OC-札记01/">OC_札记01</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##关键字</p>
+<ul>
+<li>@interface</li>
+<li>@implementation</li>
+<li>@end</li>
+<li>@public</li>
+<li>@protected</li>
+<li>@private</li>
+<li>@selector    </li>
+<li>@try</li>
+<li>@catch</li>
+<li>@throw</li>
+<li>finally</li>
+<li>protocol</li>
+<li>optional</li>
+<li>required</li>
+<li>class</li>
+<li>property</li>
+<li>synthesize</li>
+<li>dynamic</li>
+<li>self</li>
+<li>super</li>
+<li>id</li>
+<li>_cmd</li>
+<li>__block</li>
+<li>__strong</li>
+<li>__weak</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/23/OC-札记01/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

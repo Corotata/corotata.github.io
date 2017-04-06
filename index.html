@@ -200,7 +200,7 @@
   
     <div class="article-meta">
       <a href="/2017/04/06/2017-4-6-关于组件化使用私有Pods的一些记录/" class="article-date">
-  	<time datetime="2017-04-06T02:48:46.000Z" itemprop="datePublished">2017-04-06</time>
+  	<time datetime="2017-04-06T03:49:50.000Z" itemprop="datePublished">2017-04-06</time>
 </a>
     </div>
   
@@ -209,37 +209,26 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/06/2017-4-6-关于组件化使用私有Pods的一些记录/">关于组件化使用私有Pods的一些记录</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: 关于组件化使用私有Pods的一些记录<br>date: 2017-04-06 10:48:46</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>最近在做项目的组件化，其中遇到一些问题，经常遇到自己解决过的问题又完全想不起来，于是每次都要反复查阅，很影响效率，所以打算把自己遇到的问题都记录下来，利人利己，下面我会以案例的方式，来讲述一些问题：</p>
-<p>###案例1</p>
-<blockquote>
+        <p>最近在做项目的组件化，其中遇到一些问题，经常遇到自己解决过的问题又完全想不起来，于是每次都要反复查阅，很影响效率，所以打算把自己遇到的问题都记录下来，利人利己，下面我会以案例的方式，来讲述一些问题：</p>
+<h3 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h3><blockquote>
 <p>项目中图片缓存层是基于SDWebImage做的二次封装，在提交私有Pod时，出现了以下问题：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">-&gt; LGWebImage (1)</div><div class="line">    - ERROR | [iOS] xcodebuild: Returned an unsuccessful exit code.</div><div class="line">    - ERROR | xcodebuild:  LGWebImage/LGWebImage/LGWebImage/UIButton+LGWebCache.m:10:9: error: 'UIButton+WebCache.h' file not found with &lt;angled&gt; include; use "quotes" instead</div><div class="line">    - ERROR | xcodebuild:  LGWebImage/LGWebImage/LGWebImage/UIImageView+LGWebCache.m:10:9: error: 'UIImageView+WebCache.h' file not found with &lt;angled&gt; include; use "quotes" instead</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </blockquote>
 <p>封装库中使用了SDWebImage中的UIImageView+WebCache和UIButton+WebCache,虽然在PodSpec文件里面添加了SDWebImage的依赖，但在打Pod时，并没有发现SDWebImage的文件头，所以代码层面就编译不过了，这时候只需要在PodSpec添加暴露SDWebImage头文件的配置即可解决问题，如下所示：</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">s.xcconfig = &#123; <span class="string">"HEADER_SEARCH_PATHS"</span> =&gt; <span class="string">"$(SRCROOT)/SDWebImage"</span> &#125;</div></pre></td></tr></table></figure>
-<p>###案例2</p>
-<blockquote>
-<p>新工程Podfile引入自己私有pod，明明私有Pod存在，却一直报以下错误：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Resolving dependencies of `Podfile`</div><div class="line">[!] Unable to find a specification <span class="keyword">for</span> `LGWebImage`</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>这是由于PodFile里面没有添加私有Pod源的地址，使用的Pod又没有指定git或者svn地址，所以在PodFile文件头部添加私有Pod源的地址即可解决问题，如下所示：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source 'https://192.168.1.100/Git/Specs.git'</div></pre></td></tr></table></figure>
-<p>###案例3</p>
-<blockquote>
-<p>加载图片资源文件时,要引用整个ImageAssets时，该如何写PodSpec?</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">s.resources = "HSImageAssets/HSImageAssets/Resources/**/*.xcassets”</div><div class="line">&lt;!--类似其他资源文件同样，如--&gt;</div><div class="line">s.resources = "CurrencyResource/CurrencyResource/**/*.plist"</div></pre></td></tr></table></figure>
-<p>###案例4</p>
-<blockquote>
-<p>封装听云SDK，由于听云提供的是Framework包，所以提交pod时会报以下错误：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-&gt; TingYun_SDK_Catagory (1)</div><div class="line">    - ERROR | [iOS] xcodebuild: Returned an unsuccessful exit code.</div><div class="line">    - NOTE  | xcodebuild:  TingYun_SDK_Catagory/TingYun_SDK_Catagory/TingYun_SDK_Catagory/Target/CTMediator+Tingyun_SDK_Catagory.m:10:9: fatal error: 'tingyunApp/NBSAppAgent.h' file not found</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>这是由于找不到听云里面的头文件，和安全1类似，由于他提供的为framework包，所以给他指定framework的位置：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">s.xcconfig = &#123;<span class="string">"FRAMEWORK_SEARCH_PATHS"</span> =&gt; <span class="string">"$(PODS_ROOT)/tingyunApp/nbs-newlens-ios-2.5.2/"</span>&#125;</div></pre></td></tr></table></figure>
-
       
     </div>
     
@@ -248,6 +237,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2017/04/06/2017-4-6-关于组件化使用私有Pods的一些记录/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -524,116 +517,6 @@
 
 
   
-    <article id="post-2016-4-19-即时IM你所不知道的事" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/19/2016-4-19-即时IM你所不知道的事/" class="article-date">
-  	<time datetime="2016-04-19T07:12:38.000Z" itemprop="datePublished">2016-04-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/19/2016-4-19-即时IM你所不知道的事/">2016-4-19 即时IM你所不知道的事</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>   最近工作特别繁琐，每天都有新的这样的那样的问题，网络切换啦，应用连接特别慢，消息发不出去啊，消息怎么要显示重发啊。。。反正没一天清闲，想着要开始学Swift了，总感觉没有余力，再加上后台问题，事就更多了，今天明明好用的东西，明天他更新代码了，就又一堆问题，然后用户用的是你的客户端，看到这样那样的问题，当然是，TMD客户端写得真烂，一大堆问题，怎么没有回执了，你消息没发出去啊。然后领导找我谈话说，某某某功能怎么没了，有bug啊，我一听，这不可能啊，我昨晚明明调好了才下班的，拿过来一看，直接被打脸，看着那场景，我只能说，我查一下吧，可能我这真有问题，结果一调，客户端都走正常流程，所有数据该发的都发了，一排查，又是服务器没转发。跑去向服务器反馈:”你什么时候修改了代码吗，怎么消息没转发?”。他一脸正经说：”不可能啊，你自己写的有问题吧？”我瞬间啥也不想说了，又问:”你要不查一下?”。查完后又说:”有啊，啥消息都有！”，我又说：”确定？”，然后他就埋头了，啥话也不说了，每次看到这样子的情况，我就知道，他发现那是他自己的问题了。</p>
-<p>   写代码，谁都有bug的时候，客户端与服务端的交互，有时难免，但感觉对于每次改一个新需求，都会引发一大箩筐问题，就有点像不大合理了吧？这样不仅对调用接口方，有明显的压力，而且每次遇到这种问题，基本找他反馈的百分之九十九，他都不会承认是他的问题，会让你花费很长时间去给他确认百分之百是他的问题时，他意识到了不可推脱，才会去详细排查，而且很多时间，暗地里把问题解决了，被问及原因了，往往的答复是，我什么都没改啊，也不知道是啥原因啊，或者就是我就重启了一下，对于这样的情况，你想说啥？我只想说，我感觉我会写代码写到怀疑人生。<br>    好了，扯完了，进入今天的正题吧！之前看到一个Whatsapp的功能，不管是图片或者是文本消息，接收到推送消息后，断了网，再点击Whatsapp的Icon进入应用，你会发现，刚才的消息都已经存到消息列表中了。对于这样的问题，我只想说，妈的，这是黑科技吧，如此叼爆天，不合理吧，以我的认知，我记得推送内容是有限制的，我刚做iOS那会，貌似apn内容限制是256字节，后面iOS8有所提升，也就是2048，去年12月份，换了啥协议，名字忘记了，也顶多是4096字节，再怎么样也是无法传图片啊，它是怎么做到的，莫名感觉，Whatsapp实在牛B，后面发现，QQ也有这样的功能，翻了不少网页，也上过不少论坛，后面实在没法了，就去各种iOS精英群询问，竟然无人做过。于是乎，又只能依靠自己，继续网上找啊找。在翻文档时，发现iOS7推出的后台权限，其中发现有项静默推送貌似和我的需求很像，所以就进行了研究，试了各种方式，发现静默推送只有程序在launcher中时，才有效果，而坑爹的是，那么多博客写的，没有一个提到这一点，在表明他强大之处时，不提出这一前提，害我一直以为我写的推送消息格式不对，特别看到部分大牛的博客，也是这么误导的。（所以我在这再次提醒一次，静默推送必须要你的应用在launcher存活，没有被推掉）。</p>
-<p>   后面我就开始在论坛上发贴，知乎啊，微博啊，基本都没效果，想着英文比较差，平常在stackoverflow上都只找问题，很少提问，想着要不试试，于是乎去上面一问，<a href="http://stackoverflow.com/questions/36612473/ios-whatsapp-receiving-the-remote-notification-how-did-it-stored-all-the-messag，当我问题发完，还不到3分钟，就有热心网页能我提供思路了.I" target="_blank" rel="external">http://stackoverflow.com/questions/36612473/ios-whatsapp-receiving-the-remote-notification-how-did-it-stored-all-the-messag，当我问题发完，还不到3分钟，就有热心网页能我提供思路了.I</a> imagine they are using Pushkit with silent notifications, so the app will be relaunched in the background when the notification is received even if you terminated it。那会是即兴奋又感动，妈呀，以前学的英文，总算派上用场了，=。=虽然好多单词都是一边参考翻译工具写的，但毕竟外国人竟然看懂了，总感觉好神奇，所以英文还是要学好。</p>
-<p>   查了下PushKit,看着许多博客，但我推荐还是看苹果官方文档，<a href="https://developer.apple.com/library/ios/documentation/Performance/Conceptual/EnergyGuide-iOS/OptimizeVoIP.html其他的资料，我是不大建议看，好多都是从里面捞一点，缺一点啥的，思路大概就是：开启工程-&gt;Target-&gt;Capabilities-&gt;Background" target="_blank" rel="external">https://developer.apple.com/library/ios/documentation/Performance/Conceptual/EnergyGuide-iOS/OptimizeVoIP.html其他的资料，我是不大建议看，好多都是从里面捞一点，缺一点啥的，思路大概就是：开启工程-&gt;Target-&gt;Capabilities-&gt;Background</a> Modes-&gt;Voice over IP,勾上这一选项，然后就要到开发者中心配置，VOIP的相应证书，然后后面走的流程基本和我们常规的推送一致，另一点需要注意的是，VOIP属于另处一种推送服务，他需要应用支持网络电话的功能，就是我们平常的QQ电话或者微信电话类似的东西，否则，苹果是不会允许你上架的，所以使用该服务，你同样需要向服务器提交token，他和我们常规推送的那个token不同,具体操作如下：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">	<span class="comment">//注册Voip推送服务</span></div><div class="line">- (<span class="keyword">void</span>)registerVoipNotification &#123;</div><div class="line">    PKPushRegistry *pushRegistry = [[PKPushRegistry alloc] initWithQueue:dispatch_get_main_queue()];</div><div class="line">    pushRegistry.delegate = <span class="keyword">self</span>;</div><div class="line">    pushRegistry.desiredPushTypes = [<span class="built_in">NSSet</span> setWithObject:PKPushTypeVoIP];</div><div class="line">    </div><div class="line">    <span class="built_in">UIUserNotificationSettings</span> *userNotifySetting = [<span class="built_in">UIUserNotificationSettings</span> settingsForTypes:<span class="built_in">UIUserNotificationTypeBadge</span> | <span class="built_in">UIUserNotificationTypeSound</span> | <span class="built_in">UIUserNotificationTypeAlert</span> categories:<span class="literal">nil</span>];</div><div class="line">    [[<span class="built_in">UIApplication</span> sharedApplication] registerUserNotificationSettings:userNotifySetting];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(<span class="built_in">NSString</span> *)type</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>([credentials.token length] == <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"voip token NULL"</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="built_in">NSMutableString</span> *stringBuffer = [<span class="built_in">NSMutableString</span> stringWithCapacity:([credentials.token length] * <span class="number">2</span>)];</div><div class="line">    <span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *dataBuffer = [credentials.token bytes];</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; [credentials.token length]; ++i)</div><div class="line">    &#123;</div><div class="line">        [stringBuffer appendFormat:<span class="string">@"%02x"</span>, (<span class="keyword">unsigned</span> <span class="keyword">int</span>)dataBuffer[i]];</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">NSUserDefaults</span> * userDefault = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</div><div class="line">    [userDefault setObject:stringBuffer forKey:<span class="string">@"voipToken"</span>];</div><div class="line">    [userDefault synchronize];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"voip token %@"</span>,stringBuffer);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(<span class="built_in">NSString</span> *)type</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"didReceiveIncomingPushWithPayload"</span>);</div><div class="line">	<span class="comment">//写下你需要后台做的事情</span></div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>   需要注意的是，当你收到Voip推送后，苹果会离屏启动你的应用，所以他会走</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">///先调用</span></div><div class="line"><span class="selector-tag">-</span> (BOOL)<span class="selector-tag">application</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span> <span class="selector-tag">didFinishLaunchingWithOptions</span><span class="selector-pseudo">:(NSDictionary</span> *)<span class="selector-tag">launchOptions</span> </div><div class="line"></div><div class="line"><span class="comment">///然后调用</span></div><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">pushRegistry</span><span class="selector-pseudo">:(PKPushRegistry</span> *)<span class="selector-tag">registry</span> <span class="selector-tag">didReceiveIncomingPushWithPayload</span><span class="selector-pseudo">:(PKPushPayload</span> *)<span class="selector-tag">payload</span> <span class="selector-tag">forType</span><span class="selector-pseudo">:(NSString</span> *)<span class="selector-tag">type</span></div></pre></td></tr></table></figure>
-<p>   最开始时，我一直以为，收到推送时，他只会调用pushRegistry这个方法，所以就在此次去调HTTP，去取得收到的完整消息然后存到数据库中。可后面发现，他会先调用了didFinishLaunchingWithOptions，而我们应用又有自动登录的功能，当方法被调用时，程序就会去登录，然后与服务器建立了socket连接，当用户在线，且程序处理后台时，我们是不走远程推送的，而是直接socket拿到消息后，进行本地推送，所以在上面的登录操作完成后，我惊奇的发现，在程序没有在运行在launcher时，信息依旧走的是本地推送，所以我才推断他调用了didFinishLaunchingWithOptions，后面用了日志记录，发现收到多条Voip时，只有第一条会触发didFinishLaunchingWithOptions，再次验证了我的想法。所以我们这边的处理方案是，收到Voip推送时，里面放着离线消息的ID，通过HTTP去服务器取，同时，由于会触发didFinishLaunchingWithOptions里面的登录操作，用户上线后，服务器也不需要再发推送了，后续再接收到消息就走原来程序的socket。</p>
-<p>   好了，今天就讲到这吧，我也该去忙了。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-2016-04-11-苹果推送翻译" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/11/2016-04-11-苹果推送翻译/" class="article-date">
-  	<time datetime="2016-04-11T11:51:21.000Z" itemprop="datePublished">2016-04-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/11/2016-04-11-苹果推送翻译/">苹果推送翻译</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##关于本地通知和远程通知<br>本地通知和远程通知是两种不同于广播通知（由NSNotificationCenter类管理）和键-值观察通知的通知，俗称用户通知。用户通知能够让一个APP没有在前台运行，却能够告诉他们的用户有新的消息。举例来说，这些消息可以是一个信息，一个即将到来的日历事件，或者远程服务器的新的数据。当操作系统在运行中时，用户通知，无论是来源于本地的还是远程的，它们看起来或者听起来都很相似。它们能展示一个警告消息或者在APP的图标上面标记数字。在展示警告消息的标记数字的同时，它们还能播放声音。在收到用户通知，用户可以利用它来启动相关的应用程序，查看详细信息。他们也可以选择忽略该通知，在这种情况下，该应用不被激活。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-2016-3-17-循环引用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -845,6 +728,132 @@
     <div class="article-info article-info-index">
       
       
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-2016-2-20在swift中使用CocoaPods" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/20/2016-2-20在swift中使用CocoaPods/" class="article-date">
+  	<time datetime="2016-02-20T02:38:06.000Z" itemprop="datePublished">2016-02-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/20/2016-2-20在swift中使用CocoaPods/">在swift中使用CocoaPods</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在swift中使用CocoaPods和Objective-C中其实没啥区别，<br>在工程路径下使用，pod init 创建Profile文件<br>打开Profile文件，以下以添加SnapKit和Alamofire为例，在文件中写入</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Uncomment this line to define a global platform for your project</span></div><div class="line"><span class="comment"># platform :ios, '8.0'</span></div><div class="line"><span class="comment"># Uncomment this line if you're using Swift</span></div><div class="line"><span class="comment"># use_frameworks!</span></div><div class="line"></div><div class="line">target <span class="string">'CRWeiBo'</span> <span class="keyword">do</span></div><div class="line">pod <span class="string">'SnapKit'</span>, <span class="string">'0.18.0'</span></div><div class="line">pod <span class="string">'Alamofire'</span>, <span class="string">'3.1.3'</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'CRWeiBoTests'</span> <span class="keyword">do</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'CRWeiBoUITests'</span> <span class="keyword">do</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>如profile前面提示的，如果在swift环境下添加use_frameworks!，因为我们是直接生成的Profile文件，所以直接取消上面那行注释就可以了</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Uncomment this line to define a global platform for your project</span></div><div class="line"><span class="comment"># platform :ios, '8.0'</span></div><div class="line"><span class="comment"># Uncomment this line if you're using Swift</span></div><div class="line">use_frameworks!</div><div class="line"></div><div class="line">target <span class="string">'CRWeiBo'</span> <span class="keyword">do</span></div><div class="line">pod <span class="string">'SnapKit'</span>, <span class="string">'0.18.0'</span></div><div class="line">pod <span class="string">'Alamofire'</span>, <span class="string">'3.1.3'</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'CRWeiBoTests'</span> <span class="keyword">do</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'CRWeiBoUITests'</span> <span class="keyword">do</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>如果是自己手动创建的，则需要自己补上</p>
+<hr>
+<p>注：版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-2016-2-19-Swift中如何从xib中加载类" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/20/2016-2-19-Swift中如何从xib中加载类/" class="article-date">
+  	<time datetime="2016-02-20T02:25:08.000Z" itemprop="datePublished">2016-02-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/20/2016-2-19-Swift中如何从xib中加载类/">Swift中如何从xib中加载类</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我写了一个UIView的类方法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIView</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">viewFromXIB</span>() -&gt; <span class="title">UIView</span> </span>&#123;</div><div class="line">        <span class="keyword">let</span> classString = <span class="type">NSStringFromClass</span>(<span class="keyword">self</span>) <span class="keyword">as</span> <span class="type">NSString</span></div><div class="line">        <span class="keyword">let</span> view = <span class="type">NSBundle</span>.mainBundle().loadNibNamed(classString.pathExtension, owner: <span class="literal">nil</span>, options: <span class="literal">nil</span>).first <span class="keyword">as</span>! <span class="type">UIView</span></div><div class="line">        <span class="keyword">return</span> view</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这边使用NSStringFromClass(self) as NSString，由类取得类名的字符串，这边使用NSString，主要是swift的String方法我没有找到简便的方法来实现我的需求，比如现在的一个控件叫做CRLabel，而项目名为：Test01,那么由上面的操作，classString的值就会是Test01.CRLabel,在这里面Test01为命名空间，意思就是Test01命名空间下面的CRLabel文件，由于是去加载XIB文件，我们只需要后面CRLabel部分，而不需要命名空间，所以我们需要做截取工作，而.pathExtension方法正好满足我们的需求，故有了上面的写法。</p>
+<p>写完了此分类后，以后从XIB加载文件，都可以愉快如下使用了：</p>
+<pre><code class="Swift"><span class="built_in">lazy</span> <span class="keyword">var</span> label :<span class="type">CRLabel</span> = {
+        <span class="keyword">let</span> view = <span class="type">CRLabel</span>.viewFromXIB() <span class="keyword">as</span>! <span class="type">CRLabel</span>
+        <span class="keyword">return</span> view
+}()
+</code></pre>
+<hr>
+<p>注：版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
+	</div>
+
       
 
       
