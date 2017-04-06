@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ReactiveCocoa 实现登录逻辑 | Corotata&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="折腾了ReactiveCocoa不少天了，前面时间主要停留在看的阶段，今天通过一个小例子来记录一下，我遇到的一些问题，为减少篇幅，CRLoginViewController里面的内容，我主要贴核心部分，其他的UI啦啥的，就不在文章中贴了，例子内容我也简要描述一下，要求用户名为邮箱，要求密码不少于3位，如果不符合规则，则文本框背景为红色，符合规则则为白色，登录按钮摆设用，不是这次描述内容的关注点">
+<meta name="keywords" content="ReactiveCocoa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactiveCocoa 实现登录逻辑">
+<meta property="og:url" content="http://corotata.github.io/2015/09/01/2015-9-1-ReactiveCocoa-登录/index.html">
+<meta property="og:site_name" content="Corotata's Blog">
+<meta property="og:description" content="折腾了ReactiveCocoa不少天了，前面时间主要停留在看的阶段，今天通过一个小例子来记录一下，我遇到的一些问题，为减少篇幅，CRLoginViewController里面的内容，我主要贴核心部分，其他的UI啦啥的，就不在文章中贴了，例子内容我也简要描述一下，要求用户名为邮箱，要求密码不少于3位，如果不符合规则，则文本框背景为红色，符合规则则为白色，登录按钮摆设用，不是这次描述内容的关注点">
+<meta property="og:image" content="http://7xli4x.com1.z0.glb.clouddn.com/15-9-1/62577720.jpg">
+<meta property="og:updated_time" content="2017-04-06T02:04:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ReactiveCocoa 实现登录逻辑">
+<meta name="twitter:description" content="折腾了ReactiveCocoa不少天了，前面时间主要停留在看的阶段，今天通过一个小例子来记录一下，我遇到的一些问题，为减少篇幅，CRLoginViewController里面的内容，我主要贴核心部分，其他的UI啦啥的，就不在文章中贴了，例子内容我也简要描述一下，要求用户名为邮箱，要求密码不少于3位，如果不符合规则，则文本框背景为红色，符合规则则为白色，登录按钮摆设用，不是这次描述内容的关注点">
+<meta name="twitter:image" content="http://7xli4x.com1.z0.glb.clouddn.com/15-9-1/62577720.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Corotata&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://stuweb.zjhzyg.net/2009/10/091009/images/beiji.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Corotata</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Talk is cheap, show me your work.</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/Swift/" style="font-size: 20px;">Swift</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/软件推荐/" style="font-size: 10px;">软件推荐</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;M A CHANGER,I WANT TO CHANGE MY LIFE.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Corotata</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://stuweb.zjhzyg.net/2009/10/091009/images/beiji.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Corotata</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Talk is cheap, show me your work.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2015-9-1-ReactiveCocoa-登录" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/01/2015-9-1-ReactiveCocoa-登录/" class="article-date">
+  	<time datetime="2015-09-01T07:45:40.000Z" itemprop="datePublished">2015-09-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ReactiveCocoa 实现登录逻辑
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactiveCocoa/">ReactiveCocoa</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>　　折腾了ReactiveCocoa不少天了，前面时间主要停留在看的阶段，今天通过一个小例子来记录一下，我遇到的一些问题，为减少篇幅，CRLoginViewController里面的内容，我主要贴核心部分，其他的UI啦啥的，就不在文章中贴了，例子内容我也简要描述一下，要求用户名为邮箱，要求密码不少于3位，如果不符合规则，则文本框背景为红色，符合规则则为白色，登录按钮摆设用，不是这次描述内容的关注点，所以直接略过吧，直接上图和代码：</p>
+<p><img src="http://7xli4x.com1.z0.glb.clouddn.com/15-9-1/62577720.jpg" alt="ReactiveCocoa Login"><br><a id="more"></a><br>原版：</p>
+<p>CRLoginViewController.m</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">RAC(self.userNameTextField, backgroundColor) = [self.userNameTextField.rac_textSignal map:^id(NSString *userName) &#123;</div><div class="line">    NSString *emailRegex = @&quot;[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]&#123;2,4&#125;&quot;;</div><div class="line">    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;, emailRegex];</div><div class="line">    return [emailTest evaluateWithObject:userName] ? [UIColor whiteColor] : [UIColor redColor];</div><div class="line">&#125;];</div><div class="line"></div><div class="line">RAC(self.passwordTextField, backgroundColor) = [self.passwordTextField.rac_textSignal map:^id(id value) &#123;</div><div class="line">    BOOL result = [value length] &gt; 3;</div><div class="line">    return result ? [UIColor whiteColor] : [UIColor redColor];</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p>做完上面这个，我就想着，既然用ReactiveCocoa就是为了优雅，而它也一直推荐着使用MVVM结合使用，那么，这块逻辑判断不应该放在controller，这样不利于复用，也会让controller显得很胖。所以我引入了MVVM中viewModel的概念（不清楚的可以去翻翻谷歌一下），和那些MVP,MVCS啊啥的差不多，目的都是为了瘦controller，而如果你看到那些博客里面在viewModel里面写了UI的东西，那么我可以很负责作地对你说，跳过吧，那文章不值得你看看，viewModel里面拒绝包含UI的东西，否则它将很难复用，扯得有点远了，各位看官不明白的各自科普去吧,下面就讲针对上面版本的另一种实现：</p>
+<p>####进化版1：</p>
+<p>CRLoginViewModel.h</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;ReactiveCocoa.h&gt;</span></span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">CRLoginViewModel</span> : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *userName;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *password;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)checkUserNameVaild:(<span class="built_in">NSString</span> *)userName ;</div><div class="line">- (<span class="built_in">BOOL</span>)checkPasswordVaild:(<span class="built_in">NSString</span> *)password ;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>CRLoginViewModel.m</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"CRLoginViewModel.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">CRLoginViewModel</span></span></div><div class="line"></div><div class="line">-(<span class="built_in">BOOL</span>)checkUserNameVaild:(<span class="built_in">NSString</span> *)userName &#123;</div><div class="line">    <span class="built_in">NSString</span> *emailRegex = <span class="string">@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]&#123;2,4&#125;"</span>;</div><div class="line">    <span class="built_in">NSPredicate</span> *emailTest = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"SELF MATCHES %@"</span>, emailRegex];</div><div class="line">    <span class="keyword">return</span> [emailTest evaluateWithObject:userName];</div><div class="line">&#125;</div><div class="line">- (<span class="built_in">BOOL</span>)checkPasswordVaild:(<span class="built_in">NSString</span> *)password &#123;</div><div class="line">    <span class="keyword">return</span> password.length &gt;<span class="number">3</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>CRLoginViewController.m的引用变成如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">@weakify(<span class="keyword">self</span>);</div><div class="line">  RAC(<span class="keyword">self</span>.viewModel, userName) = <span class="keyword">self</span>.userNameTextField.rac_textSignal;</div><div class="line">  RAC(<span class="keyword">self</span>.viewModel, password) = <span class="keyword">self</span>.passwordTextField.rac_textSignal;</div><div class="line">  </div><div class="line">  RAC(<span class="keyword">self</span>.userNameTextField, backgroundColor) = [<span class="keyword">self</span>.userNameTextField.rac_textSignal map:^<span class="keyword">id</span>(<span class="built_in">NSString</span> *userName) &#123;</div><div class="line">      <span class="built_in">BOOL</span> isVaild = [<span class="keyword">self</span>.viewModel checkUserNameVaild:userName];</div><div class="line">      <span class="keyword">return</span> isVaild ? [<span class="built_in">UIColor</span> whiteColor] : [<span class="built_in">UIColor</span> redColor];</div><div class="line">  &#125;];</div><div class="line">  RAC(<span class="keyword">self</span>.passwordTextField, backgroundColor) = [<span class="keyword">self</span>.passwordTextField.rac_textSignal map:^<span class="keyword">id</span>(<span class="built_in">NSString</span> *password) &#123;</div><div class="line">      <span class="built_in">BOOL</span> isVaild = [<span class="keyword">self</span>.viewModel checkPasswordVaild:password];</div><div class="line">      <span class="keyword">return</span> isVaild ? [<span class="built_in">UIColor</span> whiteColor] : [<span class="built_in">UIColor</span> redColor];</div><div class="line">  &#125;];</div></pre></td></tr></table></figure>
+<p>####进化版2，这种方式采用了双向监听，即isUserNameVaild监听viewModel里面的userName变化而变化，而viewModel的userName监听文本框的变化而变化</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;ReactiveCocoa.h&gt;</span></span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">CRLoginViewModel</span> : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *userName;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *password;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSNumber</span> *isUserNameVaild;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSNumber</span> *isPasswordVaild;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)checkUserNameVaild:(<span class="built_in">NSString</span> *)userName ;</div><div class="line">- (<span class="built_in">BOOL</span>)checkPasswordVaild:(<span class="built_in">NSString</span> *)password ;</div></pre></td></tr></table></figure>
+<p>CRLoginViewModel.h</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"CRLoginViewModel.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">CRLoginViewModel</span></span></div><div class="line"> </div><div class="line">- (<span class="keyword">instancetype</span>)init &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</div><div class="line">        @weakify(<span class="keyword">self</span>);</div><div class="line">        RAC(<span class="keyword">self</span>, isUserNameVaild) = [RACObserve(<span class="keyword">self</span>, userName) map:^<span class="keyword">id</span>(<span class="built_in">NSString</span> *userName) &#123;</div><div class="line">            @strongify(<span class="keyword">self</span>);</div><div class="line">            <span class="keyword">return</span> @([<span class="keyword">self</span> checkUserNameVaild:userName]);</div><div class="line">        &#125;];</div><div class="line"></div><div class="line">        RAC(<span class="keyword">self</span>, isPasswordVaild) = [RACObserve(<span class="keyword">self</span>, password) map:^<span class="keyword">id</span>(<span class="built_in">NSString</span> *password) &#123;</div><div class="line">            @strongify(<span class="keyword">self</span>);</div><div class="line">            <span class="keyword">return</span> @([<span class="keyword">self</span> checkPasswordVaild:password]);</div><div class="line">        &#125;];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125; </div><div class="line"></div><div class="line">-(<span class="built_in">BOOL</span>)checkUserNameVaild:(<span class="built_in">NSString</span> *)userName &#123;</div><div class="line">    <span class="built_in">NSString</span> *emailRegex = <span class="string">@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]&#123;2,4&#125;"</span>;</div><div class="line">    <span class="built_in">NSPredicate</span> *emailTest = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"SELF MATCHES %@"</span>, emailRegex];</div><div class="line">    <span class="keyword">return</span> [emailTest evaluateWithObject:userName];</div><div class="line">&#125;</div><div class="line">- (<span class="built_in">BOOL</span>)checkPasswordVaild:(<span class="built_in">NSString</span> *)password &#123;</div><div class="line">    <span class="keyword">return</span> password.length &gt;<span class="number">3</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>CRLoginViewController.m </p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@weakify(<span class="keyword">self</span>);</div><div class="line">   RAC(<span class="keyword">self</span>.viewModel, userName) = <span class="keyword">self</span>.userNameTextField.rac_textSignal;</div><div class="line">   RAC(<span class="keyword">self</span>.viewModel, password) = <span class="keyword">self</span>.passwordTextField.rac_textSignal;</div><div class="line">   </div><div class="line">   RAC(<span class="keyword">self</span>.userNameTextField, backgroundColor) =[RACObserve(<span class="keyword">self</span>.viewModel, isUserNameVaild) map:^<span class="keyword">id</span>(<span class="keyword">id</span> value) &#123;</div><div class="line">       <span class="built_in">BOOL</span> isVaild = [value boolValue];</div><div class="line">       <span class="keyword">return</span> isVaild ? [<span class="built_in">UIColor</span> whiteColor] :[<span class="built_in">UIColor</span> redColor];</div><div class="line">   &#125;];</div><div class="line"></div><div class="line">   RAC(<span class="keyword">self</span>.passwordTextField, backgroundColor) =[RACObserve(<span class="keyword">self</span>.viewModel, isPasswordVaild) map:^<span class="keyword">id</span>(<span class="keyword">id</span> value) &#123;</div><div class="line">       <span class="built_in">BOOL</span> isVaild = [value boolValue] ;</div><div class="line">       <span class="keyword">return</span> isVaild ? [<span class="built_in">UIColor</span> whiteColor] :[<span class="built_in">UIColor</span> redColor];</div><div class="line">   &#125;];</div></pre></td></tr></table></figure>
+<p>####做到这里我发现了个问题，就是RAC原本不就为了少去那些多余的属性变量，像上面这种进化版不正是违背了他的原则吗？所以才有了下面的进化3，用信号来做，具体如下：</p>
+<p>CRLoginViewModel.h</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;ReactiveCocoa.h&gt;</span></span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">CRLoginViewModel</span> : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *userName;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *password;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) RACSignal *userNameSignal;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) RACSignal *passwordSignal;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)checkUserNameVaild:(<span class="built_in">NSString</span> *)userName ;</div><div class="line">- (<span class="built_in">BOOL</span>)checkPasswordVaild:(<span class="built_in">NSString</span> *)password ;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>CRLoginViewModel.m</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"CRLoginViewModel.h"</span></span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">CRLoginViewModel</span>()</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) RACSignal *userNameSignal;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) RACSignal *passwordSignal;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">CRLoginViewModel</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">instancetype</span>)init &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</div><div class="line">        @weakify(<span class="keyword">self</span>);</div><div class="line">        <span class="keyword">self</span>.userNameSignal = [RACObserve(<span class="keyword">self</span>, userName) map:^<span class="keyword">id</span>(<span class="built_in">NSString</span> *userName) &#123;</div><div class="line">            @strongify(<span class="keyword">self</span>);</div><div class="line">            <span class="keyword">return</span> @([<span class="keyword">self</span> checkUserNameVaild:userName]);</div><div class="line">        &#125;];</div><div class="line">        <span class="keyword">self</span>.passwordSignal = [RACObserve(<span class="keyword">self</span>, password) map:^<span class="keyword">id</span>(<span class="built_in">NSString</span> *password) &#123;</div><div class="line">            @strongify(<span class="keyword">self</span>);</div><div class="line">            <span class="keyword">return</span> @([<span class="keyword">self</span> checkPasswordVaild:password]);</div><div class="line">        &#125;];</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125; </div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">-(<span class="built_in">BOOL</span>)checkUserNameVaild:(<span class="built_in">NSString</span> *)userName &#123;</div><div class="line">    <span class="built_in">NSString</span> *emailRegex = <span class="string">@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]&#123;2,4&#125;"</span>;</div><div class="line">    <span class="built_in">NSPredicate</span> *emailTest = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"SELF MATCHES %@"</span>, emailRegex];</div><div class="line">    <span class="keyword">return</span> [emailTest evaluateWithObject:userName];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)checkPasswordVaild:(<span class="built_in">NSString</span> *)password &#123;</div><div class="line">    <span class="keyword">return</span> password.length &gt;<span class="number">3</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>CRLoginViewController.m</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">	@weakify(<span class="keyword">self</span>);</div><div class="line">   RAC(<span class="keyword">self</span>.viewModel, userName) = <span class="keyword">self</span>.userNameTextField.rac_textSignal;</div><div class="line">   RAC(<span class="keyword">self</span>.viewModel, password) = <span class="keyword">self</span>.passwordTextField.rac_textSignal;</div><div class="line"></div><div class="line">RAC(<span class="keyword">self</span>.userNameTextField, backgroundColor) = 	[<span class="keyword">self</span>.viewModel.userNameSignal map:^<span class="keyword">id</span>(<span class="keyword">id</span> value) &#123;</div><div class="line">       <span class="keyword">return</span> [value boolValue]? [<span class="built_in">UIColor</span> whiteColor] : [<span class="built_in">UIColor</span> redColor];</div><div class="line">   &#125;];</div><div class="line">   </div><div class="line">   RAC(<span class="keyword">self</span>.passwordTextField, backgroundColor) = 	[<span class="keyword">self</span>.viewModel.passwordSignal map:^<span class="keyword">id</span>(<span class="keyword">id</span> value) &#123;</div><div class="line">       <span class="keyword">return</span> [value boolValue]? [<span class="built_in">UIColor</span> whiteColor] : [<span class="built_in">UIColor</span> redColor];</div><div class="line">   &#125;];</div></pre></td></tr></table></figure>
+<p>代码写完了，接下来就对于上面的几种做法做下个人评价：</p>
+<ul>
+<li>原版感觉还我们平常编码思想，只是用了RAC来做了部分代码简化，如果你自己定义宏，也能做到一样的效果。</li>
+<li>进化版1只是简单地做了文件分离，把原本写的controller里面的代码分离出去而已。</li>
+<li>进化版2看起来像RAC了，ARC的一个特点不就是事件流，避免用临时变量存储某些计算结果么，所以不这符合RAC设计的初衷。</li>
+<li>进化版3更RAC了，将所有数据包成信号的方式来处理，通常，登录会有需求，验证不通过时，登录按钮应该禁止点击这样的操作，这时，使用信号的好处就更明显了，可以将combineLatest：reduce将两个信号拼接起来，形成一个新的处理信号，好处多多。</li>
+</ul>
+<p>　　至于为什么进化版3有这么多好处，而我还选择拿前面几个例子来说呢，首先一点是为了记录我做这例子时遇到的问题，而这也是很多新手会遇到的问题，而在我学习RAC时，来来回回的博客都是那么几篇，讲的内容都是差不多一样，像原版的做法，就是ray里面的那篇文章的做法，而往往很多教程本身，教人家怎么去使用一个新东西时，只是关注于他里面的语法，举例它是个怎么便捷法，他教你怎么去使用它，而却不告诉你怎么用他才更好，而很多时候新手就在这打住了，以为这就是最佳实践。现在对RAC的认知是，它是为了让controller瘦，它是为了让模块化更清晰，信号机制让编程更清晰，而它和MVVM没有任何关系，只是MVVM能让它变得更好，而不在于它语法的精简。</p>
+<hr>
+<p>注：版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/27/2015-8-27-与自己的对话/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          与自己的对话
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/02/2015-9-2-记录google一直更新的图标创意/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">记录google一直更新的图标创意（持续更新）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2015-9-1-ReactiveCocoa-登录" data-title="ReactiveCocoa 实现登录逻辑" data-url="http://corotata.github.io/2015/09/01/2015-9-1-ReactiveCocoa-登录/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"corotata"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Corotata
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

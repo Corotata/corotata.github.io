@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Objective-C 枚举转字符串 | Corotata&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CREnumHelper.h 12345678910111213141516171819202122232425262728293031323334#import &amp;lt;Foundation/Foundation.h&amp;gt;//定义枚举类型/** *  消息类型 */typedef NS_ENUM(NSUInteger, XMPPMessageType)&amp;#123;    XMPPMessage">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C 枚举转字符串">
+<meta property="og:url" content="http://corotata.github.io/2015/11/17/2015-11-17-OC枚举转字符串的想法/index.html">
+<meta property="og:site_name" content="Corotata's Blog">
+<meta property="og:description" content="CREnumHelper.h 12345678910111213141516171819202122232425262728293031323334#import &amp;lt;Foundation/Foundation.h&amp;gt;//定义枚举类型/** *  消息类型 */typedef NS_ENUM(NSUInteger, XMPPMessageType)&amp;#123;    XMPPMessage">
+<meta property="og:updated_time" content="2017-04-06T02:04:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Objective-C 枚举转字符串">
+<meta name="twitter:description" content="CREnumHelper.h 12345678910111213141516171819202122232425262728293031323334#import &amp;lt;Foundation/Foundation.h&amp;gt;//定义枚举类型/** *  消息类型 */typedef NS_ENUM(NSUInteger, XMPPMessageType)&amp;#123;    XMPPMessage">
+  
+    <link rel="alternative" href="/atom.xml" title="Corotata&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://stuweb.zjhzyg.net/2009/10/091009/images/beiji.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Corotata</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Talk is cheap, show me your work.</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/Swift/" style="font-size: 20px;">Swift</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/软件推荐/" style="font-size: 10px;">软件推荐</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;M A CHANGER,I WANT TO CHANGE MY LIFE.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Corotata</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://stuweb.zjhzyg.net/2009/10/091009/images/beiji.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Corotata</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Talk is cheap, show me your work.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2015-11-17-OC枚举转字符串的想法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/17/2015-11-17-OC枚举转字符串的想法/" class="article-date">
+  	<time datetime="2015-11-17T03:20:47.000Z" itemprop="datePublished">2015-11-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Objective-C 枚举转字符串
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CREnumHelper.h</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//定义枚举类型</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> *  消息类型</div><div class="line"> */</div><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, XMPPMessageType)&#123;</div><div class="line">    XMPPMessageTypeText = <span class="number">0</span>,                    <span class="comment">//文本</span></div><div class="line">    XMPPMessageTypeImage,                       <span class="comment">//图片</span></div><div class="line">    XMPPMessageTypeVoice,                       <span class="comment">//语音</span></div><div class="line">    XMPPMessageTypeSystemTip,                   <span class="comment">//系统消息</span></div><div class="line">    XMPPMessageTypeFace,                        <span class="comment">//表情</span></div><div class="line">    XMPPMessageTypeVideo,                       <span class="comment">//视频</span></div><div class="line">    XMPPMessageTypeLocal                       <span class="comment">//定位</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *XMPPMessageTypes[] = &#123;</div><div class="line">    [XMPPMessageTypeText] = <span class="string">@"文本"</span>,              </div><div class="line">    [XMPPMessageTypeImage] = <span class="string">@"图片"</span>,                   </div><div class="line">    [XMPPMessageTypeVoice] = <span class="string">@"语音"</span>,                    </div><div class="line">    [XMPPMessageTypeSystemTip] = <span class="string">@"系统消息"</span>,               </div><div class="line">    [XMPPMessageTypeFace] = <span class="string">@"表情"</span>,                       </div><div class="line">    [XMPPMessageTypeVideo] = <span class="string">@"视频"</span>,                      </div><div class="line">    [XMPPMessageTypeLocal] = <span class="string">@"定位"</span>                      </div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> XMPPMessageTypeEnumToString(XMPPMessageType Key);</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">CREnumHelper</span> : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>CREnumHelper.m</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"CREnumHelper.h"</span></span></div><div class="line"></div><div class="line"><span class="comment">//定义字符串函数</span></div><div class="line"><span class="built_in">NSString</span> * <span class="keyword">const</span> XMPPMessageTypeEnumToString(XMPPMessageType type)&#123;</div><div class="line">    <span class="keyword">switch</span> (type) &#123;</div><div class="line">        <span class="keyword">case</span> XMPPMessageTypeText:</div><div class="line">            <span class="keyword">return</span> <span class="string">@"文本"</span>;</div><div class="line">        <span class="keyword">case</span> XMPPMessageTypeImage:</div><div class="line">            <span class="keyword">return</span> <span class="string">@"图片"</span>;</div><div class="line">        <span class="keyword">case</span> XMPPMessageTypeVoice:</div><div class="line">            <span class="keyword">return</span> <span class="string">@"语音"</span>;</div><div class="line">        <span class="keyword">case</span> XMPPMessageTypeSystemTip:</div><div class="line">            <span class="keyword">return</span> <span class="string">@"系统消息"</span>;</div><div class="line">        <span class="keyword">case</span> XMPPMessageTypeFace:</div><div class="line">            <span class="keyword">return</span> <span class="string">@"视频"</span>;</div><div class="line">        <span class="keyword">case</span> XMPPMessageTypeVideo:</div><div class="line">            <span class="keyword">return</span> <span class="string">@"文本"</span>;</div><div class="line">        <span class="keyword">case</span> XMPPMessageTypeLocal:</div><div class="line">            <span class="keyword">return</span> <span class="string">@"定位"</span>;</div><div class="line">        <span class="keyword">default</span>:</div><div class="line">            <span class="keyword">return</span> <span class="string">@"未知格式"</span>;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">CREnumHelper</span></span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>调用的时候：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSString *string = XMPPMessageTypeEnumToString(<span class="name">XMPPMessageTypeText</span>)<span class="comment">;</span></div><div class="line">NSLog(@<span class="string">"%@"</span>,string)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>另一种方式：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSString *string2 = XMPPMessageTypes[XMPPMessageTypeLocal]<span class="comment">;</span></div><div class="line">NSLog(@<span class="string">"%@"</span>,string2)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>以上两种做法，只是提供了方便枚举转字符串，但相应反过来时，就无法做到了，而在我之前项目时，项目中交互时，会传一大堆的如”1000”,”1001”,”2002”…各种各样的指令集，如果你在项目中一大堆[@”1000” isEqualToString obj],那写得是有多恶心，而这样的代码又有谁看得懂？所以在这基础上，我做了另外一种写法，可以满足两边来回切转，采用的是字典的做法。</p>
+<p>CREnumHelper.h</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@interface</span> <span class="string">CREnumHelper :</span> NSObject</div><div class="line"></div><div class="line">+(XMPPMessageType)<span class="string">coro_getMessageTypeByMessageTypeString:</span>(NSString *)messageTypeStr;</div><div class="line"></div><div class="line">+ (NSString *)<span class="string">coro_getMessageTypeStringByMessageType:</span>(XMPPMessageType)messageType;</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@end</span></div></pre></td></tr></table></figure>
+<p>CREnumHelper.m</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">static NSDictionary *dict ;</div><div class="line"></div><div class="line"><span class="comment">@implementation CREnumHelper</span></div><div class="line"></div><div class="line">+ (void)load &#123;</div><div class="line">	dict = @&#123;</div><div class="line">				<span class="comment">@(XMPPMessageTypeText): @</span><span class="string">"文本"</span>,</div><div class="line">				<span class="comment">@(XMPPMessageTypeImage): @</span><span class="string">"图片"</span>,</div><div class="line">				<span class="comment">@(XMPPMessageTypeVoice): @</span><span class="string">"语音"</span>,</div><div class="line">				<span class="comment">@(XMPPMessageTypeSystemTip): @</span><span class="string">"系统消息"</span>,</div><div class="line">				<span class="comment">@(XMPPMessageTypeFace): @</span><span class="string">"表情"</span>,</div><div class="line">				<span class="comment">@(XMPPMessageTypeVideo): @</span><span class="string">"视频"</span>,</div><div class="line">				<span class="comment">@(XMPPMessageTypeLocal): @</span><span class="string">"定位"</span></div><div class="line">			&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (XMPPMessageType)coro_getMessageTypeByMessageTypeString:(NSString *)messageTypeStr &#123;</div><div class="line">	__block XMPPMessageType messageType;</div><div class="line">	[dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull <span class="built_in">key</span>, id  _Nonnull obj, <span class="keyword">BOOL</span> * _Nonnull <span class="keyword">stop</span>) &#123;</div><div class="line">	<span class="keyword">if</span> ([obj isEqualToString:obj]) &#123;</div><div class="line">	messageType = [<span class="built_in">key</span> integerValue];</div><div class="line">	*<span class="keyword">stop</span> = YES;</div><div class="line">	&#125;</div><div class="line">	&#125;];</div><div class="line">	<span class="keyword">return</span> messageType;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSString *)coro_getMessageTypeStringByMessageType:(XMPPMessageType)messageType &#123;</div><div class="line">	__block NSString *messageTypeStr = nil;</div><div class="line">	[dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull <span class="built_in">key</span>, id  _Nonnull obj, <span class="keyword">BOOL</span> * _Nonnull <span class="keyword">stop</span>) &#123;</div><div class="line">	<span class="keyword">if</span> ([<span class="built_in">key</span> integerValue] == messageType) &#123;</div><div class="line">	messageTypeStr = obj;</div><div class="line">	*<span class="keyword">stop</span> = YES;</div><div class="line">	&#125;</div><div class="line">	&#125;];</div><div class="line">	<span class="keyword">return</span> messageTypeStr;</div><div class="line">&#125;</div><div class="line"><span class="comment">@end</span></div></pre></td></tr></table></figure>
+<p>调用的时候：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSLog(@<span class="string">"文本的枚举值是%lu"</span>,(<span class="name">unsigned</span> long)[CREnumHelper coro_getMessageTypeByMessageTypeString:@<span class="string">"文本"</span>])<span class="comment">;</span></div><div class="line">NSLog(@<span class="string">"XMPPMessageTypeLocal的相应值是%@"</span>,[CREnumHelper coro_getMessageTypeStringByMessageType<span class="symbol">:XMPPMessageTypeLocal</span>])<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>通过以上做法，当你从服务器接收到数据时转换成枚举在项目中使用，而当你需要给服务器发送或者存储时，你又可以转换回去，这样在写代码可读性上，就大大增强了，而且一次定义，你不需要过多的去关注数据本身细节，上面提供了三种方式，各种看官各取所需吧！<br>需要demo可以请<a href="https://github.com/Corotata/EnumToString" target="_blank" rel="external">点击此处</a>.</p>
+<hr>
+<p>注：版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/11/2015-9-21-CALayer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          CALayer
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/02/2015-12-2-pod-search的东西都是旧的版本库的问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pod search的东西都是旧的版本库的问题</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2015-11-17-OC枚举转字符串的想法" data-title="Objective-C 枚举转字符串" data-url="http://corotata.github.io/2015/11/17/2015-11-17-OC枚举转字符串的想法/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"corotata"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Corotata
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

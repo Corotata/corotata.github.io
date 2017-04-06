@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>2016-4-19 即时IM你所不知道的事 | Corotata&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近工作特别繁琐，每天都有新的这样的那样的问题，网络切换啦，应用连接特别慢，消息发不出去啊，消息怎么要显示重发啊。。。反正没一天清闲，想着要开始学Swift了，总感觉没有余力，再加上后台问题，事就更多了，今天明明好用的东西，明天他更新代码了，就又一堆问题，然后用户用的是你的客户端，看到这样那样的问题，当然是，TMD客户端写得真烂，一大堆问题，怎么没有回执了，你消息没发出去啊。然后领导找我谈话">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2016-4-19 即时IM你所不知道的事">
+<meta property="og:url" content="http://corotata.github.io/2016/04/19/2016-4-19-即时IM你所不知道的事/index.html">
+<meta property="og:site_name" content="Corotata's Blog">
+<meta property="og:description" content="最近工作特别繁琐，每天都有新的这样的那样的问题，网络切换啦，应用连接特别慢，消息发不出去啊，消息怎么要显示重发啊。。。反正没一天清闲，想着要开始学Swift了，总感觉没有余力，再加上后台问题，事就更多了，今天明明好用的东西，明天他更新代码了，就又一堆问题，然后用户用的是你的客户端，看到这样那样的问题，当然是，TMD客户端写得真烂，一大堆问题，怎么没有回执了，你消息没发出去啊。然后领导找我谈话">
+<meta property="og:updated_time" content="2017-04-06T02:04:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2016-4-19 即时IM你所不知道的事">
+<meta name="twitter:description" content="最近工作特别繁琐，每天都有新的这样的那样的问题，网络切换啦，应用连接特别慢，消息发不出去啊，消息怎么要显示重发啊。。。反正没一天清闲，想着要开始学Swift了，总感觉没有余力，再加上后台问题，事就更多了，今天明明好用的东西，明天他更新代码了，就又一堆问题，然后用户用的是你的客户端，看到这样那样的问题，当然是，TMD客户端写得真烂，一大堆问题，怎么没有回执了，你消息没发出去啊。然后领导找我谈话">
+  
+    <link rel="alternative" href="/atom.xml" title="Corotata&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://stuweb.zjhzyg.net/2009/10/091009/images/beiji.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Corotata</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Talk is cheap, show me your work.</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/Swift/" style="font-size: 20px;">Swift</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/软件推荐/" style="font-size: 10px;">软件推荐</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;M A CHANGER,I WANT TO CHANGE MY LIFE.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Corotata</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://stuweb.zjhzyg.net/2009/10/091009/images/beiji.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Corotata</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Talk is cheap, show me your work.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2016-4-19-即时IM你所不知道的事" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/19/2016-4-19-即时IM你所不知道的事/" class="article-date">
+  	<time datetime="2016-04-19T07:12:38.000Z" itemprop="datePublished">2016-04-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2016-4-19 即时IM你所不知道的事
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>   最近工作特别繁琐，每天都有新的这样的那样的问题，网络切换啦，应用连接特别慢，消息发不出去啊，消息怎么要显示重发啊。。。反正没一天清闲，想着要开始学Swift了，总感觉没有余力，再加上后台问题，事就更多了，今天明明好用的东西，明天他更新代码了，就又一堆问题，然后用户用的是你的客户端，看到这样那样的问题，当然是，TMD客户端写得真烂，一大堆问题，怎么没有回执了，你消息没发出去啊。然后领导找我谈话说，某某某功能怎么没了，有bug啊，我一听，这不可能啊，我昨晚明明调好了才下班的，拿过来一看，直接被打脸，看着那场景，我只能说，我查一下吧，可能我这真有问题，结果一调，客户端都走正常流程，所有数据该发的都发了，一排查，又是服务器没转发。跑去向服务器反馈:”你什么时候修改了代码吗，怎么消息没转发?”。他一脸正经说：”不可能啊，你自己写的有问题吧？”我瞬间啥也不想说了，又问:”你要不查一下?”。查完后又说:”有啊，啥消息都有！”，我又说：”确定？”，然后他就埋头了，啥话也不说了，每次看到这样子的情况，我就知道，他发现那是他自己的问题了。</p>
+<p>   写代码，谁都有bug的时候，客户端与服务端的交互，有时难免，但感觉对于每次改一个新需求，都会引发一大箩筐问题，就有点像不大合理了吧？这样不仅对调用接口方，有明显的压力，而且每次遇到这种问题，基本找他反馈的百分之九十九，他都不会承认是他的问题，会让你花费很长时间去给他确认百分之百是他的问题时，他意识到了不可推脱，才会去详细排查，而且很多时间，暗地里把问题解决了，被问及原因了，往往的答复是，我什么都没改啊，也不知道是啥原因啊，或者就是我就重启了一下，对于这样的情况，你想说啥？我只想说，我感觉我会写代码写到怀疑人生。<br>    好了，扯完了，进入今天的正题吧！之前看到一个Whatsapp的功能，不管是图片或者是文本消息，接收到推送消息后，断了网，再点击Whatsapp的Icon进入应用，你会发现，刚才的消息都已经存到消息列表中了。对于这样的问题，我只想说，妈的，这是黑科技吧，如此叼爆天，不合理吧，以我的认知，我记得推送内容是有限制的，我刚做iOS那会，貌似apn内容限制是256字节，后面iOS8有所提升，也就是2048，去年12月份，换了啥协议，名字忘记了，也顶多是4096字节，再怎么样也是无法传图片啊，它是怎么做到的，莫名感觉，Whatsapp实在牛B，后面发现，QQ也有这样的功能，翻了不少网页，也上过不少论坛，后面实在没法了，就去各种iOS精英群询问，竟然无人做过。于是乎，又只能依靠自己，继续网上找啊找。在翻文档时，发现iOS7推出的后台权限，其中发现有项静默推送貌似和我的需求很像，所以就进行了研究，试了各种方式，发现静默推送只有程序在launcher中时，才有效果，而坑爹的是，那么多博客写的，没有一个提到这一点，在表明他强大之处时，不提出这一前提，害我一直以为我写的推送消息格式不对，特别看到部分大牛的博客，也是这么误导的。（所以我在这再次提醒一次，静默推送必须要你的应用在launcher存活，没有被推掉）。</p>
+<p>   后面我就开始在论坛上发贴，知乎啊，微博啊，基本都没效果，想着英文比较差，平常在stackoverflow上都只找问题，很少提问，想着要不试试，于是乎去上面一问，<a href="http://stackoverflow.com/questions/36612473/ios-whatsapp-receiving-the-remote-notification-how-did-it-stored-all-the-messag，当我问题发完，还不到3分钟，就有热心网页能我提供思路了.I" target="_blank" rel="external">http://stackoverflow.com/questions/36612473/ios-whatsapp-receiving-the-remote-notification-how-did-it-stored-all-the-messag，当我问题发完，还不到3分钟，就有热心网页能我提供思路了.I</a> imagine they are using Pushkit with silent notifications, so the app will be relaunched in the background when the notification is received even if you terminated it。那会是即兴奋又感动，妈呀，以前学的英文，总算派上用场了，=。=虽然好多单词都是一边参考翻译工具写的，但毕竟外国人竟然看懂了，总感觉好神奇，所以英文还是要学好。</p>
+<p>   查了下PushKit,看着许多博客，但我推荐还是看苹果官方文档，<a href="https://developer.apple.com/library/ios/documentation/Performance/Conceptual/EnergyGuide-iOS/OptimizeVoIP.html其他的资料，我是不大建议看，好多都是从里面捞一点，缺一点啥的，思路大概就是：开启工程-&gt;Target-&gt;Capabilities-&gt;Background" target="_blank" rel="external">https://developer.apple.com/library/ios/documentation/Performance/Conceptual/EnergyGuide-iOS/OptimizeVoIP.html其他的资料，我是不大建议看，好多都是从里面捞一点，缺一点啥的，思路大概就是：开启工程-&gt;Target-&gt;Capabilities-&gt;Background</a> Modes-&gt;Voice over IP,勾上这一选项，然后就要到开发者中心配置，VOIP的相应证书，然后后面走的流程基本和我们常规的推送一致，另一点需要注意的是，VOIP属于另处一种推送服务，他需要应用支持网络电话的功能，就是我们平常的QQ电话或者微信电话类似的东西，否则，苹果是不会允许你上架的，所以使用该服务，你同样需要向服务器提交token，他和我们常规推送的那个token不同,具体操作如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">	<span class="comment">//注册Voip推送服务</span></div><div class="line">- (<span class="keyword">void</span>)registerVoipNotification &#123;</div><div class="line">    PKPushRegistry *pushRegistry = [[PKPushRegistry alloc] initWithQueue:dispatch_get_main_queue()];</div><div class="line">    pushRegistry.delegate = <span class="keyword">self</span>;</div><div class="line">    pushRegistry.desiredPushTypes = [<span class="built_in">NSSet</span> setWithObject:PKPushTypeVoIP];</div><div class="line">    </div><div class="line">    <span class="built_in">UIUserNotificationSettings</span> *userNotifySetting = [<span class="built_in">UIUserNotificationSettings</span> settingsForTypes:<span class="built_in">UIUserNotificationTypeBadge</span> | <span class="built_in">UIUserNotificationTypeSound</span> | <span class="built_in">UIUserNotificationTypeAlert</span> categories:<span class="literal">nil</span>];</div><div class="line">    [[<span class="built_in">UIApplication</span> sharedApplication] registerUserNotificationSettings:userNotifySetting];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(<span class="built_in">NSString</span> *)type</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>([credentials.token length] == <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"voip token NULL"</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="built_in">NSMutableString</span> *stringBuffer = [<span class="built_in">NSMutableString</span> stringWithCapacity:([credentials.token length] * <span class="number">2</span>)];</div><div class="line">    <span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *dataBuffer = [credentials.token bytes];</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; [credentials.token length]; ++i)</div><div class="line">    &#123;</div><div class="line">        [stringBuffer appendFormat:<span class="string">@"%02x"</span>, (<span class="keyword">unsigned</span> <span class="keyword">int</span>)dataBuffer[i]];</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">NSUserDefaults</span> * userDefault = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</div><div class="line">    [userDefault setObject:stringBuffer forKey:<span class="string">@"voipToken"</span>];</div><div class="line">    [userDefault synchronize];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"voip token %@"</span>,stringBuffer);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(<span class="built_in">NSString</span> *)type</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"didReceiveIncomingPushWithPayload"</span>);</div><div class="line">	<span class="comment">//写下你需要后台做的事情</span></div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>   需要注意的是，当你收到Voip推送后，苹果会离屏启动你的应用，所以他会走</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">///先调用</span></div><div class="line"><span class="selector-tag">-</span> (BOOL)<span class="selector-tag">application</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span> <span class="selector-tag">didFinishLaunchingWithOptions</span><span class="selector-pseudo">:(NSDictionary</span> *)<span class="selector-tag">launchOptions</span> </div><div class="line"></div><div class="line"><span class="comment">///然后调用</span></div><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">pushRegistry</span><span class="selector-pseudo">:(PKPushRegistry</span> *)<span class="selector-tag">registry</span> <span class="selector-tag">didReceiveIncomingPushWithPayload</span><span class="selector-pseudo">:(PKPushPayload</span> *)<span class="selector-tag">payload</span> <span class="selector-tag">forType</span><span class="selector-pseudo">:(NSString</span> *)<span class="selector-tag">type</span></div></pre></td></tr></table></figure>
+<p>   最开始时，我一直以为，收到推送时，他只会调用pushRegistry这个方法，所以就在此次去调HTTP，去取得收到的完整消息然后存到数据库中。可后面发现，他会先调用了didFinishLaunchingWithOptions，而我们应用又有自动登录的功能，当方法被调用时，程序就会去登录，然后与服务器建立了socket连接，当用户在线，且程序处理后台时，我们是不走远程推送的，而是直接socket拿到消息后，进行本地推送，所以在上面的登录操作完成后，我惊奇的发现，在程序没有在运行在launcher时，信息依旧走的是本地推送，所以我才推断他调用了didFinishLaunchingWithOptions，后面用了日志记录，发现收到多条Voip时，只有第一条会触发didFinishLaunchingWithOptions，再次验证了我的想法。所以我们这边的处理方案是，收到Voip推送时，里面放着离线消息的ID，通过HTTP去服务器取，同时，由于会触发didFinishLaunchingWithOptions里面的登录操作，用户上线后，服务器也不需要再发推送了，后续再接收到消息就走原来程序的socket。</p>
+<p>   好了，今天就讲到这吧，我也该去忙了。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/11/2016-04-11-苹果推送翻译/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          苹果推送翻译
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/12/2016-06-12-QorumLogs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">QorumLogs</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016-4-19-即时IM你所不知道的事" data-title="2016-4-19 即时IM你所不知道的事" data-url="http://corotata.github.io/2016/04/19/2016-4-19-即时IM你所不知道的事/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"corotata"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Corotata
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

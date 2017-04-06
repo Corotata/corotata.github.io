@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CALayer | Corotata&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="###简单介绍在iOS中，一般你看得到的，点得着的都是View，比如一个按钮、一个文本输入框、或者图标，都是UIView，而CAlayer则是图层，他们最大的区别是UIView是可交互的，而CAlayer却是相反。 ###CAlayer基本属性     常用属性 说明      cornerRadius 设置圆角     shadowOffset 设置阴影偏移量     shadowColor 设">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CALayer">
+<meta property="og:url" content="http://corotata.github.io/2015/09/11/2015-9-21-CALayer/index.html">
+<meta property="og:site_name" content="Corotata's Blog">
+<meta property="og:description" content="###简单介绍在iOS中，一般你看得到的，点得着的都是View，比如一个按钮、一个文本输入框、或者图标，都是UIView，而CAlayer则是图层，他们最大的区别是UIView是可交互的，而CAlayer却是相反。 ###CAlayer基本属性     常用属性 说明      cornerRadius 设置圆角     shadowOffset 设置阴影偏移量     shadowColor 设">
+<meta property="og:image" content="http://7xli4x.com1.z0.glb.clouddn.com/15-9-11/29632866.jpg">
+<meta property="og:image" content="http://7xli4x.com1.z0.glb.clouddn.com/15-9-11/91304876.jpg">
+<meta property="og:image" content="http://7xli4x.com1.z0.glb.clouddn.com/15-9-11/13070251.jpg">
+<meta property="og:image" content="http://7xli4x.com1.z0.glb.clouddn.com/15-9-11/42763173.jpg">
+<meta property="og:updated_time" content="2017-04-06T02:04:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CALayer">
+<meta name="twitter:description" content="###简单介绍在iOS中，一般你看得到的，点得着的都是View，比如一个按钮、一个文本输入框、或者图标，都是UIView，而CAlayer则是图层，他们最大的区别是UIView是可交互的，而CAlayer却是相反。 ###CAlayer基本属性     常用属性 说明      cornerRadius 设置圆角     shadowOffset 设置阴影偏移量     shadowColor 设">
+<meta name="twitter:image" content="http://7xli4x.com1.z0.glb.clouddn.com/15-9-11/29632866.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Corotata&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://stuweb.zjhzyg.net/2009/10/091009/images/beiji.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Corotata</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Talk is cheap, show me your work.</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/Swift/" style="font-size: 20px;">Swift</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/软件推荐/" style="font-size: 10px;">软件推荐</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;M A CHANGER,I WANT TO CHANGE MY LIFE.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Corotata</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://stuweb.zjhzyg.net/2009/10/091009/images/beiji.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Corotata</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Talk is cheap, show me your work.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-2015-9-21-CALayer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/11/2015-9-21-CALayer/" class="article-date">
+  	<time datetime="2015-09-11T07:24:55.000Z" itemprop="datePublished">2015-09-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CALayer
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###简单介绍<br>在iOS中，一般你看得到的，点得着的都是View，比如一个按钮、一个文本输入框、或者图标，都是UIView，而CAlayer则是图层，他们最大的区别是UIView是可交互的，而CAlayer却是相反。</p>
+<p>###CAlayer基本属性</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>常用属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>cornerRadius</td>
+<td>设置圆角</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>shadowOffset</td>
+<td>设置阴影偏移量</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>shadowColor</td>
+<td>设置阴影颜色</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>shadowOpacity</td>
+<td>设置阴影透明度</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>shadowRadius</td>
+<td>设置阴影半径</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>shadowPath</td>
+<td>设置阴影路径</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>borderWidth</td>
+<td>设置边框</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>borderColor</td>
+<td>设置边框颜色</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>masksToBounds</td>
+<td>子图层是否跟随主图层</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>transform</td>
+<td>设置CATransform3D动画</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>position</td>
+<td>用来设置CALayer在父层中的位置</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>zPosition</td>
+<td>多个Layer时，数值大的会遮挡数值小的</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>anchorPoint</td>
+<td>设置锚点</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>anchorPointZ</td>
+<td>多个Layer时，数值小的会遮挡数值大的</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>bounds</td>
+<td>参考UIView</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>frame</td>
+<td>参考UIView</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>hidden</td>
+<td>参考UIView</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>doubleSided</td>
+<td>参考UIView</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>doubleSided</td>
+<td>图层有双面</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>transform</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>CATransform3DMakeAffineTransform(CGAffineTransform m)</td>
+<td>设置2D变形</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>CATransform3DMakeRotation(angle, x, y, z)</td>
+<td>设置3D旋转</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>CATransform3DMakeScale(x, y, z)</td>
+<td>设置3D伸缩</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>CATransform3DMakeTranslation(x, y, z)</td>
+<td>设置3D平移</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>基中position和anchorPoint，是CAlayer里面非常重要的两个属性，而且也比较容易误解，特别是锚点，position对于设置了frame的layer，他几乎等价于UIView里面的中点,而锚点，默认值为{0.5,0.5},决定着CALayer的某个点最终和position所在的点重合决定图层的位置。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"ViewController.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">CALayer</span> *layer;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    [<span class="keyword">self</span>.view.layer addSublayer:<span class="keyword">self</span>.layer];</div><div class="line">    <span class="keyword">self</span>.layer.anchorPoint = <span class="built_in">CGPointMake</span>(<span class="number">0</span>, <span class="number">0</span>);</div><div class="line">    <span class="comment">//self.layer.anchorPoint = CGPointMake(0.5, 0.5);</span></div><div class="line">    <span class="comment">//self.layer.anchorPoint = CGPointMake(1, 1);</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (<span class="built_in">CALayer</span> *)layer &#123;</div><div class="line">    <span class="keyword">if</span> (_layer == <span class="literal">nil</span>)</div><div class="line">    &#123;</div><div class="line">        _layer = [[<span class="built_in">CALayer</span> alloc]init];</div><div class="line">        _layer.backgroundColor = [<span class="built_in">UIColor</span> blueColor].CGColor;</div><div class="line">        _layer.frame = <span class="built_in">CGRectMake</span>(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _layer;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://7xli4x.com1.z0.glb.clouddn.com/15-9-11/29632866.jpg" alt="描点用例图"><br><img src="http://7xli4x.com1.z0.glb.clouddn.com/15-9-11/91304876.jpg" alt="描点用例图"><br><img src="http://7xli4x.com1.z0.glb.clouddn.com/15-9-11/13070251.jpg" alt="描点用例图"><br><img src="http://7xli4x.com1.z0.glb.clouddn.com/15-9-11/42763173.jpg" alt="描点用例图"></p>
+<p>比方说用上面的代码创建了一个图层，则position的值为（50，50），为上图绿点表示，我们通过self.layer.anchorPoint改锚点的值，看上面的图，将能很好的理解，你不需要想太多，只要想着，锚点最终会和position点重合，套用上面图的做法，就可以了。</p>
+<p>###属性设置注意事项</p>
+<p>属性设置时，存在部分属性冲突问题，如设置了阴影，如果再设置masksToBounds属性为YES，则会发现阴影没有设置成功。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/02/2015-9-2-用delegate或者是block/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          用Delegate或者是Block
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/17/2015-11-17-OC枚举转字符串的想法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Objective-C 枚举转字符串</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2015-9-21-CALayer" data-title="CALayer" data-url="http://corotata.github.io/2015/09/11/2015-9-21-CALayer/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"corotata"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Corotata
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
