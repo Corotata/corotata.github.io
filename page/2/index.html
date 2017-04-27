@@ -196,6 +196,71 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-2016-2-19-Swift中如何从xib中加载类" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/20/2016-2-19-Swift中如何从xib中加载类/" class="article-date">
+  	<time datetime="2016-02-20T02:25:08.000Z" itemprop="datePublished">2016-02-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/20/2016-2-19-Swift中如何从xib中加载类/">Swift中如何从xib中加载类</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我写了一个UIView的类方法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIView</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">viewFromXIB</span>() -&gt; <span class="title">UIView</span> </span>&#123;</div><div class="line">        <span class="keyword">let</span> classString = <span class="type">NSStringFromClass</span>(<span class="keyword">self</span>) <span class="keyword">as</span> <span class="type">NSString</span></div><div class="line">        <span class="keyword">let</span> view = <span class="type">NSBundle</span>.mainBundle().loadNibNamed(classString.pathExtension, owner: <span class="literal">nil</span>, options: <span class="literal">nil</span>).first <span class="keyword">as</span>! <span class="type">UIView</span></div><div class="line">        <span class="keyword">return</span> view</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这边使用NSStringFromClass(self) as NSString，由类取得类名的字符串，这边使用NSString，主要是swift的String方法我没有找到简便的方法来实现我的需求，比如现在的一个控件叫做CRLabel，而项目名为：Test01,那么由上面的操作，classString的值就会是Test01.CRLabel,在这里面Test01为命名空间，意思就是Test01命名空间下面的CRLabel文件，由于是去加载XIB文件，我们只需要后面CRLabel部分，而不需要命名空间，所以我们需要做截取工作，而.pathExtension方法正好满足我们的需求，故有了上面的写法。</p>
+<p>写完了此分类后，以后从XIB加载文件，都可以愉快如下使用了：</p>
+<pre><code class="Swift"><span class="built_in">lazy</span> <span class="keyword">var</span> label :<span class="type">CRLabel</span> = {
+        <span class="keyword">let</span> view = <span class="type">CRLabel</span>.viewFromXIB() <span class="keyword">as</span>! <span class="type">CRLabel</span>
+        <span class="keyword">return</span> view
+}()
+</code></pre>
+<hr>
+<p>注：版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-2016-2-20解决xcode7很卡，而且经常崩溃的问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -848,87 +913,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/07/23/OC-札记02/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-OC-札记01" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/23/OC-札记01/" class="article-date">
-  	<time datetime="2015-07-23T01:38:22.000Z" itemprop="datePublished">2015-07-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/23/OC-札记01/">OC_札记01</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##关键字</p>
-<ul>
-<li>@interface</li>
-<li>@implementation</li>
-<li>@end</li>
-<li>@public</li>
-<li>@protected</li>
-<li>@private</li>
-<li>@selector    </li>
-<li>@try</li>
-<li>@catch</li>
-<li>@throw</li>
-<li>finally</li>
-<li>protocol</li>
-<li>optional</li>
-<li>required</li>
-<li>class</li>
-<li>property</li>
-<li>synthesize</li>
-<li>dynamic</li>
-<li>self</li>
-<li>super</li>
-<li>id</li>
-<li>_cmd</li>
-<li>__block</li>
-<li>__strong</li>
-<li>__weak</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/23/OC-札记01/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

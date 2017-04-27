@@ -196,6 +196,96 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-关于CTNetwokring的改造记录" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/27/关于CTNetwokring的改造记录/" class="article-date">
+  	<time datetime="2017-04-26T16:00:00.000Z" itemprop="datePublished">2017-04-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/27/关于CTNetwokring的改造记录/">关于CTNetwokring的改造记录</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在读这篇文章之前，大家先看一下作者Casa的<a href="https://casatwy.com/iosying-yong-jia-gou-tan-wang-luo-ceng-she-ji-fang-an.html" target="_blank" rel="external">文章</a>，以便对CTNetwokring的整体设计以及使用方式有个大体的了解。</p>
+<p>其次这次改造，主要由需求驱动，因为没有以下这些问题，我也不会做这样的尝试：</p>
+<ul>
+<li>公司的网络库使用虽然很方便，依赖性太强，不方便测试，属于集约型的做法，导致公司不太可能写单元测试，所以没有写单元测试，又由于公司后台经常私底下改接口，导致线上版本经常出现问题。</li>
+<li>CTNetworking刚出来的时候我就关注了，苦于放出来的版本，适合学习，并不合适即插即用，我一直在等有人来改造，结果两年过去了。</li>
+<li>由于那是早年安居客的脱敏版，所以设计上面就或多或少有一些依赖业务的东西，建立在它们业务上，的确是最合适方便的，但也由于太合适自身业务，那么也导致无法通用化，其他公司想拿来用就必须改，对于这一点，我在这里要建议强烈批评一下Casa，开源这么好的东西出来，怎么就不弄得更方便一点呢，像CTPersistance（安利一下）那样子插上就能用多好。</li>
+<li>我想要开始走向开源社区（不要脸地说，我想涨点粉），在写这个文章前，由于公司项目API一两百个，真是没有余力做短期替换，所以我所提供的那部分代码还没有真正的得到真实项目的考量，另一方面基于我自己不会写后端接口，公司内容涉密问题也导致了没法给出更多完整的使用方式，本文给出的将是我的一套YY方案，欢迎评论区拍砖。</li>
+</ul>
+<h2 id="改造篇"><a href="#改造篇" class="headerlink" title="改造篇"></a>改造篇</h2><p>如上面提到的，原来的CTNetworking之所以不能做到即插即用，主要有以下几点：</p>
+<ol>
+<li>有旧业务的依赖，比如token的拼接，url组装啊。</li>
+<li>涉及面略广，作为一个网络封装层，提供了CTUDIDGenerator等UUID生成器，CTAPPContext致使引入一些不必要的业务。</li>
+<li>ServiceFactory需要硬编码，他需要知道详细的业务Service，而业务的Service硬编码无疑就使得他变得不通用。</li>
+</ol>
+<hr>
+<p>谈到要解决上面的问题，那么就有必要来讲解一下CTNetworking的基本组成设计了，这是Casa没有在他文章里面讲的东西，打个比方，比如有这么一个接口,使用CTNetworking的视角来说，它是下面这样的：</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">https:<span class="comment">//xxx.com/method?username=corotata   =&gt; 完整接口</span></div><div class="line"></div><div class="line">拆解：</div><div class="line"></div><div class="line">https:<span class="comment">//xxx.com    =&gt; CTNetworking中的CTService</span></div><div class="line"></div><div class="line">/<span class="function"><span class="keyword">method</span>            =&gt; <span class="title">CTAPIBaseManager</span>的子类提供</span></div><div class="line"></div><div class="line"><span class="title">username</span>=<span class="title">corotata</span>  =&gt; <span class="title">CTAPIBaseManager</span>的子类所对应的<span class="title">CTAPIManagerParamSource</span></div></pre></td></tr></table></figure>
+<p>所以CTNetworking所做的事情，就是将上面的内容进行拆解工作，将完整的API拼接拆解开成为一个个小部件，再通过CTApiProxy、CTRequestGenerator以及CTServiceFactory做为胶水，将他们组合起来，而通过CTURLResponse做为回调输出。</p>
+<hr>
+<p>首先是CTService，它主要是以域名头的形式存在，很多网络库封装都会直接忽略掉这一层，相信有不少朋友也是有过以下的经验吧：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *<span class="keyword">const</span> kBaseUrl = <span class="string">@"https://abc.com"</span>;<span class="comment">//正式服</span></div><div class="line"></div><div class="line">NetworkRequestDataModel *dataModel = [[NetworkRequestDataModel alloc] init];</div><div class="line">dataModel.interfaceFlag = kLoginUrl;</div><div class="line">dataModel.url = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@%@"</span>,kBaseUrl,kLoginUrl];</div><div class="line">dataModel.params = loginDic;</div><div class="line">dataModel.isRequireLogin = <span class="literal">NO</span>;</div><div class="line">dataModel.success = ^(<span class="keyword">id</span> responseObject) &#123;</div><div class="line">     DLogInfo(<span class="string">@"登录成功"</span>);  </div><div class="line">&#125;;</div><div class="line">dataModel.failure = ^(<span class="built_in">NSError</span> *error,<span class="built_in">NSInteger</span> httpStatusCode) &#123;</div><div class="line">     DDLogInfo(<span class="string">@"登录失败"</span>);    </div><div class="line">&#125;;</div><div class="line">[LGHttpManager dataTaskWithDataModel:dataModel];</div></pre></td></tr></table></figure>
+<h3 id="问题1-："><a href="#问题1-：" class="headerlink" title="问题1 ："></a>问题1 ：</h3><p>基本拼接的方式，渗透到每一个调用者身上，让调用者来提供URL的拼接方式,而往往同一服务器团队，提供的API接口都会是同样的规格，以后如果接口拼接方式改动了，那无疑将会是噩梦，可能有的小伙伴会说，你不知道可以全局替换吗？可以的，无疑有点丑了点，但如果一个APP里面同时有几个服务器团队给你提供的接口呢，而且忽然说要改了拼接方式，全局改起来还是有一点难度吧，又或者是有需求加通用参数或者通用的HTTPHeader啊，那时侯我们该怎么办？程序维护，少不了就是变动。所以为了应对这样的问题，我做了Service层的改造，主要提供了以下接口，交由子类去处理：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//CTServiceProtocol</span></div><div class="line"></div><div class="line"><span class="comment">//为某些Service需要拼凑额外字段到URL处</span></div><div class="line">- (<span class="built_in">NSDictionary</span> *)extraParmas;</div><div class="line"></div><div class="line"><span class="comment">//为某些Service需要拼凑额外的HTTPToken，如accessToken</span></div><div class="line">- (<span class="built_in">NSDictionary</span> *)extraHttpHeadParmasWithMethodName:(<span class="built_in">NSString</span> *)method;</div><div class="line"></div><div class="line"><span class="comment">//提供URL的拼接方式</span></div><div class="line">- (<span class="built_in">NSString</span> *)urlGeneratingRuleByMethodName:(<span class="built_in">NSString</span> *)method;</div><div class="line"></div><div class="line"><span class="comment">//提供拦截器集中处理Service错误问题，比如token失效要抛通知等，返回值用来做拦截特殊错误时通知上层是否还要继续回调</span></div><div class="line">- (<span class="built_in">BOOL</span>)shouldCallBackByFailedOnCallingAPI:(<span class="built_in">CTAPIBaseManager</span> *)apiManager;</div></pre></td></tr></table></figure>
+<p>看源码时，就具体看下CTRequestGenerator，他主要做请求的组装加工操作，以NSURLRequest返回给CTApiProxy进行网络请求,我贴下核心的代码：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">NSURLRequest</span> *)generateRequestWithServiceIdentifier:(<span class="built_in">NSString</span> *)serviceIdentifier requestParams:(<span class="built_in">NSDictionary</span> *)requestParams methodName:(<span class="built_in">NSString</span> *)methodName requestWithMethod:(<span class="built_in">NSString</span> *)method &#123;</div><div class="line">    <span class="built_in">CTService</span> *service = [[<span class="built_in">CTServiceFactory</span> sharedInstance] serviceWithIdentifier:serviceIdentifier];</div><div class="line">    <span class="built_in">NSString</span> *urlString = [service urlGeneratingRuleByMethodName:methodName];</div><div class="line">    </div><div class="line">    <span class="built_in">NSDictionary</span> *totalRequestParams = [<span class="keyword">self</span> totalRequestParamsByService:service requestParams:requestParams];</div><div class="line">    </div><div class="line">    <span class="built_in">NSMutableURLRequest</span> *request = [<span class="keyword">self</span>.httpRequestSerializer requestWithMethod:method URLString:urlString parameters:totalRequestParams error:<span class="literal">NULL</span>];</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (![method isEqualToString:<span class="string">@"GET"</span>] &amp;&amp; [<span class="built_in">CTNetworkingConfigurationManager</span> sharedInstance].shouldSetParamsInHTTPBodyButGET) &#123;</div><div class="line">        request.HTTPBody = [<span class="built_in">NSJSONSerialization</span> dataWithJSONObject:requestParams options:<span class="number">0</span> error:<span class="literal">NULL</span>];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ([service.child respondsToSelector:<span class="keyword">@selector</span>(extraHttpHeadParmasWithMethodName:)]) &#123;</div><div class="line">        <span class="built_in">NSDictionary</span> *dict = [service.child extraHttpHeadParmasWithMethodName:methodName];</div><div class="line">        <span class="keyword">if</span> (dict) &#123;</div><div class="line">            [dict enumerateKeysAndObjectsUsingBlock:^(<span class="keyword">id</span>  _Nonnull key, <span class="keyword">id</span>  _Nonnull obj, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</div><div class="line">                [request setValue:obj forHTTPHeaderField:key];</div><div class="line">            &#125;];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    request.requestParams = totalRequestParams;</div><div class="line">    <span class="keyword">return</span> request;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#pragma mark - private method</span></div><div class="line"><span class="comment">//根据Service拼接额外参数</span></div><div class="line">- (<span class="built_in">NSDictionary</span> *)totalRequestParamsByService:(<span class="built_in">CTService</span> *)service requestParams:(<span class="built_in">NSDictionary</span> *)requestParams &#123;</div><div class="line">    <span class="built_in">NSMutableDictionary</span> *totalRequestParams = [<span class="built_in">NSMutableDictionary</span> dictionaryWithDictionary:requestParams];</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ([service.child respondsToSelector:<span class="keyword">@selector</span>(extraParmas)]) &#123;</div><div class="line">        <span class="keyword">if</span> ([service.child extraParmas]) &#123;</div><div class="line">            [[service.child extraParmas] enumerateKeysAndObjectsUsingBlock:^(<span class="keyword">id</span>  _Nonnull key, <span class="keyword">id</span>  _Nonnull obj, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</div><div class="line">                [totalRequestParams setObject:obj forKey:key];</div><div class="line">            &#125;];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> [totalRequestParams <span class="keyword">copy</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>内容也比较简单，方法名有相关注释我也就不知道怎么解释了，至此问题1，提到的内容得到解决。</p>
+<h3 id="问题2-："><a href="#问题2-：" class="headerlink" title="问题2 ："></a>问题2 ：</h3><p>关于问题2，我本来是不想写的，但由于CTNetworking的Star有快1000了，所以对于删文件这种的重大举措，就有必要提一下了，否则下次人家下了个包，就会怒喷上个版本还提供，怎么这个版本就没了，虽然是我干的，但大家@Casa吧，下面就简单聊下我删除内容的想法以及原本CTNetworking的变动内容：</p>
+<ol>
+<li>作为网络组件，涉及的内容应该在这个范围内，否则它应该是一个APP，而不是组件了，对于过多的功能，最简单的方式就是删，将不是必要的内容删除就可以了。</li>
+<li>CTAPPContext提供太多不是CTNetworking应该提供的功能，砍掉了。</li>
+<li>CTUDIDGenerator作为一个唯一ID生成器，我觉得它应该以一个通用的组件出现，原生主要是CTAPPContext在提供服务，由于CTAPPContext已经被砍掉了，所以它和框架就完全没有依赖了，所以也可以砍掉了。</li>
+<li>原来的一个叫CTNetworkingConfiguration.h被砍掉了，转而增加了CTNetworkingConfigurationManager单例，提供一些默认的配置以及原生CTAPPContext提供的部分必要服务</li>
+<li>将来可能还需要砍掉的如CTSignatureGenerator，CTCommonParamsGenerator，CTLocationManager等，由于有些是不是为了后期预留的暂不知道，所以就没有动了。</li>
+<li>调整了大部分分类名称及方法，统一前缀CT_。</li>
+</ol>
+<h3 id="问题3-："><a href="#问题3-：" class="headerlink" title="问题3 ："></a>问题3 ：</h3><p>针对问题3，由于CTServiceFactory是单例，而CTServiceFactory与CTService之间的关系其实就只差一个映射字典，所以只要为它提供@{identifier1: @”GDMapService1”,identifier2: @”GDMapService2”}，在这里GDMapService1即为相应的Service的字符串，CTServiceFactory使用时，则通过反映直接生成对象，这样就不用去添加不必要的引用了。</p>
+<p>在这边我是让CTServiceFactory提供一个数据源，即CTServiceFactoryDataSource，其实也可以直接提供一个属性的，但不晓得当时为什么这么做的，忘记了，可能是脑抽了吧，所以使用起来，大致是这样的：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">AppDelegate</span></span></div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</div><div class="line">    [<span class="built_in">CTServiceFactory</span> sharedInstance].dataSource = <span class="keyword">self</span>;</div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - CTServiceFactoryDataSource</span></div><div class="line">- (<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="built_in">NSString</span> *&gt; *)servicesKindsOfServiceFactory &#123;</div><div class="line">    <span class="keyword">return</span> @&#123;kCTServiceGDMapV3: <span class="string">@"GDMapService"</span>&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>至此，所有改造的内容已经讲完了。</p>
+<h3 id="扩展篇"><a href="#扩展篇" class="headerlink" title="扩展篇"></a>扩展篇</h3><p>现市面上，大部分APP都采用OAUTH授权登录的方式，登录完成后，会获得相应的accessToken、expireTime及refreshToken,基本上调用其他接口使用，都会在请求头里面拼接相应的accessToken，这部分上面有提到应该交由Service去处理，让Service负责拼接的工作。</p>
+<p>网络请求时，token失效是会收到类型expired_access_token，而token非法时，会收到illegal_access_token，当然还有更多的情况，由于错误信息error description可能各种公司的会不一致，所以在Service层预留的shouldCallBackByFailedOnCallingAPI就是为了做这样的事情，当网络请求失败时，到service决定是否拦截并做相应处理。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-2017-4-6-关于组件化使用私有Pods的一些记录" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -776,71 +866,6 @@
 <p>如profile前面提示的，如果在swift环境下添加use_frameworks!，因为我们是直接生成的Profile文件，所以直接取消上面那行注释就可以了</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Uncomment this line to define a global platform for your project</span></div><div class="line"><span class="comment"># platform :ios, '8.0'</span></div><div class="line"><span class="comment"># Uncomment this line if you're using Swift</span></div><div class="line">use_frameworks!</div><div class="line"></div><div class="line">target <span class="string">'CRWeiBo'</span> <span class="keyword">do</span></div><div class="line">pod <span class="string">'SnapKit'</span>, <span class="string">'0.18.0'</span></div><div class="line">pod <span class="string">'Alamofire'</span>, <span class="string">'3.1.3'</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'CRWeiBoTests'</span> <span class="keyword">do</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'CRWeiBoUITests'</span> <span class="keyword">do</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
 <p>如果是自己手动创建的，则需要自己补上</p>
-<hr>
-<p>注：版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-2016-2-19-Swift中如何从xib中加载类" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/20/2016-2-19-Swift中如何从xib中加载类/" class="article-date">
-  	<time datetime="2016-02-20T02:25:08.000Z" itemprop="datePublished">2016-02-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/20/2016-2-19-Swift中如何从xib中加载类/">Swift中如何从xib中加载类</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我写了一个UIView的类方法</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIView</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">viewFromXIB</span>() -&gt; <span class="title">UIView</span> </span>&#123;</div><div class="line">        <span class="keyword">let</span> classString = <span class="type">NSStringFromClass</span>(<span class="keyword">self</span>) <span class="keyword">as</span> <span class="type">NSString</span></div><div class="line">        <span class="keyword">let</span> view = <span class="type">NSBundle</span>.mainBundle().loadNibNamed(classString.pathExtension, owner: <span class="literal">nil</span>, options: <span class="literal">nil</span>).first <span class="keyword">as</span>! <span class="type">UIView</span></div><div class="line">        <span class="keyword">return</span> view</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这边使用NSStringFromClass(self) as NSString，由类取得类名的字符串，这边使用NSString，主要是swift的String方法我没有找到简便的方法来实现我的需求，比如现在的一个控件叫做CRLabel，而项目名为：Test01,那么由上面的操作，classString的值就会是Test01.CRLabel,在这里面Test01为命名空间，意思就是Test01命名空间下面的CRLabel文件，由于是去加载XIB文件，我们只需要后面CRLabel部分，而不需要命名空间，所以我们需要做截取工作，而.pathExtension方法正好满足我们的需求，故有了上面的写法。</p>
-<p>写完了此分类后，以后从XIB加载文件，都可以愉快如下使用了：</p>
-<pre><code class="Swift"><span class="built_in">lazy</span> <span class="keyword">var</span> label :<span class="type">CRLabel</span> = {
-        <span class="keyword">let</span> view = <span class="type">CRLabel</span>.viewFromXIB() <span class="keyword">as</span>! <span class="type">CRLabel</span>
-        <span class="keyword">return</span> view
-}()
-</code></pre>
 <hr>
 <p>注：版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
 
