@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://yourcompany.com/sitemap-index.xml
