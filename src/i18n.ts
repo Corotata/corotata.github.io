@@ -19,11 +19,19 @@ const resources = {
                 "contact_me": "Contact Me"
             },
             "showcase": {
-                "title": "Featured iOS Apps",
+                "title": "Featured Apps",
                 "live_demo": "App Store",
                 "source_code": "Source Code",
                 "loading": "Loading apps from App Store...",
-                "error": "Failed to load apps. Please try again later."
+                "error": "Failed to load apps. Please try again later.",
+                "filters": {
+                    "all": "All",
+                    "mac": "Mac",
+                    "iphone": "iPhone",
+                    "ipad": "iPad",
+                    "universal": "Universal"
+                },
+                "available_on": "Available on"
             },
             "about": {
                 "title": "About The Developer",
@@ -63,11 +71,19 @@ const resources = {
                 "contact_me": "联系我"
             },
             "showcase": {
-                "title": "精选 iOS 应用",
+                "title": "精选应用",
                 "live_demo": "App Store",
                 "source_code": "源代码",
                 "loading": "正在从 App Store 加载应用...",
-                "error": "加载应用失败，请稍后再试。"
+                "error": "加载应用失败，请稍后再试。",
+                "filters": {
+                    "all": "全部",
+                    "mac": "Mac",
+                    "iphone": "iPhone",
+                    "ipad": "iPad",
+                    "universal": "通用"
+                },
+                "available_on": "支持平台"
             },
             "about": {
                 "title": "关于开发者",
@@ -107,11 +123,19 @@ const resources = {
                 "contact_me": "聯繫我"
             },
             "showcase": {
-                "title": "精選 iOS 應用",
+                "title": "精選應用",
                 "live_demo": "App Store",
                 "source_code": "源代碼",
                 "loading": "正在從 App Store 加載應用...",
-                "error": "加載應用失敗，請稍後再試。"
+                "error": "加載應用失敗，請稍後再試。",
+                "filters": {
+                    "all": "全部",
+                    "mac": "Mac",
+                    "iphone": "iPhone",
+                    "ipad": "iPad",
+                    "universal": "通用"
+                },
+                "available_on": "支持平台"
             },
             "about": {
                 "title": "關於開發者",
