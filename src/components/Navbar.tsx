@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Github, Twitter } from 'lucide-react';
+import { Code2, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 
@@ -39,12 +39,15 @@ const Navbar = () => {
 
                 <div className="flex items-center space-x-4">
                     <LanguageSwitcher />
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-white/10 rounded-full transition-colors">
+                    <a href="mailto:myhdify@gmail.com" className="p-2 hover:bg-white/10 rounded-full transition-colors">
+                        <Mail className="w-5 h-5" />
+                    </a>
+                    {/* <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-white/10 rounded-full transition-colors">
                         <Github className="w-5 h-5" />
                     </a>
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-white/10 rounded-full transition-colors">
                         <Twitter className="w-5 h-5" />
-                    </a>
+                    </a> */}
                 </div>
             </div>
         </motion.nav>

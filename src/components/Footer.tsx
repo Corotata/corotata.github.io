@@ -1,4 +1,4 @@
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
@@ -30,7 +30,7 @@ const Footer = () => {
                     <div>
                         <h4 className="text-white font-bold mb-6">{t('footer.connect')}</h4>
                         <div className="flex space-x-4">
-                            <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-primary hover:text-white transition-all">
+                            {/* <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-primary hover:text-white transition-all">
                                 <Github className="w-5 h-5" />
                             </a>
                             <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-primary hover:text-white transition-all">
@@ -38,8 +38,8 @@ const Footer = () => {
                             </a>
                             <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-primary hover:text-white transition-all">
                                 <Linkedin className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-primary hover:text-white transition-all">
+                            </a> */}
+                            <a href="mailto:myhdify@gmail.com" className="p-3 bg-white/5 rounded-full hover:bg-primary hover:text-white transition-all">
                                 <Mail className="w-5 h-5" />
                             </a>
                         </div>

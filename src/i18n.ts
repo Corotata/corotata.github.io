@@ -6,6 +6,7 @@ const resources = {
     en: {
         translation: {
             "nav": {
+                "brand": "Corotata",
                 "apps": "Apps",
                 "about": "About",
                 "contact": "Contact"
@@ -21,6 +22,7 @@ const resources = {
             "showcase": {
                 "title": "Featured Apps",
                 "live_demo": "View on App Store",
+                "view_details": "View Details",
                 "source_code": "Source Code",
                 "loading": "Loading apps from App Store...",
                 "error": "Failed to load apps. Please try again later.",
@@ -69,13 +71,14 @@ const resources = {
                 "subtitle": "构建未来",
                 "title_prefix": "打造极致",
                 "title_suffix": "数字体验",
-                "description": "我是一名热衷于创造获奖级 iOS 应用的开发者，致力于将惊艳的美学与强大的功能完美融合。",
+                "description": "我热衷于创造，更执着于简单。致力于把复杂的世界变简单，想用这些小小的改变，给你的日常带来一些意想不到的惊喜。",
                 "view_work": "查看作品",
                 "contact_me": "联系我"
             },
             "showcase": {
                 "title": "精选应用",
                 "live_demo": "前往 App Store",
+                "view_details": "查看详情",
                 "source_code": "源代码",
                 "loading": "正在从 App Store 加载应用...",
                 "error": "加载应用失败，请稍后再试。",
@@ -124,13 +127,14 @@ const resources = {
                 "subtitle": "構建未來",
                 "title_prefix": "打造極致",
                 "title_suffix": "數位體驗",
-                "description": "我是一名熱衷於創造獲獎級 iOS 應用的開發者，致力於將驚豔的美學與強大的功能完美融合。",
+                "description": "我熱衷於創造，更執著於簡單。致力於把複雜的世界變簡單，想用這些小小的改變，給你的日常帶來一些意想不到的驚喜。",
                 "view_work": "查看作品",
                 "contact_me": "聯繫我"
             },
             "showcase": {
                 "title": "精選應用",
                 "live_demo": "前往 App Store",
+                "view_details": "查看詳情",
                 "source_code": "源代碼",
                 "loading": "正在從 App Store 加載應用...",
                 "error": "加載應用失敗，請稍後再試。",

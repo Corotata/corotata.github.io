@@ -284,7 +284,7 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
                                                 onClick={() => setIsModalOpen(true)}
                                                 className="pointer-events-auto px-6 py-3 bg-white text-black rounded-full font-bold hover:scale-105 transition-transform shadow-lg flex items-center gap-2"
                                             >
-                                                View Details <ExternalLink className="w-4 h-4" />
+                                                {t('showcase.view_details')} <ExternalLink className="w-4 h-4" />
                                             </button>
                                         </div>
                                     </div>
