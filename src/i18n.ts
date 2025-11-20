@@ -8,8 +8,13 @@ const resources = {
             "nav": {
                 "brand": "Corotata",
                 "apps": "Apps",
+                "blog": "Blog",
                 "about": "About",
                 "contact": "Contact"
+            },
+            "blog_page": {
+                "title": "Blog",
+                "description": "Thoughts on iOS development, design, and technology."
             },
             "hero": {
                 "subtitle": "Building the Future",
@@ -64,6 +69,7 @@ const resources = {
             "nav": {
                 "brand": "Corotata",
                 "apps": "应用",
+                "blog": "博客",
                 "about": "关于",
                 "contact": "联系"
             },
@@ -120,6 +126,7 @@ const resources = {
             "nav": {
                 "brand": "Corotata",
                 "apps": "應用",
+                "blog": "博客",
                 "about": "關於",
                 "contact": "聯繫"
             },

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Code2, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -32,9 +33,10 @@ const Navbar = () => {
                 </div>
 
                 <div className="hidden md:flex items-center space-x-8">
-                    <a href="#showcase" className="text-gray-300 hover:text-white transition-colors">{t('nav.apps')}</a>
-                    <a href="#about" className="text-gray-300 hover:text-white transition-colors">{t('nav.about')}</a>
-                    <a href="#contact" className="text-gray-300 hover:text-white transition-colors">{t('nav.contact')}</a>
+                    <a href="/#showcase" className="text-gray-300 hover:text-white transition-colors">{t('nav.apps')}</a>
+                    <Link to="/blog" className="text-gray-300 hover:text-white transition-colors">{t('nav.blog')}</Link>
+                    <a href="/#about" className="text-gray-300 hover:text-white transition-colors">{t('nav.about')}</a>
+                    <a href="/#contact" className="text-gray-300 hover:text-white transition-colors">{t('nav.contact')}</a>
                 </div>
 
                 <div className="flex items-center space-x-4">
