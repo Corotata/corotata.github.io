@@ -1,0 +1,1280 @@
+{
+  "lastUpdated": "2025-11-20T13:42:59.614Z",
+  "apps": [
+    {
+      "id": 6739570522,
+      "title": "道德经赏析",
+      "description": "应用名称：道德经赏析 - 全拼简繁语音版\n\n应用简介： 《道德经》App 是一款专为喜爱《道德经》的读者设计的全能工具，旨在帮助用户更深入理解并体验这部经典之作。我们的应用提供精准的《道德经》校对，完整的拼音标注，详细的解释和语音功能，众多道德经版本支持，同时支持简体、繁体，多版本对比，一目了然，帮助用户更加轻松、愉悦地学习和领悟《道德经》的智慧。\n\n主要功能：\n* 精准校对：应用提供《道德经》全文的精准校对，确保每一句话都与经典文本一致，帮助用户更好地理解原文。\n* 多版本支持：包含了马王堆帛书·甲本、乙本、王弼注本、老子河上公章句、郭店楚墓竹简老子·甲本、乙本、丙本。\n* 拼音标注：每一句《道德经》都有拼音标注，便于学习和朗读，尤其适合初学者。\n* 单字释义：细化到每个字的解释，辅助学习。\n* 详细解释：为每句经文提供易懂的解释，做为参考，帮助用户领会其中的深刻哲理。\n* 语音功能：应用支持单句和全篇朗读，让用户能够听到标准的发音，同时更好地记忆和理解每一句话。\n* 单句与全篇朗读：用户可以选择单句朗读，也可以选择全篇朗读，灵活满足不同的学习需求。\n* 简体与繁体：双语版本，自由切换。\n* 离线使用：下载后，您可以随时随地访问《道德经》的内容，无需网络连接。\n\n适用人群：\n* 喜欢《道德经》的读者，尤其是初学者。\n* 对中国古代文化、哲学感兴趣的人群。\n* 希望提升朗读与理解能力的用户。\n* 想要随时随地学习《道德经》的任何人。\n\n为什么选择《道德经》App：\n* 精准校对与拼音标注，确保每一句经文的正确性。\n* 提供详细的解释与语音支持，帮助您理解并深入领会《道德经》的智慧。\n* 随时随地都能通过语音朗读来提升学习效果。\n* 操作简便，界面清晰，用户体验极佳。\n\n下载并体验《道德经》App，开始您的智慧之旅吧！\n\n服务条款：\nhttps://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\n隐私政策：\nhttps://hdify.notion.site/1747ac8f6346810eb1bfdca6dc3ebba9",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/53/51/f1/5351f190-97e2-c4d6-68ae-1298a4767d69/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/fe/c3/60/fec360b4-7ff2-b509-5ae2-359f16b46d80/iPhone_-__U7b80_U4f53_-_01.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/66/22/84/6622843d-e69f-8435-bce3-9e7a6da03dc9/iPhone_-__U7b80_U4f53_-_02.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ab/7d/3d/ab7d3d47-7e3d-7c60-324a-09728701e4df/iPhone_-__U7b80_U4f53_-_03.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b1/95/ee/b195eeed-b78d-fc82-a394-54575915787c/iPhone_-__U7b80_U4f53_-_06.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b4/8f/71/b48f7164-b67c-c4cd-69cb-476f34bde21d/iPhone_-__U7b80_U4f53_-_07.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a4/df/80/a4df80c8-f050-ab5d-5a08-068478f2d1b1/iPhone_-__U7b80_U4f53_-_04.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/8f/38/74/8f3874f8-f7be-72bd-6e6d-d5400bbdad5f/iPhone_-__U7b80_U4f53_-_08.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e2/b9/89/e2b989b7-a558-06af-2979-e5789501b552/iPhone_-__U7b80_U4f53_-_05.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9a/95/16/9a9516d6-6f0d-0b6b-9dbc-551861a8c4dd/iPhone_-__U7b80_U4f53_-_09.png/1290x2796bb.jpg"
+        ],
+        "ipad": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/37/10/62/371062e2-0959-4284-1c2d-57699e5dd90a/iPad_-__U7b80_U4f53_-_01.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/18/9a/92/189a926e-9b95-b241-88aa-5fae80df37e3/iPad_-__U7b80_U4f53_-_02.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/2c/e7/a1/2ce7a187-476e-3deb-dd1e-ddc76c0eaa94/iPad_-__U7b80_U4f53_-_03.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/63/b5/b5/63b5b5fb-73ba-e1d5-cc34-e859e2065f99/iPad_-__U7b80_U4f53_-_06.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/03/e4/53/03e453e4-4493-c412-92ea-c15bad4b25a7/iPad_-__U7b80_U4f53_-_07.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7a/57/ba/7a57ba90-242f-dbae-beeb-84167d45d116/iPad_-__U7b80_U4f53_-_08.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/79/fc/73/79fc73fd-9114-3a0a-c4c2-d1439c3677ed/iPad_-__U7b80_U4f53_-_04.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/0c/8a/f1/0c8af112-9c8b-4747-6ed7-692d83c16d72/iPad_-__U7b80_U4f53_-_05.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7f/48/7c/7f487c07-8c79-5a04-239d-839557675423/iPad_-__U7b80_U4f53_-_09.png/2048x2732bb.jpg"
+        ],
+        "mac": []
+      },
+      "url": "https://apps.apple.com/us/app/%E9%81%93%E5%BE%B7%E7%BB%8F%E8%B5%8F%E6%9E%90/id6739570522?uo=4",
+      "version": "1.0.6",
+      "rating": 5,
+      "genres": [
+        "Reference"
+      ],
+      "formattedPrice": "Free",
+      "device": "universal",
+      "reviews": [
+        {
+          "id": "12609593600",
+          "title": "朗读的版本，能不能增加一个传世版的道德经",
+          "content": "朗读的版本，能不能增加一个传世版的道德经",
+          "rating": 5,
+          "author": "道能",
+          "version": "1.0.6",
+          "date": "2025-05-01T23:20:55-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12367444426",
+          "title": "很值得一下的软件",
+          "content": "喜欢，很震撼",
+          "rating": 5,
+          "author": "云雾山中人人人",
+          "version": "1.0.6",
+          "date": "2025-02-28T19:39:47-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12266002999",
+          "title": "很好用的软件",
+          "content": "有比较清晰的描述结合有声版的特点，这个软件用起来超级好。作者的用心之作，赞👍。强烈推荐更多人能看到去下载使用",
+          "rating": 5,
+          "author": "6685213",
+          "version": "1.0.4",
+          "date": "2025-02-03T07:05:35-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12265700219",
+          "title": "很方便",
+          "content": "开车时候听很方便，静心。",
+          "rating": 5,
+          "author": "特别特别好的这样。",
+          "version": "1.0.4",
+          "date": "2025-02-03T05:40:06-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12257036457",
+          "title": "是我见过最全的道德经App了",
+          "content": "很喜欢，多版本对比很实用，各个版本都有，太好了，喜欢男声的朗读。",
+          "rating": 5,
+          "author": "喜欢温暖阳光的人🌅",
+          "version": "1.0.4",
+          "date": "2025-02-01T05:02:00-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12251558417",
+          "title": "少见精品",
+          "content": "智慧源泉，掌上经典！\n这款APP将古老的智慧带到指尖，简洁的界面、清晰的注释，让经典易读易懂。无论是通勤路上还是睡前片刻，都能随时汲取道家智慧，感受经典魅力。推荐给每一位追求心灵成长的朋友！",
+          "rating": 5,
+          "author": "黄胖胖就是我",
+          "version": "1.0.4",
+          "date": "2025-01-30T21:22:34-07:00",
+          "country": "cn"
+        }
+      ]
+    },
+    {
+      "id": 6746181003,
+      "title": "Epub繁简通Pro - 繁体转简体·简体转繁体·多格式支持",
+      "description": "轻松跨越简繁差异，让中文电子书阅读更自由！\n「Epub繁简通」是一款专为中文读者打造的 简体转繁体 与 繁体转简体 工具，支持 横版转竖版(横屏转竖屏)、竖版转横版(竖屏转横屏)，并完美保留原有排版与格式，让你畅享无缝阅读体验。无论是学习、工作还是娱乐，「Epub繁简通」都能让你的电子书阅读更流畅、更贴心。\n\n核心功能\n* 简繁互换：支持 EPUB、TXT、MD、SRT 格式的 简体转繁体 与 繁体转简体，快速精准。\n* 横竖切换：支持 EPUB 横版转竖版 与 竖版转横版，在支持 EPUB 横竖规范的阅读器（如苹果「图书」）中无缝阅读。\n* 极速转换：一键操作，秒级完成，无需等待。\n* 保留原排版：转换后依旧保持原有美观的排版与格式，无损阅读体验。\n* 极简操作：界面直观，零学习成本，轻松上手。\n\n适用人群\n* 热爱阅读的你：随时随地切换 简体/繁体，满足个性化阅读需求。\n* 教育工作者：为教学材料提供多语言版本，让课堂更高效。\n* 文化爱好者：跨越文字差异，促进简繁中文文化交流。\n\n隐私政策：https://www.notion.so/hdify/84e3f3029b254b0f9ddf5cbd199b567f\n用户协议：https://www.notion.so/hdify/488e4db4035844b6b4b7d4047089cbee",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/31/2e/a4/312ea49a-cdd7-32bd-4f9e-0a2ffb615e8d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b9/fe/6c/b9fe6c9a-a92d-798b-af1a-447ac40ceed9/6.9_-__U7b80_U4f53_-_01.png/1320x2868bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e0/b6/14/e0b614bc-73dd-01a5-5bcf-9a8b74655e86/6.9_-__U7b80_U4f53_-_02.png/1320x2868bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/bc/3e/b6/bc3eb6ad-885a-0d27-d576-2d7ef1bbe217/6.9_-__U7b80_U4f53_-_03.png/1320x2868bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/27/5c/2e/275c2e32-e6e1-49f4-31f9-ccc7620dee0b/6.9_-__U7b80_U4f53_-_05.png/1320x2868bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0d/73/20/0d7320f0-3527-8f11-6258-c352b46ad5a6/6.9_-__U7b80_U4f53_-_06.png/1320x2868bb.jpg"
+        ],
+        "ipad": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/39/5f/a1/395fa1cc-ad02-d069-acfd-a8c6884c965a/13_-__U7b80_U4f53_-_01.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/85/3f/21/853f218c-596b-ed9b-a880-056ed82daafb/13_-__U7b80_U4f53_-_02.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/42/e1/dc/42e1dc99-49d2-2d69-7bf2-4e309b811d94/13_-__U7b80_U4f53_-_03.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d3/15/30/d3153002-eeb1-1970-91fe-9b33da533bf2/13_-__U7b80_U4f53_-_04.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/eb/ef/93/ebef9316-69cd-7427-b8e2-9ab426795a10/13_-__U7b80_U4f53_-_05.png/2064x2752bb.jpg"
+        ],
+        "mac": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9e/55/2e/9e552e4d-19f9-f350-cfad-0347f8cc0336/QQ20251002-121825-2880x1800.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/66/88/c0/6688c0e4-8216-03f5-6e0c-453235c5737e/QQ20251002-121842-2880x1800.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c7/d5/a5/c7d5a55f-0c86-92dd-283a-c86bb4bb9641/QQ20251002-121943-2880x1800.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/15/fc/e0/15fce03f-3b88-9404-d012-14891fc16f1a/QQ20251002-122109-2880x1800.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ea/c9/30/eac930c2-ca09-b6cd-68e0-54f871992155/QQ20251002-122022-2880x1800.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/35/81/59/35815901-632b-6103-f76b-1b759d5f9fc2/QQ20251002-121951-2880x1800.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d6/af/13/d6af1354-e2f7-6f10-b504-b65cf3606249/QQ20251002-121958-2880x1800.png/2880x1800bb.jpg"
+        ]
+      },
+      "url": "https://apps.apple.com/us/app/epub%E7%B9%81%E7%AE%80%E9%80%9Apro-%E7%B9%81%E4%BD%93%E8%BD%AC%E7%AE%80%E4%BD%93-%E7%AE%80%E4%BD%93%E8%BD%AC%E7%B9%81%E4%BD%93-%E5%A4%9A%E6%A0%BC%E5%BC%8F%E6%94%AF%E6%8C%81/id6746181003?uo=4",
+      "version": "1.1.1",
+      "rating": 5,
+      "genres": [
+        "Books"
+      ],
+      "formattedPrice": "Free",
+      "device": "universal",
+      "reviews": []
+    },
+    {
+      "id": 6670189381,
+      "title": "ImagesExtractor",
+      "description": "I am committed to becoming a leading developer in the Apple ecosystem. Serving billions of users, helping them save time, improve efficiency, and enhance quality of life, I will handle all the tedious and repetitive tasks.\n\nImagesExtractor is a powerful tool that helps you easily extract images in bulk from various documents and webpages, supporting common file formats and public web content. Whether it's images from work reports, personal eBook collections, or public images from the web, you can quickly extract and export them in batches, saving time and effort.\n\nMain Features:\n* Supports multiple file formats: Extract images from EPUB, PDF, PPT, Word, Excel, Pages, Keynote, Numbers files, and webpages.\n* Web image extraction: Helps you extract accessible images from public webpages and content.\n* Batch processing: Quickly extract images in bulk without repetitive operations.\n* Local processing: All data processing is done locally on your device, ensuring your privacy and security.\n* Easy export: One-click export of extracted images for convenient use.\n* Simple interface: Intuitive and user-friendly interface design, allowing you to get started easily without complex learning.\n\nApplicable Scenarios:\n* Quickly extract images from PDF reports.\n* Batch export illustrations from eBooks for personal collection or research.\n* Extract useful charts and images from presentations or documents.\n* Extract images from public webpages for easy saving or sharing.\n\n\nPrivacy & Security:\nWe highly value your privacy. All file processing is done locally on your device, and no data is uploaded to any server, ensuring your information remains safe and secure.\n\nDownload ImagesExtractor now and experience fast, convenient image extraction!\n\nContact Us:\nIf you have any questions or suggestions, please feel free to contact us at myhdify@gmail.com. We welcome your feedback and are committed to continuously improving the app’s features.\n\nTerms of Service ：\nhttps://hdify.notion.site/Terms-of-Service-ac53ad97c7454f6282e44817ab990804\n\nPrivacyPolicy：\nhttps://hdify.notion.site/Privacy-Policy-e82c629542fa45638e05f6c2a44de94f",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/73/4c/b4/734cb411-f856-b076-808b-6eda6cc35bd6/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/46/f8/51/46f851e8-38cc-3919-7758-d9c26cc83f7b/_U82f1_U6587_-_6.7_-_1.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/38/cb/9c/38cb9cf4-b238-08a6-57fe-31cf0df27205/_U82f1_U6587_-_6.7_-_2.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e0/5b/af/e05baf06-46d6-3e6d-8622-cf740aa9c942/_U82f1_U6587_-_6.7_-_5.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/1a/2b/66/1a2b6672-121b-531f-85ea-12bf63e39e56/_U82f1_U6587_-_6.7_-_3.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/1d/f1/6f/1df16f28-f853-1a4a-3646-22e5f5313dda/_U82f1_U6587_-_6.7_-_4.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/3c/c2/3c/3cc23ccd-6f95-4d78-02e6-903e0f76bd36/_U82f1_U6587_-_6.7_-_6.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/f5/bb/e4/f5bbe473-19eb-5a04-f535-70b70cb2102c/_U82f1_U6587_-_6.7_-_7.png/1290x2796bb.jpg"
+        ],
+        "ipad": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/25/ce/64/25ce64d7-4582-b1e6-c3b6-6392eafb76c6/_U82f1_U6587_-_1.jpg/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/23/38/50/2338502d-b35c-9447-bdbf-47a8fe74ca27/_U82f1_U6587_-_2.jpg/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/73/d8/96/73d89685-7fe0-3b01-75f0-fde87cfc3ef4/_U82f1_U6587_-_3.jpg/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d4/fc/9e/d4fc9e90-0985-0498-838b-ce05a2c2839a/_U82f1_U6587_-_4.jpg/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a7/de/33/a7de3340-3908-daea-1a15-0a6dd599dfe8/_U82f1_U6587_-_5.jpg/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/85/c8/a1/85c8a1cf-4405-597e-95e8-289f1f84043a/_U82f1_U6587_-_6.jpg/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d0/f7/c0/d0f7c019-433b-c757-d4d4-6196ca7f4bd1/_U82f1_U6587_-_7.jpg/2048x2732bb.jpg"
+        ],
+        "mac": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e1/6a/61/e16a6186-a012-d43e-f887-e9012ad6b05c/b0cd6778-84c3-44b1-a286-4c16152c9463_Mac_-__U82f1_U6587_-_P1.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/52/cc/40/52cc40ca-3848-cad9-7116-155de21c77b9/e7cf0532-0e20-47a3-b425-f5964b0ca74c_Mac_-__U82f1_U6587_-_P2.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7f/42/14/7f421474-3c93-e068-caf5-fe947656a4f4/f7d58ea3-7ef7-4cec-8061-a823bb2550b9_Mac_-__U82f1_U6587_-_P3.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/84/41/bf/8441bf3b-d0fe-7bf4-3fa3-d62d242325d7/4ae28bef-1923-47e6-8e30-6ab6bb4a63d4_Mac_-__U82f1_U6587_-_P4.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/dd/22/ce/dd22ce82-d99c-127c-d772-c765d9db2e74/72cce946-37b7-446a-8b76-9193793e2ffb_Mac_-__U82f1_U6587_-_P5.png/2880x1800bb.jpg"
+        ]
+      },
+      "url": "https://apps.apple.com/us/app/imagesextractor/id6670189381?uo=4",
+      "version": "2.1.2",
+      "rating": 3,
+      "genres": [
+        "Graphics & Design"
+      ],
+      "formattedPrice": "Free",
+      "device": "universal",
+      "reviews": [
+        {
+          "id": "13014629989",
+          "title": "作者什么时候写个安卓版",
+          "content": "请作者出个安卓版",
+          "rating": 5,
+          "author": "snow18675",
+          "version": "2.1.2",
+          "date": "2025-08-14T04:59:15-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12808499211",
+          "title": "非常好用！",
+          "content": "感觉开会员之后总想不起来用，要用的时候又过期了\n期待永久会员🥺🥺🥺",
+          "rating": 5,
+          "author": "ZERO零凌",
+          "version": "2.1.2",
+          "date": "2025-06-23T09:51:30-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12211665978",
+          "title": "很厉害的软件",
+          "content": "希望作者能更新视频提取功能",
+          "rating": 5,
+          "author": "mgn.dgmwp",
+          "version": "2.1.2",
+          "date": "2025-01-21T05:25:52-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12032023306",
+          "title": "喜欢！",
+          "content": "好用好用，喜欢💕",
+          "rating": 5,
+          "author": "適識",
+          "version": "2.0.14",
+          "date": "2024-12-06T05:08:37-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "11954940987",
+          "title": "很喜欢的应用",
+          "content": "对于图片囤囤鼠来说，真的太喜欢了。\n\n因为有时看到一张自己很喜欢的壁纸，往往就要在评论区求图了，每每那样子总感觉自己好卑微，然后就是一直在等待，特别是求而不得的时候，这种感觉更加剧烈，让我感觉很痛苦，以致我宁愿放弃自己喜欢的也不愿意感受那种卑微的感觉。\n\n这个软件真的对我帮助我很大，让我可以保有自我的情况下，做一只快乐的囤囤鼠，尽情收藏我喜欢的图片，谢谢你开发者。",
+          "rating": 5,
+          "author": "喜欢温暖阳光的人🌅",
+          "version": "2.0.13",
+          "date": "2024-11-15T19:24:05-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "11803621595",
+          "title": "很方便",
+          "content": "好用的，批量保存还无水印，爽歪歪ꉂ ೭(˵¯̴͒ꇴ¯̴͒˵)౨”",
+          "rating": 5,
+          "author": "一米一光一年",
+          "version": "2.0.3",
+          "date": "2024-10-06T05:20:02-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "11705343039",
+          "title": "非常实用，极大提升了效率",
+          "content": "经常需要从书里摘取图片做笔记，之前每次都要手动截图，费时又麻烦。这款软件真的帮了大忙，一键提取十几张图片，轻松省事，效率翻倍。非常推荐给有相同需求的人！",
+          "rating": 5,
+          "author": "喜欢温暖阳光的人🌅",
+          "version": "1.0.0",
+          "date": "2024-09-09T03:42:35-07:00",
+          "country": "cn"
+        }
+      ]
+    },
+    {
+      "id": 6751633451,
+      "title": "TXT to EPUB - eBook Converter",
+      "description": "One-Tap Conversion, Professional Reading Experience Instantly convert your TXT novels and study materials into standard EPUB eBooks, compatible with all mainstream reading apps. Whether it's web novels or study notes, enjoy a professional-grade reading experience.\n\nCore Features\nIntelligent Conversion Engine\n* TXT to EPUB3 standard format conversion\n* Smart chapter recognition and automatic segmentation\n* Auto-generate complete Table of Contents (TOC) structure\n* Built-in professional typography styles\n\nVersatile Layout Options\n* Horizontal/Vertical layout switching\n* Simplified/Traditional Chinese conversion (Chinese characters only, other languages unchanged)\n* Custom cover and book metadata\n* Flexible formatting configuration options\n\nPremium User Experience\n* Real-time progress visualization\n* Native iOS sharing and export functionality\n* Batch processing for high efficiency\n* Clean interface, intuitive operation\n\nUse Cases\nPerfect for These Users\n* Web Novel Enthusiasts - Organize collected TXT novels for unified reading management\n* Writers/Editors - Format and publish works with professional presentation\n* Students/Learners - Organize study materials for convenient offline reading\n* Researchers - Document organization and archiving to boost work efficiency\n\nTechnical Advantages\nProfessional and Reliable Technology\n* Full compatibility with EPUB3 international standards\n* Smart recognition algorithms, stable processing of long novels\n* Mobile-optimized for smooth user experience\n* Local processing to protect user privacy and security\n\nDownload now and transform your TXT files into professional eBooks!\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n Privacy Policy: https://hdify.notion.site/2037ac8f634681608d35caa6296e48b2 ",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ef/54/94/ef549441-23a2-c9f4-46cd-1faa8ed4f421/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c4/81/c8/c481c8b2-7969-6616-7dd9-9c96827e5a40/1._U9996_U9875-1284x2778-1320x2868.png/1320x2868bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/02/f1/fe/02f1fe94-359b-002e-ceae-2d0a56e74fd6/5._U667a_U80fd_U89e3_U6790-1284x2778-1320x2868.png/1320x2868bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d5/f9/1d/d5f91dfa-b64f-f03a-8d0e-38e5724ab246/6._U81ea_U5b9a_U4e49_U5bfc_U51fa-1284x2778-1320x2868.png/1320x2868bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1a/aa/12/1aaa12a3-09e6-2dd8-cbe0-dbb8a89a3b9c/3._U6a21_U7248-1284x2778-1320x2868.png/1320x2868bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/61/ac/c9/61acc9eb-0bc0-3567-b713-3e40409a4d03/4._U5c01_U9762_U8bbe_U7f6e-1284x2778-1320x2868.png/1320x2868bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/24/b6/85/24b685e2-5978-7b38-0b41-f09cf017525d/7._U5bfc_U51fa-1284x2778-1320x2868.png/1320x2868bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e3/75/f3/e375f394-3d49-57c9-eecf-00670f80b570/8._U53d1_U9001_U5230Kindle-1284x2778-1320x2868.png/1320x2868bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/30/97/46/30974672-e824-53a6-040f-19b764277912/9._U5c40_U57df_U7f51-1284x2778-1320x2868.png/1320x2868bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d2/2c/84/d22c84f5-28c5-833e-002f-18df864141dd/10._U81ea_U7531_U5bfc_U51fa-1284x2778-1320x2868.png/1320x2868bb.jpg"
+        ],
+        "ipad": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/4a/4b/d5/4a4bd574-538b-f92c-6892-15bc7dada068/1._U9996_U9875-2064x2752.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ed/5c/b8/ed5cb8be-4256-7398-b8c0-788392a8c506/5._U667a_U80fd_U8bc6_U522b-2064x2752.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/de/2e/70/de2e70c6-209f-3739-0e5c-9bd4ca6c331c/4._U751f_U6210_U5c01_U9762-2064x2752.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/12/82/a9/1282a9f8-513c-ec9a-f83d-e7523883ea25/3._U5c01_U9762_U6a21_U677f-2064x2752.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/62/8a/af/628aaf35-489c-9eb5-2739-7817d219410a/6._U751f_U6210_U7535_U5b50_U4e66-2064x2752.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/81/97/a8/8197a819-3ce1-b9dd-7411-2f977d384c4b/7._U5bfc_U51fa-2064x2752.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/98/65/5d/98655d74-ca8f-8ab5-6a3d-f050ac9c65ac/8._U53d1_U9001_U5230Kindle-2064x2752.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/8b/5d/81/8b5d8162-874a-ee22-9d8c-582da5395f4b/9_U5c40_U57df_U7f51_U7f51-2064x2752.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/9a/ad/a2/9aada235-b838-6e0b-4b33-a28e51e8512c/10._U5bfc_U51fa-2064x2752.png/2064x2752bb.jpg"
+        ],
+        "mac": []
+      },
+      "url": "https://apps.apple.com/us/app/txt-to-epub-ebook-converter/id6751633451?uo=4",
+      "version": "1.0.5",
+      "rating": 0,
+      "genres": [
+        "Books"
+      ],
+      "formattedPrice": "Free",
+      "device": "universal",
+      "reviews": [
+        {
+          "id": "13353828506",
+          "title": "不错",
+          "content": "目前用着挺好，希望能一直维护下去。",
+          "rating": 5,
+          "author": "l丨l丨l",
+          "version": "1.0.5",
+          "date": "2025-11-03T19:49:41-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "13318258244",
+          "title": "问题求助",
+          "content": "请问一下转换完之后软件里面有保存被转换后的文件吗",
+          "rating": 5,
+          "author": "像极了，芹菜叶",
+          "version": "1.0.3",
+          "date": "2025-10-26T13:45:16-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "13273923384",
+          "title": "导入失败",
+          "content": "一直提示我打开的txt未能使用指定编码打开文件，所以导入一直失败",
+          "rating": 4,
+          "author": "不会：吃吧",
+          "version": "1.0.3",
+          "date": "2025-10-16T06:50:32-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "13216197428",
+          "title": "很好用，非常便捷",
+          "content": "app转换很好用，速度很快，特别是ai生成封面太棒了",
+          "rating": 5,
+          "author": "顶点",
+          "version": "1.0.3",
+          "date": "2025-10-02T19:21:47-07:00",
+          "country": "cn"
+        }
+      ]
+    },
+    {
+      "id": 6748774714,
+      "title": "EPUB Translator",
+      "description": "Want to read foreign eBooks but blocked by language? \n\n「EPUB Translator」 lets you translate EPUB files in one click and create bilingual editions with ease. Supports multiple languages and translation engines. Import your file, choose source/target language and translation mode, view progress in real time, and export EPUBs compatible with major eReaders. Perfect for language learners, cross-language reading, and research work.\n\nKey Features:\n1. Supports Google & Microsoft Edge translation engines\n2. Multiple target languages supported\n3. Three translation modes: Translation Only / Original + Translation / Translation + Original\n4. Local cache acceleration – no need to re-translate repeated text\n5. One-click EPUB export – compatible with major eReaders\n6. Custom layout export – supports both horizontal and vertical reading\n\nTerms of Service: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/ \nPrivacy Policy: https://www.notion.so/hdify/Privacy-Policy-24a7ac8f6346815eb4dacb30ee52f79a\n Support: myhdify@gmail.com",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cf/5e/43/cf5e4375-447e-6bc1-ea5e-0d428fe299a4/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a4/de/a8/a4dea8a7-feb6-9878-60e9-53d7fc5c322c/_U82f1_U6587-_U9996_U9875.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/6c/ec/63/6cec6318-1622-67ec-ba4c-4b6fa887bc2a/_U82f1_U6587-_U5bfc_U5165.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/36/f1/f6/36f1f62a-d6da-2249-0fb2-8394267e6374/_U82f1_U6587-_U7ffb_U8bd1_U4e2d.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2a/fe/bd/2afebd5c-e425-43a1-9041-66690cbbc19b/Simulator_Screenshot_-_iPhone_14_Pro_Max_-_2025-08-09_at_01.54.12.png/1290x2796bb.jpg"
+        ],
+        "ipad": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/50/fa/56/50fa564c-07f7-a285-5977-44255eab0a40/Simulator_Screenshot_-_iPad_Pro_13-inch__U0028M4_U0029_-_2025-08-09_at_12.49.16.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/fe/82/ad/fe82ad4c-f48f-e543-1bf7-d49c63bb7234/Simulator_Screenshot_-_iPad_Pro_13-inch__U0028M4_U0029_-_2025-08-09_at_12.49.34.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/97/5c/74/975c74a0-c24f-7b36-01f2-245715e4cde0/Simulator_Screenshot_-_iPad_Pro_13-inch__U0028M4_U0029_-_2025-08-09_at_12.51.38.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/f3/c9/96/f3c996b5-eba3-ab2e-c7fd-b7043096ca30/Simulator_Screenshot_-_iPad_Pro_13-inch__U0028M4_U0029_-_2025-08-09_at_12.49.37.png/2064x2752bb.jpg"
+        ],
+        "mac": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d3/58/5c/d3585c76-bde3-c5a3-f2b5-7caab74d5735/_U82f1_U6587-_U9996_U9875-2880x1800.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/67/83/0c/67830cb0-2bac-2d16-fb8d-7f4d0406660b/_U82f1_U6587-_U5bfc_U5165-2880x1800.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a6/a7/f0/a6a7f0a5-a101-6151-3ed7-b5080d7d3b96/_U82f1_U6587-_U7ffb_U8bd1_U4e2d-2880x1800.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b3/1d/81/b31d8175-ff26-462d-01a6-50e27010b501/_U82f1_U6587-_U5b8c_U6210-2880x1800.png/2880x1800bb.jpg"
+        ]
+      },
+      "url": "https://apps.apple.com/us/app/epub-translator/id6748774714?uo=4",
+      "version": "1.0.0",
+      "rating": 0,
+      "genres": [
+        "Books"
+      ],
+      "formattedPrice": "Free",
+      "device": "universal",
+      "reviews": []
+    },
+    {
+      "id": 6746525636,
+      "title": "DSearch:ADHD Focus Search Tool",
+      "description": "Direct Search Access, Eliminate Feed Distractions\n\nDSearch is a revolutionary anti-distraction cross-app search tool designed to protect your focus in the digital age. Using intelligent URL Scheme technology, it allows you to jump directly to search results in your target apps, completely bypassing homepage feeds and algorithmic distractions.\n\nNow supports 46 popular apps and 58 major websites, plus custom website support — designed for even more use cases.\n\nCore Features\nOne-tap access: Enter keywords, select app, jump straight to results\nBypass homepages: Avoid recommended content, ads, and infinite scroll feeds\n50+ supported apps: TikTok, Instagram, YouTube, Amazon, Twitter, Reddit & more\n\nSmart Anti-Distraction Reminders\nPersonalized alerts: 5/10-minute reminders to stay on track\nMultiple reminder styles: Tech, zen, friendly tones available\nFocus protection: Resist algorithmic temptations and stay goal-oriented\n\nPersonalized Experience\nCustom themes: Multiple interface styles to choose from\nSearch history: Smart recording for quick access to past searches\nPinyin support: Fast app discovery with phonetic search\nFavorites: Save frequently used searches and apps\n\nDeep System Integration\nLive Activity: Dynamic Island shows search status\nWidget support: Quick search access from home screen\nMulti-language: English, Simplified & Traditional Chinese\n\nPerfect For\nResearch & Work: Jump to Wikipedia, Reddit results without getting sidetracked \nShopping: Direct product search on Amazon, eBay without promotional distractions\nContent Discovery: Find specific YouTube, TikTok videos without algorithm rabbit holes\nNavigation: Quick map searches for efficient route planning\n\nWhy Choose DSearch?\nTraditional Way: \nOpen app → Get distracted by feed → Forget search purpose → Waste time \nDSearch Way: \nEnter keyword → Select app → Direct results → Mission accomplished\n\nDownload DSearch now and reclaim control over your attention. Experience the future of focused, efficient searching!\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n Privacy Policy: https://hdify.notion.site/2037ac8f634681608d35caa6296e48b2 ",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ba/fa/3c/bafa3cfd-f1e7-3f1d-a000-9d7910eabcad/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/3f/c3/9d/3fc39dd9-e190-580a-5782-32cf4e5f1442/iPhone_-__U82f1_U6587_-_01.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/14/d5/8c/14d58cca-6d6c-4ca5-2bbf-52a7b8c6fe25/iPhone_-__U82f1_U6587_-_02.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/bc/3e/e8/bc3ee828-802f-5546-9712-295fbc519716/iPhone_-__U82f1_U6587_-_04.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/92/05/27/9205277e-aa42-4c76-887a-106c49797d54/iPhone_-__U82f1_U6587_-_05.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/44/22/45/4422456f-f1e9-d592-35fa-3e1a416adfb4/iPhone_-__U82f1_U6587_-_03.png/1290x2796bb.jpg"
+        ],
+        "ipad": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/5e/20/05/5e200524-065a-a0d8-4bc7-d75b6f659a42/iPad_-__U82f1_U6587_-_01.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/77/ff/dd/77ffdd6b-e241-b5aa-a34f-9738d84b69dd/iPad_-__U82f1_U6587_-_02.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/fb/f6/9e/fbf69ed7-152c-4eeb-3ca1-cbb3636e8339/iPad_-__U82f1_U6587_-_04.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/18/8e/24/188e2466-d1a4-fd7d-e8ff-28b5709931f1/iPad_-__U82f1_U6587_-_03.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/32/fb/68/32fb68b4-d4e1-eb68-cca3-d9f1f4d686c7/iPad_-__U82f1_U6587_-_05.png/2048x2732bb.jpg"
+        ],
+        "mac": []
+      },
+      "url": "https://apps.apple.com/us/app/dsearch-adhd-focus-search-tool/id6746525636?uo=4",
+      "version": "1.3.0",
+      "rating": 5,
+      "genres": [
+        "Productivity"
+      ],
+      "formattedPrice": "Free",
+      "device": "universal",
+      "reviews": [
+        {
+          "id": "13208507175",
+          "title": "非常棒的app",
+          "content": "功能完美，开发者更新也很迅速，点赞！",
+          "rating": 5,
+          "author": "zhhsbsba",
+          "version": "1.2.9",
+          "date": "2025-10-01T03:11:54-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "13132366283",
+          "title": "希望能够添加网址快速访问",
+          "content": "除了应用，网址也是高频使用的，所以希望能够自定义添加网址的功能",
+          "rating": 5,
+          "author": "Jdjdhjdjs111",
+          "version": "1.2.7",
+          "date": "2025-09-13T05:59:14-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12913858300",
+          "title": "很棒很棒，继续更新！！！",
+          "content": "这就是梦中情 P 啊，UI 和功能都很苹果，已购入终身会员，希望继续更新下去！！！",
+          "rating": 5,
+          "author": "穆青蛙",
+          "version": "1.2.3",
+          "date": "2025-07-20T02:40:34-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12866187703",
+          "title": "认真的作者，好用的aop",
+          "content": "在当今信息爆炸的时代，在搜索有用信息的同时，也会收到海量信息的干扰。这个app缓解了对搜索的信息焦虑，专注于问题本身。是一个很不错的app。\nps：提了两个意见，bug很快地就修复了，作者的速度杠杠的，辛苦了～",
+          "rating": 5,
+          "author": "Photic7",
+          "version": "1.2.1",
+          "date": "2025-07-08T00:22:11-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12831015699",
+          "title": "用起来超级方便",
+          "content": "希望作者能够支持github和tg😁",
+          "rating": 5,
+          "author": "wangluqis",
+          "version": "1.1.3",
+          "date": "2025-06-29T05:01:54-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12814851105",
+          "title": "很好用，更新速度很快",
+          "content": "虽然一开始觉得终身有点贵，但是作者的态度让我觉得这笔钱花得很值！之前提出希望能给小组件添加分组功能的建议很快就实现了，看到自己喜欢的产品一点点进步，真的很棒！",
+          "rating": 5,
+          "author": "不知道叫什么 ahhh",
+          "version": "1.1.0",
+          "date": "2025-06-25T02:45:55-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12764273291",
+          "title": "用起来真方便，很喜欢",
+          "content": "作者能支持下今日头条吗？",
+          "rating": 5,
+          "author": "喜欢温暖阳光的人🌅",
+          "version": "1.0.3",
+          "date": "2025-06-11T20:29:12-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12756502317",
+          "title": "出色的创意；改进意见",
+          "content": "我觉得这个app的出发点很不错。希望越做越好，让作者获得应有的收益。\n如果app能够在跳转到外部应用时保留在灵动岛中，或许能让后续搜索更加方便？不知道作者有什么想法？",
+          "rating": 5,
+          "author": "Udaric",
+          "version": "1.0.1",
+          "date": "2025-06-09T19:50:28-07:00",
+          "country": "cn"
+        }
+      ]
+    },
+    {
+      "id": 6504551887,
+      "title": "Subtitle Translator Pro",
+      "description": "Introduction\nSubtitle Translator Pro is a powerful and efficient Mac application designed for processing and translating SRT subtitle files. Whether you are a filmmaker, video editor, or language learner, this app will significantly enhance your productivity by allowing you to easily batch translate and export subtitles.\nKey Features\n\n1. Batch Import SRT Files:\n    * Support importing multiple SRT subtitle files at once, saving you time and effort.\n\n2. One-Click Translation:\n    * Utilizing the robust technologies of Google Translate and Microsoft Translator, you can translate subtitle content into various languages with a single click, reaching a global audience. Supports translation into multiple major languages, making your video content more diverse and inclusive.\n\n3. Single-Language Subtitle Export:\n    * After translation, you can choose to export single-language subtitle files for direct use in your video projects.\n\n4. Bilingual Subtitle Export:\n    * Provides the option to export bilingual subtitles, making it easier for learners or multilingual audiences to understand and learn different languages. The subtitle files will include both the original and translated content, presented in a bilingual format.\n\n5. Separate Bilingual Subtitle Export:\n    * Supports exporting bilingual subtitles as separate single-language files for independent use in various scenarios.\n\n6. User-Friendly Interface:\n    * A simple and intuitive user interface that is easy to use, even if it's your first time using such software.\n\nSuitable For\n\n* Filmmakers and Video Producers:\n    * Quickly translate and export subtitles, improving the efficiency of creating multilingual versions of your films.\n\n* Video Editors:\n    * Easily manage and process multiple subtitle files, enhancing work efficiency.\n\n* Language Learners:\n    * More effectively learn and master foreign languages with the bilingual subtitle feature.\n\n* Multilingual Video Creators:\n    * Expand your audience, allowing more people to understand and appreciate your content.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/10/8c/ba/108cba27-7763-3296-4df0-e727be0709ab/AppIcon-0-0-85-220-0-0-2x.png/100x100bb.png",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c1/cc/e5/c1cce56d-ee3b-6adc-badb-69213e89f4db/366f68ab-5615-47e5-b185-347e5971f90b__U5b57_U5e55_U7ffb_U8bd1_U52a9_U624b_-__U82f1_1.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/4c/95/49/4c95492c-f1c6-f358-0f54-2f29b39073d2/77e9d41f-168c-4cc7-9470-a134de78e9dc__U5b57_U5e55_U7ffb_U8bd1_U52a9_U624b_-__U82f1_2.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/36/8e/1c/368e1c77-d8e8-ec51-0249-cce2c4b5363f/599ef267-1a21-451a-8b44-990f5f24521f__U5b57_U5e55_U7ffb_U8bd1_U52a9_U624b_-__U82f1_3.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/60/f9/e6/60f9e677-008e-4be5-6407-e1e61bd3a424/81655931-9831-4f51-a232-35029925e0c5__U5b57_U5e55_U7ffb_U8bd1_U52a9_U624b_-__U82f1_4.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/89/7a/fc/897afc80-1f92-f87f-5e7a-ab6eef1103d1/1bc97b2a-38da-4586-96c3-f7d890e6e1a9__U5b57_U5e55_U7ffb_U8bd1_U52a9_U624b_-__U82f1_5.png/800x500bb.jpg"
+        ],
+        "ipad": [],
+        "mac": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c1/cc/e5/c1cce56d-ee3b-6adc-badb-69213e89f4db/366f68ab-5615-47e5-b185-347e5971f90b__U5b57_U5e55_U7ffb_U8bd1_U52a9_U624b_-__U82f1_1.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/4c/95/49/4c95492c-f1c6-f358-0f54-2f29b39073d2/77e9d41f-168c-4cc7-9470-a134de78e9dc__U5b57_U5e55_U7ffb_U8bd1_U52a9_U624b_-__U82f1_2.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/36/8e/1c/368e1c77-d8e8-ec51-0249-cce2c4b5363f/599ef267-1a21-451a-8b44-990f5f24521f__U5b57_U5e55_U7ffb_U8bd1_U52a9_U624b_-__U82f1_3.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/60/f9/e6/60f9e677-008e-4be5-6407-e1e61bd3a424/81655931-9831-4f51-a232-35029925e0c5__U5b57_U5e55_U7ffb_U8bd1_U52a9_U624b_-__U82f1_4.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/89/7a/fc/897afc80-1f92-f87f-5e7a-ab6eef1103d1/1bc97b2a-38da-4586-96c3-f7d890e6e1a9__U5b57_U5e55_U7ffb_U8bd1_U52a9_U624b_-__U82f1_5.png/2880x1800bb.jpg"
+        ]
+      },
+      "url": "https://apps.apple.com/us/app/subtitle-translator-pro/id6504551887?mt=12&uo=4",
+      "version": "1.0.1",
+      "rating": 0,
+      "genres": [
+        "Productivity"
+      ],
+      "formattedPrice": "Free",
+      "device": "mac",
+      "reviews": []
+    },
+    {
+      "id": 6504154553,
+      "title": "Localization Master",
+      "description": "Localization Master is the ultimate macOS app, designed specifically for developers and localization teams to simplify the localization of Localizable.xcstrings files.\n\n With Localization Master, you can easily leverage Microsoft Edge, Google for batch translations, and seamlessly update your Xcode localization files, significantly boosting your productivity.Localization Master is the ultimate macOS app, designed specifically for developers and localization teams to simplify the localization of Localizable.xcstrings files. With Localization Master, you can easily leverage Microsoft Edge, Google for batch translations, and seamlessly update your Xcode localization files, significantly boosting your productivity.\n\n Key Features\n\n- Effortless Parsing of Localizable.xcstrings Files: Easily import and parse your Localizable.xcstrings files, automatically detecting the texts that need translation.\n- Support for Multiple Translation Services: Quickly use Microsoft Edge, Google for batch translations, ensuring accurate and diverse translation results.\n- One-Click Xcode File Updates: Once translations are complete, directly update the results into Xcode localization files, streamlining your workflow.\n- Simple and Intuitive User Interface: A user-friendly interface design allows you to focus on localization tasks, enhancing work efficiency.\n- Support for customization: Provides JSON export, allowing you to use AI-assisted or manual translation, which can then be imported back into the app for unified processing.\n\n Problems Solved\n\n- Significantly Boost Translation Efficiency: No more manual translations and file updates. Localization Master automates the process, saving you valuable time and effort.\n- Ensure Translation Accuracy: Cross-verify translations with multiple services to improve the accuracy and reliability of the results.\n- Simplify Localization Process: A one-stop solution that makes your localization work simple and efficient.\n\n Ideal For\n\n- App Developers: Quickly translate your app into multiple languages, expanding your user base.\n- Localization Teams: Enhance work efficiency and ensure translation quality.\n- Project Managers: Simplify localization project management, saving time and costs.\n\n Why Choose Localization Master?\n\n- Efficient: One-click operation to quickly complete localization tasks.\n- Intelligent: Integrates multiple translation services, intelligently recommending the best translation.\n- Reliable: Automatically detects and processes translation files, ensuring the accuracy of file structure and content.\n\nDownload Localization Master and experience a smooth and efficient localization workflow!",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b7/d3/d8/b7d3d844-a5fb-9e8e-c1fd-51f7a9cb5993/AppIcon-0-0-85-220-0-1-0-2x.png/100x100bb.png",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a9/d8/0e/a9d80eb0-f746-ecd6-8fc8-29aef1e3a57e/f8800d25-55bf-4dbe-928e-31c31b1e226a_Localization_Master_01.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/46/24/af/4624af68-d5a8-1d9f-715c-3a2782dcb0b8/a0bcec3f-4639-4bb6-9253-6bf799a9f79d_Localization_Master_03.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/76/8b/0c/768b0c00-490f-669b-ea45-89689230fe73/6eb908c2-ce2c-4a6d-85b3-cdb3a85f5091_Localization_Master_02.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/1f/8a/39/1f8a39bc-4937-d48e-9214-3a86a1094e31/82e93557-d503-4257-ae02-2f66b3a423bd_Localization_Master_04.png/800x500bb.jpg"
+        ],
+        "ipad": [],
+        "mac": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a9/d8/0e/a9d80eb0-f746-ecd6-8fc8-29aef1e3a57e/f8800d25-55bf-4dbe-928e-31c31b1e226a_Localization_Master_01.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/46/24/af/4624af68-d5a8-1d9f-715c-3a2782dcb0b8/a0bcec3f-4639-4bb6-9253-6bf799a9f79d_Localization_Master_03.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/76/8b/0c/768b0c00-490f-669b-ea45-89689230fe73/6eb908c2-ce2c-4a6d-85b3-cdb3a85f5091_Localization_Master_02.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/1f/8a/39/1f8a39bc-4937-d48e-9214-3a86a1094e31/82e93557-d503-4257-ae02-2f66b3a423bd_Localization_Master_04.png/2880x1800bb.jpg"
+        ]
+      },
+      "url": "https://apps.apple.com/us/app/localization-master/id6504154553?mt=12&uo=4",
+      "version": "1.1.3",
+      "rating": 0,
+      "genres": [
+        "Utilities",
+        "Developer Tools"
+      ],
+      "formattedPrice": "Free",
+      "device": "mac",
+      "reviews": []
+    },
+    {
+      "id": 6741735460,
+      "title": "GridSplit - AI Image Splitter",
+      "description": "One-Tap AI Image Split & Save!\n\nGridSplit makes it easy to split AI-generated grid images. Simply drag, select, and save instantly. Supports 2×2, 3×3, and more!\n\nHello everyone! I’d love to share the little story behind how I created GridSplit~\n\nIt all started with my wife. She absolutely loves creating with Midjourney, making tons of beautiful artworks every day . But every time she wanted to save an image, she had to go through a tedious process: clicking U1-U4, waiting for them to load, and then manually saving each one… Watching her repeat this over and over drove me, a programmer husband, absolutely crazy!\n\n\"Honey, why does it have to be so troublesome?\"\n\"Because AI generates a 4-grid image, and if I want to save just one, this is the only way...\"\n\nAnd that’s when I decided—I had to build something to make this easier for her! Without telling her, I stayed up late working on a small tool, constantly tweaking it to make it as convenient as possible. After over 30 iterations, GridSplit was finally born—a little assistant designed to make saving images effortless.\n\n It’s super easy to use:\n\nJust drag in an image (whether from your computer or browser)\n- Choose your preferred splitting method (2×2, 3×3—whatever you need!)\n- Click to save the one you love, instantly!\n- When I finally installed GridSplit on her computer, I casually asked, \"Hey, what’s this app? What does it do?\"\n\nAnd then came the moment I had been waiting for—her eyes lit up with excitement as she said, \"Wow, I can do this? This is amazing!\" That was when I knew—all those late nights of coding were worth it. I quietly left the room, letting her dive into her creative flow.\n\n If you’re passionate about AI-generated art like my wife, GridSplit is here as a little gift just for you. For just the price of a cup of coffee , it’ll be your perfect creative companion!\n\nI’ve also recorded a demo video—it’s super easy to follow!\n\nAnd if GridSplit brings you joy, don’t forget to leave us a 5-star review on the App Store!  Your support means the world to us and will help more creators discover this warm little tool.\n\nDisclaimer: GridSplit is an independent image software and is not affiliated with Midjourney or any other AI image platform.\n\nTerms of Service:\nhttps://www.apple.com/legal/internet-services/itunes/dev/stdeula/\n\nPrivacy Policy:\nhttps://www.notion.so/hdify/1967ac8f63468110a476ead9d4606127?pvs=4",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c4/ec/94/c4ec9452-9263-d97e-7895-efc9d06023cd/AppIcon-0-0-85-220-0-1-0-2x.png/100x100bb.png",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/68/14/59/68145908-4cf1-9fb6-6fd8-d4c01ce81e6a/_U82f1_U6587_-_01.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e5/2a/de/e52ade94-0025-4863-5796-e580c9d86dc9/_U82f1_U6587_-_02.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/01/5e/7d/015e7de9-a692-80fd-8c69-d8ae1974e95d/_U82f1_U6587_-_03.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/92/4c/e0/924ce09a-f394-447f-67a0-a84436b60129/_U82f1_U6587_-_04.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/4d/62/6a/4d626a05-da4b-d23d-3f76-c945e80e8e08/_U82f1_U6587_-_05.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ce/60/19/ce6019f6-9fb1-8018-15ce-a3034ec9c62d/_U82f1_U6587_-_06.png/800x500bb.jpg"
+        ],
+        "ipad": [],
+        "mac": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/68/14/59/68145908-4cf1-9fb6-6fd8-d4c01ce81e6a/_U82f1_U6587_-_01.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e5/2a/de/e52ade94-0025-4863-5796-e580c9d86dc9/_U82f1_U6587_-_02.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/01/5e/7d/015e7de9-a692-80fd-8c69-d8ae1974e95d/_U82f1_U6587_-_03.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/92/4c/e0/924ce09a-f394-447f-67a0-a84436b60129/_U82f1_U6587_-_04.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/4d/62/6a/4d626a05-da4b-d23d-3f76-c945e80e8e08/_U82f1_U6587_-_05.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ce/60/19/ce6019f6-9fb1-8018-15ce-a3034ec9c62d/_U82f1_U6587_-_06.png/2880x1800bb.jpg"
+        ]
+      },
+      "url": "https://apps.apple.com/us/app/gridsplit-ai-image-splitter/id6741735460?mt=12&uo=4",
+      "version": "1.0.2",
+      "rating": 0,
+      "genres": [
+        "Graphics & Design"
+      ],
+      "formattedPrice": "$1.99",
+      "device": "mac",
+      "reviews": [
+        {
+          "id": "12304449956",
+          "title": "好用，点赞",
+          "content": "很好用，太方便了，和作者提了快捷键支持，立马就支持了，效率直接拉满。",
+          "rating": 5,
+          "author": "喜欢温暖阳光的人🌅",
+          "version": "1.0.1",
+          "date": "2025-02-12T19:12:29-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12304403284",
+          "title": "好用",
+          "content": "自定义网格切图很实用",
+          "rating": 5,
+          "author": "一米一光一年",
+          "version": "1.0.1",
+          "date": "2025-02-12T18:53:31-07:00",
+          "country": "cn"
+        }
+      ]
+    },
+    {
+      "id": 6742366538,
+      "title": "Wasabi 50 - Project 50 Journey",
+      "description": "Wasabi 50\n\nA habit-tracking app based on the Project 50 concept, designed to help you record and practice Project 50 more effectively.\n\nEarly Rising + Morning Routine + Exercise + Reading & Learning + Healthy Eating + Journaling = Life Transformation Formula\n\nKey Highlights\n1. Visual Magic Wall – 50 digital sticky notes automatically spread, and progress interruptions never disappear.\n2. Soul-Searching Journaling – Each habit comes with fun prompts like \"What did you realize while working out today?\"\n3. Social Sharing Assistant – After logging your progress, generate stylish growth cards with one tap.\n4. Anti-Grind Mode – 15 minutes = 1 hour of workout; Sleeping 8 hours = Waking up early successfully.\n\nWhy Choose Wasabi 50?\n* A special cure for chronic procrastinators\n* A visual progress wall – Start collecting your gold stars on the board.\n* 7 habit-specific “cheat codes” – You define the rules:\n    * \"Failed to wake up early? Sleeping well counts too.\"\n    * \"No time to read? Audiobooks count.\"\n* No social ranking | No spammy reminders | No perfectionism pressure\n\nWasabi 50 Might Not Be for You If:\n* You want to freely add/remove habits (We focus on 7 core habits).\n* You need others to supervise your progress (Here, you have only a warm progress wall).\n* You expect a flawless streak record (Missed 3 days? Just tap to restore progress).\n\n# Wasabi Philosophy\nTrue discipline is not about extreme self-restraint. It’s about reading one more page each day. It’s about having the courage to start again after a break. It’s about looking at your magic wall and thinking, \"Wow, I’ve come this far.\"\n\nKeywords\nHabit Building | Self-Discipline Tool | Growth Journal | Anxiety-Free Design | Life Tracking\n\nWho Is It For?\n• Struggling to wake up early? | Always breaking your reading streak? | An on-and-off fitness enthusiast? \n• Stressed by writing summaries? | Want self-discipline without the pressure? | Aesthetically obsessed with social media?\n\nhttps://hdify.notion.site/1b47ac8f634681fcbeebf08efe9d2066\n\nTerms of Service:\nhttps://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/84/be/09/84be09e0-9cfa-2522-dc35-58be4b83abd4/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/cc/53/7b/cc537bf8-1e47-5cb0-3dad-e16498e50f2a/iPhone_-_03.jpg/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/bc/85/8e/bc858e90-6dd8-ba67-eaeb-e210e9b2db97/iPhone_-_04.jpg/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/22/49/66/22496618-916c-a6e3-ee9a-e768aa16defa/iPhone_-_08.jpg/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b1/79/a4/b179a430-c587-f21b-da97-37e6b51e2549/iPhone_-_02.jpg/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/33/0b/fa/330bfa1b-7fdd-bb35-c98f-142d405aad71/iPhone_-_05.jpg/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c7/d0/22/c7d0221c-f3ed-da4a-2290-c68cce1a7944/iPhone_-_06.jpg/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/5a/f4/6e/5af46eaf-c704-6054-25b4-8cfa7c2950c6/iPhone_-_07.jpg/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b2/e7/b5/b2e7b595-a6c6-8f3b-bebe-638981f4888e/iPhone_-_01.jpg/1290x2796bb.jpg"
+        ],
+        "ipad": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/9d/0c/dc/9d0cdc27-f690-2ffd-73b7-65bf9cb1e95f/iPad_-_03.jpg/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/68/27/c5/6827c5d6-bceb-133e-d951-f24b37b655ae/iPad_-_04.jpg/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/35/ef/66/35ef66c4-4e21-a7d1-5be3-9bcc70da8c8e/iPad_-_02.jpg/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/81/03/b4/8103b4f1-5c76-8b68-9e11-39a899d732b8/iPad_-_05.jpg/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/00/11/6a/00116a49-c2fc-09aa-125b-5ac39004578f/iPad_-_07.jpg/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/42/97/d5/4297d5fe-586a-2eb5-54de-38510b2b6474/iPad_-_06.jpg/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/4a/47/1c/4a471c61-c5ed-36a2-923e-6fe1c2332a3e/iPad_-_01.jpg/2048x2732bb.jpg"
+        ],
+        "mac": []
+      },
+      "url": "https://apps.apple.com/us/app/wasabi-50-project-50-journey/id6742366538?uo=4",
+      "version": "1.0.4",
+      "rating": 5,
+      "genres": [
+        "Health & Fitness"
+      ],
+      "formattedPrice": "$0.99",
+      "device": "universal",
+      "reviews": [
+        {
+          "id": "13174704130",
+          "title": "希望可以灵活设置开始挑战时间",
+          "content": "今天刚下载，体验感还是不错的。建议可以灵活设置挑战时间",
+          "rating": 5,
+          "author": "秋000Q1",
+          "version": "1.0.3",
+          "date": "2025-09-23T07:57:30-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "13047312392",
+          "title": "还可以",
+          "content": "不错",
+          "rating": 5,
+          "author": "奖学金大家都觉得",
+          "version": "1.0.3",
+          "date": "2025-08-22T07:19:16-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12950293473",
+          "title": "确实好用",
+          "content": "小众但好用，很适合我这样的懒人",
+          "rating": 5,
+          "author": "Jojungjon",
+          "version": "1.0.3",
+          "date": "2025-07-29T05:06:26-07:00",
+          "country": "cn"
+        }
+      ]
+    },
+    {
+      "id": 6514305385,
+      "title": "Epub繁简通",
+      "description": "轻松跨越简繁差异，畅享无缝阅读体验！「Epub繁简通」让你在中文语言环境下自由转换书籍格式。不再为简繁体转换烦恼，无论是学习、工作还是娱乐，『Epub繁简通』都让你的电子书阅读更加顺畅。\n\n主要功能：\n* 简繁互换：支持epub、txt、md、srt格式的自由转换。\n* 横竖切换：支持epub的横竖屏切换，导出阅读时，请确保您的阅读器是支持epub横竖规范的（如苹果的「图书」），该功能现在为测试阶段，如遇问题，请联系作者，我们将不断完善。\n* 极速转换：一键操作，秒级完成转换。\n* 保持美观：保留原有排版和格式，无损阅读体验。\n* 极简界面：直观操作，让你轻松上手。\n\n适用场景：\n* 热爱阅读：无论偏爱简体还是繁体，满足你随时随地的阅读偏好。\n* 教育工作者：为教学提供多语言支持，让学习更高效。\n* 文化爱好者：跨越文字差异，促进简繁中文之间的文化交流。\n\n马上下载『Epub繁简通』，开启你的无缝阅读之旅吧！让简繁转换不再是难题，让阅读更舒适、更贴心！",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a1/e2/a5/a1e2a5be-5262-aa95-3f19-9c65473a396a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/75/64/2f/75642f1b-cdef-0d74-2056-8c1ff8ebd15a/773af28c-dd43-4797-8b7e-40f8ebb6f886_iPhone_14__U0026_15_Pro_Max_-_5.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1a/e0/06/1ae00693-45b4-6b77-7064-04036a168d6d/b59e804e-063a-4948-8443-b0765d28c7a7_iPhone_14__U0026_15_Pro_Max_-_6.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/05/61/a5/0561a5da-6264-f29a-2942-f8b9bce28df0/c4f88798-ee1b-45c8-be40-39f4809ed887_iPhone_14__U0026_15_Pro_Max_-_7.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/00/03/93/00039339-05d1-15c6-2781-8fee4f91db9b/71b6a511-bd21-4ad4-bfe9-cfc9876d02d8_iPhone_14__U0026_15_Pro_Max_-_9.png/1290x2796bb.jpg"
+        ],
+        "ipad": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/2a/cd/bd/2acdbd3b-2d97-978b-ad29-5e070d92c909/2efad89f-b183-412e-9f5f-8a5de95e920d_12.9__U82f1_U5bf8_2048_x_2732_-_P1.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/50/31/bd/5031bd6d-bb57-8939-c85c-d08d80236713/e1d2bec2-e9eb-4779-bbb2-71465eafe1cf_13_U82f1_U5bf8_2064_x_2752_-_P2.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/8f/b2/6a/8fb26ac6-5ac4-48fb-35bd-c4002a9f7435/cf959c82-5587-44c9-a30c-f94fc839d795_13_U82f1_U5bf8_2064_x_2752_-_P3.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/80/3d/60/803d6037-1ef8-39f8-e0b8-cc89c319cc99/5fe90dfb-4874-4c71-97cb-666787ac660f_13_U82f1_U5bf8_2064_x_2752_-_P4.png/2064x2752bb.jpg"
+        ],
+        "mac": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d4/23/54/d4235495-2c39-4af0-2327-9da3aad64468/f558f102-914e-4bd4-8a8c-5592716f5a5a_Mac_U7b80_U4f53_U4e0a_U67b6_U9884_U89c8_U9875_-_01.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/0f/97/aa/0f97aaef-bb59-de52-e205-d54557e5427a/1ab11038-e22d-457a-b392-8938a07a5f77_Mac_U7b80_U4f53_U4e0a_U67b6_U9884_U89c8_U9875_-_02.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a6/f9/8b/a6f98b81-ac82-1bad-9276-05aff006b5e5/9aeb37f9-360e-4df2-b9a5-d9ec4e0d2897_Mac_U7b80_U4f53_U4e0a_U67b6_U9884_U89c8_U9875_-_03.png/2880x1800bb.jpg"
+        ]
+      },
+      "url": "https://apps.apple.com/us/app/epub%E7%B9%81%E7%AE%80%E9%80%9A/id6514305385?uo=4",
+      "version": "1.2.7",
+      "rating": 5,
+      "genres": [
+        "Books"
+      ],
+      "formattedPrice": "$7.99",
+      "device": "universal",
+      "reviews": [
+        {
+          "id": "13173967559",
+          "title": "非常好用",
+          "content": "很好用,对于喜欢内地翻译术语但繁体字,不喜欢港台繁体字术语翻译的,这个太有用了.缺点就是要用传统汉字书籍竖向排布时候,显示数字编号会变成横向倾倒显示有bug,还有英文时候无脑竖向排布不利于观察,还有代码块代码等, 以及汉字注释无脑竖向排版显然就不合理,建议代码块,汉字注释,以及英文显示按照原本的横向显示阅读起来体验会好些.",
+          "rating": 5,
+          "author": "少帥丶丿",
+          "version": "1.2.7",
+          "date": "2025-09-23T04:41:19-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "13077459158",
+          "title": "作者问题反馈很及时",
+          "content": "本来没找到需要的文件格式版本，联系上作者后说了需求帮我解决了，感谢",
+          "rating": 5,
+          "author": "世界和平4460",
+          "version": "1.2.6",
+          "date": "2025-08-30T00:40:19-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "12922274456",
+          "title": "挺好用的",
+          "content": "对于反馈也及时处理，横竖切换方便。希望越做越好",
+          "rating": 5,
+          "author": "光之旅途",
+          "version": "1.2.6",
+          "date": "2025-07-22T04:58:24-07:00",
+          "country": "cn"
+        },
+        {
+          "id": "11840328223",
+          "title": "好用！",
+          "content": "非常好用！转换速度快、准确、方便，真是帮了大忙！支持一下作者，期待未来有更多更好的功能",
+          "rating": 5,
+          "author": "forevernamie",
+          "version": "1.1.0",
+          "date": "2024-10-16T06:41:31-07:00",
+          "country": "cn"
+        }
+      ]
+    },
+    {
+      "id": 6749874426,
+      "title": "ShotFit – Screenshot Resize",
+      "description": "ShotFit is a Mac app that turns raw screenshots into polished, platform-ready preview images in seconds. Perfect for App Store listings, social media posts, cover designs, or tutorial visuals — without tedious cropping and editing.\n\nKey Features:\n* Smart Size Presets – Includes Mac App Store, Bilibili, TikTok, Instagram, X/Twitter, and other popular aspect ratios\n* Simple Editing – Drag to move, zoom with sliders, or reset to the perfect fit in one click\n* Stylish Backgrounds – Solid colors, curated gradients, or image fills; save your favorite combos\n* Smooth Rounded Corners – Pixel-perfect, anti-aliased export exactly matching the preview\n* Batch Export – Process multiple images at once with automatic file reveal\n* Auto Memory – Remembers your last used settings for faster next-time use\n\nWhy ShotFit?\n* Save time: Presets + batch export eliminate repetitive work\n* Look better: Backgrounds and rounded corners give instant premium feel\n* Worry-free: What you see is exactly what you get\n* Easy to use: Clean UI and smooth controls — learn in minutes\n\nWho’s it for?\n* Developers, designers, and marketers\n* Content creators for videos, covers, and tutorials\n* Anyone who wants raw screenshots to look polished instantly\n\nTerms of Service: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/ \nPrivacy Policy: https://www.notion.so/hdify/Privacy-Policy-24a7ac8f6346815eb4dacb30ee52f79a\n Support: myhdify@gmail.com",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/28/14/a4/2814a4c6-9e28-3d5f-fb33-44f5f74b1bb1/AppIcon-0-0-85-220-0-1-0-2x.png/100x100bb.png",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/1b/98/c0/1b98c09e-d748-78ba-49f9-68114b6046c3/Home-2880x1800.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/79/bc/9d/79bc9d43-cc24-b70a-12f8-79d0ca134ae9/_U6e10_U53d8_U8272-2880x1800.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/30/4c/34/304c348b-7a45-f095-d3c4-26de7496ec05/_U80cc_U666f_U56fe-2880x1800.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d6/7a/e0/d67ae024-7840-d155-61c8-80aae48886a0/_U7eaf_U8272-2880x1800.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ad/d3/34/add334fc-e2a5-24a8-0cf5-862fd1b08f4d/_U5c3a_U5bf8-2880x1800.png/800x500bb.jpg"
+        ],
+        "ipad": [],
+        "mac": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/1b/98/c0/1b98c09e-d748-78ba-49f9-68114b6046c3/Home-2880x1800.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/79/bc/9d/79bc9d43-cc24-b70a-12f8-79d0ca134ae9/_U6e10_U53d8_U8272-2880x1800.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/30/4c/34/304c348b-7a45-f095-d3c4-26de7496ec05/_U80cc_U666f_U56fe-2880x1800.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d6/7a/e0/d67ae024-7840-d155-61c8-80aae48886a0/_U7eaf_U8272-2880x1800.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ad/d3/34/add334fc-e2a5-24a8-0cf5-862fd1b08f4d/_U5c3a_U5bf8-2880x1800.png/2880x1800bb.jpg"
+        ]
+      },
+      "url": "https://apps.apple.com/us/app/shotfit-screenshot-resize/id6749874426?mt=12&uo=4",
+      "version": "1.1.1",
+      "rating": 0,
+      "genres": [
+        "Graphics & Design"
+      ],
+      "formattedPrice": "Free",
+      "device": "mac",
+      "reviews": []
+    },
+    {
+      "id": 1370721516,
+      "title": "PicHD Plus",
+      "description": "The World of Anime, Crystal Clear!\n\nHey, anime fans! Still frustrated by blurry manga images? Don’t worry, we get you!\n\nImagine this: your favorite anime character, every strand of hair, every expression sharp and clear. Or those stunning illustrations, where every detail is vividly visible. Sounds amazing, right?\n\nWell, now it’s all within reach! Our brand new AI-powered image upscaling app is here to satisfy your craving for a high-definition anime world.\n\nWhy choose us?\n* Anime-Exclusive AI: Our AI is like a friend who really gets you, specially trained to enhance anime images to perfection.\n* Privacy Protection: All processing is done on your device, ensuring that every treasured image remains completely secure.\n* Simple and Easy to Use: Even if you’re not tech-savvy, you’ll find it easy to use. One-click operation makes your images crystal clear in an instant.\n* A Must-Have for Manga Fans: Specifically optimized for manga and illustrations, ensuring every page delivers the best visual experience.\n\nYou can check out more sample images and details on our website:\n\nhttps://hdify.notion.site/aa610fa970044c1fb7ec8f140f58aabf?v=3212a36c580d4a28b6a0c141933eba39",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0f/25/b7/0f25b76d-a977-bf44-11c0-27c02bf243c4/AppIcon-0-0-85-220-0-0-2x.png/100x100bb.png",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ce/27/1c/ce271cd3-e0b0-9562-1685-550e2d0e4b5c/917a9213-6c62-41d9-8416-50fcf04958c3_HDify__U4e0a_U67b6_U9884_U89c8_U56fe_EN_1.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/66/d1/a4/66d1a4cc-29b1-a50f-8905-b16490cd3a30/4928376d-9e20-419e-a2df-ddd77fa4b816_HDify__U4e0a_U67b6_U9884_U89c8_U56fe_EN_2.png/800x500bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7a/70/96/7a709658-0bd6-ee05-7644-4f6f96c7e6f8/19cc07d2-66c5-4ee7-addd-63dd5fe36b3c_HDify__U4e0a_U67b6_U9884_U89c8_U56fe_EN_3.png/800x500bb.jpg"
+        ],
+        "ipad": [],
+        "mac": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ce/27/1c/ce271cd3-e0b0-9562-1685-550e2d0e4b5c/917a9213-6c62-41d9-8416-50fcf04958c3_HDify__U4e0a_U67b6_U9884_U89c8_U56fe_EN_1.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/66/d1/a4/66d1a4cc-29b1-a50f-8905-b16490cd3a30/4928376d-9e20-419e-a2df-ddd77fa4b816_HDify__U4e0a_U67b6_U9884_U89c8_U56fe_EN_2.png/2880x1800bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7a/70/96/7a709658-0bd6-ee05-7644-4f6f96c7e6f8/19cc07d2-66c5-4ee7-addd-63dd5fe36b3c_HDify__U4e0a_U67b6_U9884_U89c8_U56fe_EN_3.png/2880x1800bb.jpg"
+        ]
+      },
+      "url": "https://apps.apple.com/us/app/pichd-plus/id1370721516?mt=12&uo=4",
+      "version": "1.0.3",
+      "rating": 0,
+      "genres": [
+        "Utilities",
+        "Productivity"
+      ],
+      "formattedPrice": "Free",
+      "device": "mac",
+      "reviews": []
+    },
+    {
+      "id": 6754076767,
+      "title": "VoiceSmith – AI Voice Studio",
+      "description": "Xiao Yinjiang is a professional voice synthesis application designed for creators and developers. It supports text-to-speech, SRT subtitle dubbing, podcast creation, and batch conversion, meeting diverse voice productivity needs. With intuitive parameter controls and real-time preview, you can quickly produce natural and smooth multilingual voiceovers and export high-quality audio with a single click.\n\nText-to-Speech (TTS)\n* Multi-language and multi-voice options, supporting male/female voices and more\n* Fine control over speech rate, pitch, and volume with real-time preview\n* One-click audio export, ideal for dubbing, reading, narration, and more\n\nSRT Subtitle Dubbing\n* Import standard SRT files to automatically generate time-synced voiceovers\n* Display subtitles and timeline, supporting single-line playback and full preview\n* Share TTS voice parameter settings, keeping exported results synchronized with the timeline\n\nPodcast Creation\n* AI-assisted script generation with manual editing and optimization\n* Multi-character voiceovers with background music integration\n* One-click export of complete podcast audio\n\nUse Cases: Short video/advertising dubbing, online courses and audiobooks, podcast production, multilingual content distribution, fast subtitle dubbing, and more. Download now to start creating professional AI voiceovers efficiently.\n\nTerms of Service: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/ \nPrivacy Policy: https://hdify.notion.site/2037ac8f634681608d35caa6296e48b2",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/77/71/6c/77716c65-ed61-0aab-eecf-3b2f69c8ac21/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e1/83/9e/e1839e32-a43d-2388-2d8b-5c1c8c4c01eb/Simulator_Screenshot_-_iPhone_16_Pro_Max_-_2025-10-17_at_03.13.26-1284x2778.png/1284x2778bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/32/c6/c4/32c6c495-3cd2-f9da-a12d-d05b3fb16219/Simulator_Screenshot_-_iPhone_16_Pro_Max_-_2025-10-17_at_03.06.35-1284x2778.png/1284x2778bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/91/a0/30/91a03087-8407-32be-237c-91edf3e75390/Simulator_Screenshot_-_iPhone_16_Pro_Max_-_2025-10-17_at_03.07.07-1284x2778.png/1284x2778bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/37/8b/d7/378bd7e5-2f49-0b48-3713-05101e572e4d/Simulator_Screenshot_-_iPhone_16_Pro_Max_-_2025-10-17_at_03.06.08-1284x2778.png/1284x2778bb.jpg"
+        ],
+        "ipad": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/53/e9/f4/53e9f4ce-29a5-b2cf-c3bf-b43421b3f6bb/Simulator_Screenshot_-_iPad_Air_13-inch__U0028M3_U0029_-_2025-10-17_at_03.23.27.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7a/78/06/7a780678-fb67-5e58-d737-8d003b8a44d7/Simulator_Screenshot_-_iPad_Air_13-inch__U0028M3_U0029_-_2025-10-17_at_03.23.32.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/59/de/3a/59de3a81-6bb3-613b-d5e4-502b5e085a97/Simulator_Screenshot_-_iPad_Air_13-inch__U0028M3_U0029_-_2025-10-17_at_03.23.30.png/2048x2732bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/3f/d6/31/3fd631f4-29d0-c5b9-1fd8-2735d312723b/Simulator_Screenshot_-_iPad_Air_13-inch__U0028M3_U0029_-_2025-10-17_at_03.23.35.png/2048x2732bb.jpg"
+        ],
+        "mac": []
+      },
+      "url": "https://apps.apple.com/us/app/voicesmith-ai-voice-studio/id6754076767?uo=4",
+      "version": "1.0.0",
+      "rating": 0,
+      "genres": [
+        "Photo & Video"
+      ],
+      "formattedPrice": "Free",
+      "device": "universal",
+      "reviews": []
+    },
+    {
+      "id": 6746719522,
+      "title": "ScanWifi - Smart WiFi Scanner",
+      "description": "【ScanWifi - Smart WiFi Scanner & Connection Tool】\nTired of typing complex WiFi passwords? ScanWifi offers an efficient solution! Simply scan WiFi information from images or QR codes to instantly recognize and connect to networks, making your internet experience hassle-free.\n\n【Key Features】\nSmart Text Recognition: Automatically extract WiFi names and passwords from photos or screenshots\nQR Code Scanning: Quickly recognize WiFi QR codes and connect with one tap\nAdvanced Recognition Algorithm: Intelligently extract WiFi credentials from images with multiple possible matches\nWiFi Sharing: Generate elegant WiFi connection cards and QR codes to easily share with friends and family\nNetwork Management: Save frequently used WiFi information for quick access\nSecurity & Privacy: All data stored locally on your device, ensuring your network security\n\n【Use Cases】\nQuickly connect to WiFi information posted on walls in cafes and restaurants\nPhotograph and recognize hotel room WiFi password cards\nShare home WiFi with visitors without verbally communicating complex passwords\nSave and manage WiFi information for multiple locations\nQuickly connect to networks printed on receipts, business cards, or documents\nNo more copying, memorizing, or repeatedly trying to enter WiFi passwords. ScanWifi makes network connections simple and natural. Download ScanWifi and say goodbye to WiFi connection troubles!\n\nPrivacy Policy：https://hdify.notion.site/Privacy-Policy-2087ac8f634681729492faca130d9409\nUser Agreement：https://hdify.notion.site/Terms-of-Service-2087ac8f634681d9a139c5adb36bdf89",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/70/9a/22/709a2251-3d64-3704-26e9-29e14df09855/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg",
+      "screenshots": {
+        "iphone": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/21/a1/a8/21a1a8b6-f74b-43d1-813b-db9237b7f0db/3._U81ea_U52a8_U4fdd_U5b58.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c4/a3/ec/c4a3ece4-2732-c5ad-f905-e050c62a4715/2._U667a_U80fd_U8bc6_U522b_1.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ef/a8/da/efa8daba-1c93-fd14-d7fc-66499fb1d3de/1._U626b_U7784_U5f55_U5165.png/1290x2796bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/db/59/87/db598753-ee5c-435f-2b11-2e6f017f55c0/4._U8f7b_U677e_U5206_U4eab.png/1290x2796bb.jpg"
+        ],
+        "ipad": [
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/b7/52/82/b752823c-457a-730b-fa97-ed2422d478bb/2._U667a_U80fd_U8bc6_U522b_Uff08iPad_Uff09.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/fe/ab/bd/feabbde8-16e1-df3d-dc48-99a6c22e2230/3._U81ea_U52a8_U4fdd_U5b58_Uff08iPad_Uff09.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ad/4a/43/ad4a4383-8689-01fe-f630-39e8268ea301/4._U8f7b_U677e_U5206_U4eab_Uff08iPad_Uff09.png/2064x2752bb.jpg",
+          "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0f/da/ea/0fdaea9c-3980-5ffd-eac7-da97749baa44/1._U626b_U7784_U5f55_U5165_Uff08iPad_Uff09.png/2064x2752bb.jpg"
+        ],
+        "mac": []
+      },
+      "url": "https://apps.apple.com/us/app/scanwifi-smart-wifi-scanner/id6746719522?uo=4",
+      "version": "1.0.0",
+      "rating": 0,
+      "genres": [
+        "Photo & Video"
+      ],
+      "formattedPrice": "$0.99",
+      "device": "universal",
+      "reviews": []
+    }
+  ],
+  "reviews": [
+    {
+      "id": "13353828506",
+      "title": "不错",
+      "content": "目前用着挺好，希望能一直维护下去。",
+      "rating": 5,
+      "author": "l丨l丨l",
+      "version": "1.0.5",
+      "date": "2025-11-03T19:49:41-07:00",
+      "country": "cn",
+      "appId": 6751633451,
+      "appName": "TXT to EPUB - eBook Converter"
+    },
+    {
+      "id": "13318258244",
+      "title": "问题求助",
+      "content": "请问一下转换完之后软件里面有保存被转换后的文件吗",
+      "rating": 5,
+      "author": "像极了，芹菜叶",
+      "version": "1.0.3",
+      "date": "2025-10-26T13:45:16-07:00",
+      "country": "cn",
+      "appId": 6751633451,
+      "appName": "TXT to EPUB - eBook Converter"
+    },
+    {
+      "id": "13273923384",
+      "title": "导入失败",
+      "content": "一直提示我打开的txt未能使用指定编码打开文件，所以导入一直失败",
+      "rating": 4,
+      "author": "不会：吃吧",
+      "version": "1.0.3",
+      "date": "2025-10-16T06:50:32-07:00",
+      "country": "cn",
+      "appId": 6751633451,
+      "appName": "TXT to EPUB - eBook Converter"
+    },
+    {
+      "id": "13216197428",
+      "title": "很好用，非常便捷",
+      "content": "app转换很好用，速度很快，特别是ai生成封面太棒了",
+      "rating": 5,
+      "author": "顶点",
+      "version": "1.0.3",
+      "date": "2025-10-02T19:21:47-07:00",
+      "country": "cn",
+      "appId": 6751633451,
+      "appName": "TXT to EPUB - eBook Converter"
+    },
+    {
+      "id": "13208507175",
+      "title": "非常棒的app",
+      "content": "功能完美，开发者更新也很迅速，点赞！",
+      "rating": 5,
+      "author": "zhhsbsba",
+      "version": "1.2.9",
+      "date": "2025-10-01T03:11:54-07:00",
+      "country": "cn",
+      "appId": 6746525636,
+      "appName": "DSearch:ADHD Focus Search Tool"
+    },
+    {
+      "id": "13174704130",
+      "title": "希望可以灵活设置开始挑战时间",
+      "content": "今天刚下载，体验感还是不错的。建议可以灵活设置挑战时间",
+      "rating": 5,
+      "author": "秋000Q1",
+      "version": "1.0.3",
+      "date": "2025-09-23T07:57:30-07:00",
+      "country": "cn",
+      "appId": 6742366538,
+      "appName": "Wasabi 50 - Project 50 Journey"
+    },
+    {
+      "id": "13173967559",
+      "title": "非常好用",
+      "content": "很好用,对于喜欢内地翻译术语但繁体字,不喜欢港台繁体字术语翻译的,这个太有用了.缺点就是要用传统汉字书籍竖向排布时候,显示数字编号会变成横向倾倒显示有bug,还有英文时候无脑竖向排布不利于观察,还有代码块代码等, 以及汉字注释无脑竖向排版显然就不合理,建议代码块,汉字注释,以及英文显示按照原本的横向显示阅读起来体验会好些.",
+      "rating": 5,
+      "author": "少帥丶丿",
+      "version": "1.2.7",
+      "date": "2025-09-23T04:41:19-07:00",
+      "country": "cn",
+      "appId": 6514305385,
+      "appName": "Epub繁简通"
+    },
+    {
+      "id": "13132366283",
+      "title": "希望能够添加网址快速访问",
+      "content": "除了应用，网址也是高频使用的，所以希望能够自定义添加网址的功能",
+      "rating": 5,
+      "author": "Jdjdhjdjs111",
+      "version": "1.2.7",
+      "date": "2025-09-13T05:59:14-07:00",
+      "country": "cn",
+      "appId": 6746525636,
+      "appName": "DSearch:ADHD Focus Search Tool"
+    },
+    {
+      "id": "13077459158",
+      "title": "作者问题反馈很及时",
+      "content": "本来没找到需要的文件格式版本，联系上作者后说了需求帮我解决了，感谢",
+      "rating": 5,
+      "author": "世界和平4460",
+      "version": "1.2.6",
+      "date": "2025-08-30T00:40:19-07:00",
+      "country": "cn",
+      "appId": 6514305385,
+      "appName": "Epub繁简通"
+    },
+    {
+      "id": "13047312392",
+      "title": "还可以",
+      "content": "不错",
+      "rating": 5,
+      "author": "奖学金大家都觉得",
+      "version": "1.0.3",
+      "date": "2025-08-22T07:19:16-07:00",
+      "country": "cn",
+      "appId": 6742366538,
+      "appName": "Wasabi 50 - Project 50 Journey"
+    },
+    {
+      "id": "13014629989",
+      "title": "作者什么时候写个安卓版",
+      "content": "请作者出个安卓版",
+      "rating": 5,
+      "author": "snow18675",
+      "version": "2.1.2",
+      "date": "2025-08-14T04:59:15-07:00",
+      "country": "cn",
+      "appId": 6670189381,
+      "appName": "ImagesExtractor"
+    },
+    {
+      "id": "12950293473",
+      "title": "确实好用",
+      "content": "小众但好用，很适合我这样的懒人",
+      "rating": 5,
+      "author": "Jojungjon",
+      "version": "1.0.3",
+      "date": "2025-07-29T05:06:26-07:00",
+      "country": "cn",
+      "appId": 6742366538,
+      "appName": "Wasabi 50 - Project 50 Journey"
+    },
+    {
+      "id": "12922274456",
+      "title": "挺好用的",
+      "content": "对于反馈也及时处理，横竖切换方便。希望越做越好",
+      "rating": 5,
+      "author": "光之旅途",
+      "version": "1.2.6",
+      "date": "2025-07-22T04:58:24-07:00",
+      "country": "cn",
+      "appId": 6514305385,
+      "appName": "Epub繁简通"
+    },
+    {
+      "id": "12913858300",
+      "title": "很棒很棒，继续更新！！！",
+      "content": "这就是梦中情 P 啊，UI 和功能都很苹果，已购入终身会员，希望继续更新下去！！！",
+      "rating": 5,
+      "author": "穆青蛙",
+      "version": "1.2.3",
+      "date": "2025-07-20T02:40:34-07:00",
+      "country": "cn",
+      "appId": 6746525636,
+      "appName": "DSearch:ADHD Focus Search Tool"
+    },
+    {
+      "id": "12866187703",
+      "title": "认真的作者，好用的aop",
+      "content": "在当今信息爆炸的时代，在搜索有用信息的同时，也会收到海量信息的干扰。这个app缓解了对搜索的信息焦虑，专注于问题本身。是一个很不错的app。\nps：提了两个意见，bug很快地就修复了，作者的速度杠杠的，辛苦了～",
+      "rating": 5,
+      "author": "Photic7",
+      "version": "1.2.1",
+      "date": "2025-07-08T00:22:11-07:00",
+      "country": "cn",
+      "appId": 6746525636,
+      "appName": "DSearch:ADHD Focus Search Tool"
+    },
+    {
+      "id": "12831015699",
+      "title": "用起来超级方便",
+      "content": "希望作者能够支持github和tg😁",
+      "rating": 5,
+      "author": "wangluqis",
+      "version": "1.1.3",
+      "date": "2025-06-29T05:01:54-07:00",
+      "country": "cn",
+      "appId": 6746525636,
+      "appName": "DSearch:ADHD Focus Search Tool"
+    },
+    {
+      "id": "12814851105",
+      "title": "很好用，更新速度很快",
+      "content": "虽然一开始觉得终身有点贵，但是作者的态度让我觉得这笔钱花得很值！之前提出希望能给小组件添加分组功能的建议很快就实现了，看到自己喜欢的产品一点点进步，真的很棒！",
+      "rating": 5,
+      "author": "不知道叫什么 ahhh",
+      "version": "1.1.0",
+      "date": "2025-06-25T02:45:55-07:00",
+      "country": "cn",
+      "appId": 6746525636,
+      "appName": "DSearch:ADHD Focus Search Tool"
+    },
+    {
+      "id": "12808499211",
+      "title": "非常好用！",
+      "content": "感觉开会员之后总想不起来用，要用的时候又过期了\n期待永久会员🥺🥺🥺",
+      "rating": 5,
+      "author": "ZERO零凌",
+      "version": "2.1.2",
+      "date": "2025-06-23T09:51:30-07:00",
+      "country": "cn",
+      "appId": 6670189381,
+      "appName": "ImagesExtractor"
+    },
+    {
+      "id": "12764273291",
+      "title": "用起来真方便，很喜欢",
+      "content": "作者能支持下今日头条吗？",
+      "rating": 5,
+      "author": "喜欢温暖阳光的人🌅",
+      "version": "1.0.3",
+      "date": "2025-06-11T20:29:12-07:00",
+      "country": "cn",
+      "appId": 6746525636,
+      "appName": "DSearch:ADHD Focus Search Tool"
+    },
+    {
+      "id": "12756502317",
+      "title": "出色的创意；改进意见",
+      "content": "我觉得这个app的出发点很不错。希望越做越好，让作者获得应有的收益。\n如果app能够在跳转到外部应用时保留在灵动岛中，或许能让后续搜索更加方便？不知道作者有什么想法？",
+      "rating": 5,
+      "author": "Udaric",
+      "version": "1.0.1",
+      "date": "2025-06-09T19:50:28-07:00",
+      "country": "cn",
+      "appId": 6746525636,
+      "appName": "DSearch:ADHD Focus Search Tool"
+    },
+    {
+      "id": "12609593600",
+      "title": "朗读的版本，能不能增加一个传世版的道德经",
+      "content": "朗读的版本，能不能增加一个传世版的道德经",
+      "rating": 5,
+      "author": "道能",
+      "version": "1.0.6",
+      "date": "2025-05-01T23:20:55-07:00",
+      "country": "cn",
+      "appId": 6739570522,
+      "appName": "道德经赏析"
+    },
+    {
+      "id": "12367444426",
+      "title": "很值得一下的软件",
+      "content": "喜欢，很震撼",
+      "rating": 5,
+      "author": "云雾山中人人人",
+      "version": "1.0.6",
+      "date": "2025-02-28T19:39:47-07:00",
+      "country": "cn",
+      "appId": 6739570522,
+      "appName": "道德经赏析"
+    },
+    {
+      "id": "12304449956",
+      "title": "好用，点赞",
+      "content": "很好用，太方便了，和作者提了快捷键支持，立马就支持了，效率直接拉满。",
+      "rating": 5,
+      "author": "喜欢温暖阳光的人🌅",
+      "version": "1.0.1",
+      "date": "2025-02-12T19:12:29-07:00",
+      "country": "cn",
+      "appId": 6741735460,
+      "appName": "GridSplit - AI Image Splitter"
+    },
+    {
+      "id": "12304403284",
+      "title": "好用",
+      "content": "自定义网格切图很实用",
+      "rating": 5,
+      "author": "一米一光一年",
+      "version": "1.0.1",
+      "date": "2025-02-12T18:53:31-07:00",
+      "country": "cn",
+      "appId": 6741735460,
+      "appName": "GridSplit - AI Image Splitter"
+    },
+    {
+      "id": "12266002999",
+      "title": "很好用的软件",
+      "content": "有比较清晰的描述结合有声版的特点，这个软件用起来超级好。作者的用心之作，赞👍。强烈推荐更多人能看到去下载使用",
+      "rating": 5,
+      "author": "6685213",
+      "version": "1.0.4",
+      "date": "2025-02-03T07:05:35-07:00",
+      "country": "cn",
+      "appId": 6739570522,
+      "appName": "道德经赏析"
+    },
+    {
+      "id": "12265700219",
+      "title": "很方便",
+      "content": "开车时候听很方便，静心。",
+      "rating": 5,
+      "author": "特别特别好的这样。",
+      "version": "1.0.4",
+      "date": "2025-02-03T05:40:06-07:00",
+      "country": "cn",
+      "appId": 6739570522,
+      "appName": "道德经赏析"
+    },
+    {
+      "id": "12257036457",
+      "title": "是我见过最全的道德经App了",
+      "content": "很喜欢，多版本对比很实用，各个版本都有，太好了，喜欢男声的朗读。",
+      "rating": 5,
+      "author": "喜欢温暖阳光的人🌅",
+      "version": "1.0.4",
+      "date": "2025-02-01T05:02:00-07:00",
+      "country": "cn",
+      "appId": 6739570522,
+      "appName": "道德经赏析"
+    },
+    {
+      "id": "12251558417",
+      "title": "少见精品",
+      "content": "智慧源泉，掌上经典！\n这款APP将古老的智慧带到指尖，简洁的界面、清晰的注释，让经典易读易懂。无论是通勤路上还是睡前片刻，都能随时汲取道家智慧，感受经典魅力。推荐给每一位追求心灵成长的朋友！",
+      "rating": 5,
+      "author": "黄胖胖就是我",
+      "version": "1.0.4",
+      "date": "2025-01-30T21:22:34-07:00",
+      "country": "cn",
+      "appId": 6739570522,
+      "appName": "道德经赏析"
+    },
+    {
+      "id": "12211665978",
+      "title": "很厉害的软件",
+      "content": "希望作者能更新视频提取功能",
+      "rating": 5,
+      "author": "mgn.dgmwp",
+      "version": "2.1.2",
+      "date": "2025-01-21T05:25:52-07:00",
+      "country": "cn",
+      "appId": 6670189381,
+      "appName": "ImagesExtractor"
+    },
+    {
+      "id": "12032023306",
+      "title": "喜欢！",
+      "content": "好用好用，喜欢💕",
+      "rating": 5,
+      "author": "適識",
+      "version": "2.0.14",
+      "date": "2024-12-06T05:08:37-07:00",
+      "country": "cn",
+      "appId": 6670189381,
+      "appName": "ImagesExtractor"
+    },
+    {
+      "id": "11954940987",
+      "title": "很喜欢的应用",
+      "content": "对于图片囤囤鼠来说，真的太喜欢了。\n\n因为有时看到一张自己很喜欢的壁纸，往往就要在评论区求图了，每每那样子总感觉自己好卑微，然后就是一直在等待，特别是求而不得的时候，这种感觉更加剧烈，让我感觉很痛苦，以致我宁愿放弃自己喜欢的也不愿意感受那种卑微的感觉。\n\n这个软件真的对我帮助我很大，让我可以保有自我的情况下，做一只快乐的囤囤鼠，尽情收藏我喜欢的图片，谢谢你开发者。",
+      "rating": 5,
+      "author": "喜欢温暖阳光的人🌅",
+      "version": "2.0.13",
+      "date": "2024-11-15T19:24:05-07:00",
+      "country": "cn",
+      "appId": 6670189381,
+      "appName": "ImagesExtractor"
+    },
+    {
+      "id": "11840328223",
+      "title": "好用！",
+      "content": "非常好用！转换速度快、准确、方便，真是帮了大忙！支持一下作者，期待未来有更多更好的功能",
+      "rating": 5,
+      "author": "forevernamie",
+      "version": "1.1.0",
+      "date": "2024-10-16T06:41:31-07:00",
+      "country": "cn",
+      "appId": 6514305385,
+      "appName": "Epub繁简通"
+    },
+    {
+      "id": "11803621595",
+      "title": "很方便",
+      "content": "好用的，批量保存还无水印，爽歪歪ꉂ ೭(˵¯̴͒ꇴ¯̴͒˵)౨”",
+      "rating": 5,
+      "author": "一米一光一年",
+      "version": "2.0.3",
+      "date": "2024-10-06T05:20:02-07:00",
+      "country": "cn",
+      "appId": 6670189381,
+      "appName": "ImagesExtractor"
+    },
+    {
+      "id": "11705343039",
+      "title": "非常实用，极大提升了效率",
+      "content": "经常需要从书里摘取图片做笔记，之前每次都要手动截图，费时又麻烦。这款软件真的帮了大忙，一键提取十几张图片，轻松省事，效率翻倍。非常推荐给有相同需求的人！",
+      "rating": 5,
+      "author": "喜欢温暖阳光的人🌅",
+      "version": "1.0.0",
+      "date": "2024-09-09T03:42:35-07:00",
+      "country": "cn",
+      "appId": 6670189381,
+      "appName": "ImagesExtractor"
+    }
+  ]
+}

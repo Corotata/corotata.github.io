@@ -1,44 +1,25 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Loader2, AlertCircle, Monitor, Smartphone, Tablet, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, Monitor, Smartphone, Tablet, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { fetchDeveloperApps, type AppData } from '../services/appStore';
+import type { AppData } from '../services/appStore';
+import appData from '../data/apps.json';
 import ImageWithPlaceholder from './ImageWithPlaceholder';
 
 const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number) => void }) => {
-    const { t, i18n } = useTranslation();
-    const [apps, setApps] = useState<AppData[]>([]);
-    const [filteredApps, setFilteredApps] = useState<AppData[]>([]);
-    const [activeApp, setActiveApp] = useState<AppData | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
+    const { t } = useTranslation();
+    const [apps] = useState<AppData[]>(appData.apps as unknown as AppData[]);
+    const [filteredApps, setFilteredApps] = useState<AppData[]>(appData.apps as unknown as AppData[]);
+    const [activeApp, setActiveApp] = useState<AppData | null>(appData.apps[0] as unknown as AppData);
     const [filter, setFilter] = useState<'all' | 'mac' | 'iphone' | 'ipad'>('all');
     const [currentScreenshotIndex, setCurrentScreenshotIndex] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
-        const loadApps = async () => {
-            setLoading(true);
-            setError('');
-            try {
-                const fetchedApps = await fetchDeveloperApps(i18n.language);
-                setApps(fetchedApps);
-                setFilteredApps(fetchedApps);
-                if (onAppsCountUpdate) {
-                    onAppsCountUpdate(fetchedApps.length);
-                }
-                if (fetchedApps.length > 0) {
-                    setActiveApp(fetchedApps[0]);
-                }
-            } catch (err) {
-                setError(t('showcase.error'));
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        loadApps();
-    }, [i18n.language, t]);
+        if (onAppsCountUpdate) {
+            onAppsCountUpdate(apps.length);
+        }
+    }, [apps.length, onAppsCountUpdate]);
 
     useEffect(() => {
         if (filter === 'all') {
@@ -106,27 +87,7 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
     const currentScreenshots = activeApp ? getCurrentScreenshots(activeApp) : [];
     const isLandscape = activeApp?.device === 'mac';
 
-    if (loading) {
-        return (
-            <section id="showcase" className="py-20 relative min-h-[600px] flex items-center justify-center">
-                <div className="flex flex-col items-center gap-4 text-primary">
-                    <Loader2 className="w-10 h-10 animate-spin" />
-                    <p>{t('showcase.loading')}</p>
-                </div>
-            </section>
-        );
-    }
 
-    if (error) {
-        return (
-            <section id="showcase" className="py-20 relative min-h-[600px] flex items-center justify-center">
-                <div className="flex flex-col items-center gap-4 text-red-500">
-                    <AlertCircle className="w-10 h-10" />
-                    <p>{error}</p>
-                </div>
-            </section>
-        );
-    }
 
     return (
         <section id="showcase" className="py-20 relative">
@@ -191,7 +152,7 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
                                 </div>
                             </motion.button>
                         ))}
-                        {filteredApps.length === 0 && !loading && (
+                        {filteredApps.length === 0 && (
                             <div className="flex flex-col items-center justify-center py-10 text-gray-500 gap-4">
                                 <p>No apps found for this filter.</p>
                                 <button
