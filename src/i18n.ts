@@ -20,10 +20,12 @@ const resources = {
             },
             "showcase": {
                 "title": "Featured Apps",
-                "live_demo": "App Store",
+                "live_demo": "View on App Store",
                 "source_code": "Source Code",
                 "loading": "Loading apps from App Store...",
                 "error": "Failed to load apps. Please try again later.",
+                "screenshots": "Screenshots",
+                "reviews": "User Reviews",
                 "filters": {
                     "all": "All",
                     "mac": "Mac",
@@ -35,7 +37,7 @@ const resources = {
             },
             "about": {
                 "title": "About The Developer",
-                "description": "With over 5 years of experience in iOS development, I specialize in building scalable, high-performance mobile applications. My passion lies in creating intuitive user experiences that solve real-world problems.",
+                "description": "With over 12 years of iOS development experience, I specialize in building scalable, high-performance mobile applications. My passion lies in creating intuitive user experiences that solve real-world problems.",
                 "stats": {
                     "apps": "Apps Launched",
                     "users": "Active Users",
@@ -58,6 +60,7 @@ const resources = {
     zh: {
         translation: {
             "nav": {
+                "brand": "Corotata",
                 "apps": "应用",
                 "about": "关于",
                 "contact": "联系"
@@ -72,10 +75,12 @@ const resources = {
             },
             "showcase": {
                 "title": "精选应用",
-                "live_demo": "App Store",
+                "live_demo": "前往 App Store",
                 "source_code": "源代码",
                 "loading": "正在从 App Store 加载应用...",
                 "error": "加载应用失败，请稍后再试。",
+                "screenshots": "应用截图",
+                "reviews": "用户评价",
                 "filters": {
                     "all": "全部",
                     "mac": "Mac",
@@ -87,7 +92,7 @@ const resources = {
             },
             "about": {
                 "title": "关于开发者",
-                "description": "拥有超过 5 年的 iOS 开发经验，我专注于构建可扩展、高性能的移动应用程序。我的热情在于创造直观的用户体验，解决现实世界的问题。",
+                "description": "拥有超过 12 年的 iOS 开发经验，我专注于构建可扩展、高性能的移动应用程序。我的热情在于创造直观的用户体验，解决现实世界的问题。",
                 "stats": {
                     "apps": "已发布应用",
                     "users": "活跃用户",
@@ -110,6 +115,7 @@ const resources = {
     "zh-TW": {
         translation: {
             "nav": {
+                "brand": "Corotata",
                 "apps": "應用",
                 "about": "關於",
                 "contact": "聯繫"
@@ -124,10 +130,12 @@ const resources = {
             },
             "showcase": {
                 "title": "精選應用",
-                "live_demo": "App Store",
+                "live_demo": "前往 App Store",
                 "source_code": "源代碼",
                 "loading": "正在從 App Store 加載應用...",
                 "error": "加載應用失敗，請稍後再試。",
+                "screenshots": "應用截圖",
+                "reviews": "用戶評價",
                 "filters": {
                     "all": "全部",
                     "mac": "Mac",
@@ -139,7 +147,7 @@ const resources = {
             },
             "about": {
                 "title": "關於開發者",
-                "description": "擁有超過 5 年的 iOS 開發經驗，我專注於構建可擴展、高性能的移動應用程序。我的熱情在於創造直觀的用戶體驗，解決現實世界的問題。",
+                "description": "擁有超過 12 年的 iOS 開發經驗，我專注於構建可擴展、高性能的移動應用程序。我的熱情在於創造直觀的用戶體驗，解決現實世界的問題。",
                 "stats": {
                     "apps": "已發布應用",
                     "users": "活躍用戶",
@@ -167,9 +175,17 @@ i18n
     .init({
         resources,
         fallbackLng: 'en',
+        supportedLngs: ['en', 'zh', 'zh-TW'],
+        detection: {
+            order: ['querystring', 'cookie', 'localStorage', 'navigator'],
+            lookupQuerystring: 'lang',
+            lookupCookie: 'i18next',
+            lookupLocalStorage: 'i18nextLng',
+            caches: ['localStorage', 'cookie'],
+        },
         interpolation: {
-            escapeValue: false
-        }
+            escapeValue: false,
+        },
     });
 
 export default i18n;

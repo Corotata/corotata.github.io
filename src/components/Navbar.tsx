@@ -27,7 +27,7 @@ const Navbar = () => {
                 <div className="flex items-center space-x-2">
                     <Code2 className="w-8 h-8 text-primary" />
                     <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                        DevPortfolio
+                        {t('nav.brand')}
                     </span>
                 </div>
 
