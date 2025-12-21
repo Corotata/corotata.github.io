@@ -8,9 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "update-data": "node scripts/fetch-data.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "update-data": "node scripts/fetch-data.js"
   },
   "dependencies": {
     "@types/js-yaml": "^4.0.9",
