@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Download, ExternalLink } from 'lucide-react';
+import { Download } from 'lucide-react';
 
 const TankoPromo = () => {
     const { t, i18n } = useTranslation();
