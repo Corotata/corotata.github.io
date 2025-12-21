@@ -129,7 +129,7 @@ const BlogList = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-center mb-16"
             >
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary pb-2">
                     {t('blog_page.title')}
                 </h1>
                 <p className="text-gray-400 text-lg max-w-2xl mx-auto">

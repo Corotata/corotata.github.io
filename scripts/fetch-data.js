@@ -1,6 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { exec } from 'child_process';
+import { promisify } from 'util';
+
+const execAsync = promisify(exec);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -8,32 +12,40 @@ const __dirname = path.dirname(__filename);
 const ARTIST_ID = '1367894360';
 const OUTPUT_FILE = path.join(__dirname, '../src/data/apps.json');
 
-async function fetchUrlWithProxy(url) {
-    const proxies = [
-        (u) => `https://corsproxy.io/?${encodeURIComponent(u)}`,
-        (u) => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`
-    ];
+// Use curl for robust fetching (handles redirects/TLS/network better than node fetch in some envs)
+async function fetchWithTimeout(url, timeout = 60000, customHeaders = {}) {
+    // Construct headers string for curl
+    let headerStr = '';
+    const headers = {
+        'User-Agent': customHeaders['User-Agent'] || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'application/json, text/plain, */*',
+        'Connection': 'keep-alive',
+        ...customHeaders
+    };
 
-    // Try direct fetch first (works in Node.js, unlike browser due to CORS)
+    for (const [key, value] of Object.entries(headers)) {
+        headerStr += ` -H "${key}: ${value}"`;
+    }
+
     try {
-        const response = await fetch(url);
-        if (response.ok) return response;
-    } catch (e) {
-        console.log(`Direct fetch failed for ${url}, trying proxies...`);
-    }
+        // Use /usr/bin/curl explicitly and -sS to show errors
+        // Added: --compressed (gzip) to reduce size, --retry 3 for stability
+        const cmd = `/usr/bin/curl -sS -L --compressed --retry 3 --retry-delay 2 --retry-connrefused --max-time ${timeout / 1000} ${headerStr} "${url}"`;
+        const { stdout } = await execAsync(cmd, { maxBuffer: 10 * 1024 * 1024 });
 
-    for (const proxy of proxies) {
-        try {
-            const response = await fetch(proxy(url));
-            if (response.ok) {
-                return response;
-            }
-        } catch (e) {
-            console.warn(`Proxy failed for ${url}, trying next...`);
-        }
+        return {
+            ok: true,
+            json: async () => JSON.parse(stdout),
+            text: async () => stdout
+        };
+    } catch (error) {
+        // exec error includes stderr usually, but let's be explicit
+        throw new Error(`Curl failed (${error.code}): ${error.message} \nStderr: ${error.stderr}`);
     }
-    throw new Error(`All proxies failed for ${url}`);
 }
+
+// Alias for compatibility
+const fetchUrlWithProxy = fetchWithTimeout;
 
 async function fetchAppReviews(appId) {
     const countries = ['us', 'cn', 'tw', 'hk'];
@@ -88,94 +100,122 @@ async function fetchAppScreenshotsFromWeb(appId, country) {
 
     try {
         const appUrl = `https://apps.apple.com/${country}/app/id${appId}`;
-        const response = await fetchUrlWithProxy(appUrl);
+
+        let headers = {};
+        if (country === 'cn') headers['Accept-Language'] = 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7';
+        else if (country === 'tw') headers['Accept-Language'] = 'zh-TW,zh-Hant;q=0.9,en-US;q=0.8,en;q=0.7';
+        else headers['Accept-Language'] = 'en-US,en;q=0.9';
+
+        // Increase timeout to 60s
+        const response = await fetchWithTimeout(appUrl, 60000, headers);
         const html = await response.text();
 
         if (!html) return result;
 
-        const scriptTags = html.match(/<script[^>]*>[\s\S]*?<\/script>/gi) || [];
-        let jsonData = null;
+        // Validating if it's the new page structure (no shelfMapping usually)
+        // Extract all image URLs from <source srcset="..."> and <img src="...">
+        // We capture more context to filter properly
+        const urlRegex = /(?:srcset|src)="([^"]*mzstatic\.com\/image\/thumb\/[^"]*)"/g;
+        let match;
 
-        for (const tag of scriptTags) {
-            if (tag.includes('shelfMapping')) {
-                const contentMatch = tag.match(/<script[^>]*>([\s\S]*?)<\/script>/i);
-                if (contentMatch) {
-                    try {
-                        jsonData = JSON.parse(contentMatch[1]);
-                        break;
-                    } catch (e) {
-                        const content = contentMatch[1];
-                        const firstBrace = content.indexOf('{');
-                        const lastBrace = content.lastIndexOf('}');
-                        if (firstBrace !== -1 && lastBrace !== -1) {
-                            try {
-                                jsonData = JSON.parse(content.substring(firstBrace, lastBrace + 1));
-                                break;
-                            } catch (e2) { }
-                        }
-                    }
+        // Map of UUID -> Best Candidate URL
+        const bestScreenshots = new Map();
+
+        while ((match = urlRegex.exec(html)) !== null) {
+            // Some URLs might be comma separated in srcset, or have ' 1x' suffix
+            const raw = match[1];
+            // Split by comma first (for srcset), then space (for descriptors like 2x)
+            const candidates = raw.split(',').map(s => s.trim().split(' ')[0]);
+
+            for (const cleanUrl of candidates) {
+                // FILTER 1: Must be a likely screenshot source
+                if (!cleanUrl.includes('mzstatic.com')) continue;
+
+                // FILTER 2: Exclude known non-screenshot types
+                if (cleanUrl.includes('AppIcon') ||
+                    cleanUrl.includes('ProfilePhoto') ||
+                    cleanUrl.includes('favicon') ||
+                    cleanUrl.includes('icon')) {
+                    continue;
+                }
+
+                // FILTER 3: Must look like a screenshot source (usually contains 'Purple' or 'Source' or high res pattern)
+                // However, some new apps might not have 'Purple'. 
+                // But typically they do have a UUID.
+
+                // Extract UUID
+                const uuidMatch = cleanUrl.match(/\/([a-f0-9-]{36})\//i);
+                if (!uuidMatch) continue; // No UUID? content is suspicious or not a standard asset
+                const uuid = uuidMatch[1];
+
+                // Extract Dimensions for scoring
+                const sizeMatch = cleanUrl.match(/\/(\d+)x(\d+)([a-z]*)\.[a-z]+$/);
+                let width = 0, height = 0, score = 0;
+
+                if (sizeMatch) {
+                    width = parseInt(sizeMatch[1]);
+                    height = parseInt(sizeMatch[2]);
+                    score = width * height;
+                }
+
+                // Prefer 'bb' suffix (highest quality/bitbucket)
+                if (cleanUrl.includes('bb.')) score += 1000000;
+
+                // Compare with existing best for this UUID
+                if (!bestScreenshots.has(uuid) || score > bestScreenshots.get(uuid).score) {
+                    bestScreenshots.set(uuid, { url: cleanUrl, width, height, score });
                 }
             }
         }
 
-        if (jsonData) {
-            const findShelfMapping = (obj) => {
-                if (!obj || typeof obj !== 'object') return null;
-                if (obj.shelfMapping) return obj.shelfMapping;
-                for (const key in obj) {
-                    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-                        const result = findShelfMapping(obj[key]);
-                        if (result) return result;
-                    }
-                }
-                return null;
-            };
+        // Categorize the best unique screenshots
+        for (const [uuid, data] of bestScreenshots) {
+            const { url, width, height } = data;
 
-            const shelfMapping = findShelfMapping(jsonData);
-            if (shelfMapping) {
-                const extractFromMedia = (mediaKey, targetArray) => {
-                    if (shelfMapping[mediaKey] && shelfMapping[mediaKey].items) {
-                        shelfMapping[mediaKey].items.forEach((item) => {
-                            if (item.screenshot && item.screenshot.template && item.screenshot.width && item.screenshot.height) {
-                                const { template, width, height } = item.screenshot;
-                                const url = template
-                                    .replace('{w}', width.toString())
-                                    .replace('{h}', height.toString())
-                                    .replace('{c}', 'bb')
-                                    .replace('{f}', 'jpg');
-                                targetArray.push(url);
-                            }
-                        });
-                    }
-                };
+            // Heuristic filter: Screenshots must be reasonably large
+            if (width < 300 && height < 300) continue;
 
-                Object.keys(shelfMapping).forEach(key => {
-                    if (key.startsWith('product_media_phone')) {
-                        extractFromMedia(key, result.iphone);
-                    } else if (key.startsWith('product_media_pad')) {
-                        extractFromMedia(key, result.ipad);
-                    } else if (key.startsWith('product_media_mac')) {
-                        extractFromMedia(key, result.mac);
-                    }
-                });
+            // Categorize
+            // iPad: 4:3 or 3:4 aspect ratio, large dims (approx > 2000 on long side usually, but dependent on model)
+            // Mac: Landscape, wide aspect ratio (16:10 etc), very large
+            // iPhone: 19.5:9 usually (~ 2.16) or 16:9 
+
+            const maxDim = Math.max(width, height);
+            const ratio = width > height ? width / height : height / width;
+
+            if (data.url.includes('Mac') || (width > height && width > 1200 && ratio > 1.5)) {
+                // Likely Mac
+                result.mac.push(url);
+            } else if (ratio < 1.45 && ratio > 1.25 && maxDim > 1000) {
+                // 4:3 (1.33) is typical iPad
+                result.ipad.push(url);
+            } else {
+                // Default to iPhone
+                result.iphone.push(url);
             }
         }
 
-        const ratingMatch = html.match(/class="we-customer-ratings__averages__display">([\d.]+)<\/span>/);
+        // Final Sort (optional, but keep consistent order if possible? UUID order is random-ish)
+        result.iphone.sort();
+        result.ipad.sort();
+        result.mac.sort();
+
+        // Rating
+        const ratingMatch = html.match(/class="we-customer-ratings__averages__display">([\d.]+)<\/span>/) ||
+            html.match(/class="l-row">([\d.]+) out of 5/);
         if (ratingMatch && ratingMatch[1]) {
             result.rating = parseFloat(ratingMatch[1]);
         }
 
-        result.iphone = Array.from(new Set(result.iphone));
-        result.ipad = Array.from(new Set(result.ipad));
-        result.mac = Array.from(new Set(result.mac));
-
         return result;
+
     } catch (error) {
         console.error(`Error scraping screenshots for ${appId}:`, error);
         return result;
     }
 }
+
+
 
 async function main() {
     console.log('Starting data fetch...');
@@ -240,12 +280,59 @@ async function main() {
         const appsWithDetails = [];
         const allReviews = [];
 
+        // Helper to fetch localized data
+        const fetchLocalizedData = async (appId) => {
+            const countries = ['us', 'cn', 'tw'];
+            const locales = {};
+
+            for (const c of countries) {
+                try {
+                    const [iosInfo, macInfo] = await Promise.all([
+                        fetchJson(`https://itunes.apple.com/lookup?id=${appId}&entity=software&country=${c}`),
+                        fetchJson(`https://itunes.apple.com/lookup?id=${appId}&entity=macSoftware&country=${c}`)
+                    ]);
+
+                    const info = (iosInfo.results?.[0]) || (macInfo.results?.[0]);
+
+                    // Fetch screenshots using web scraper for the specific region
+                    const webScraped = await fetchAppScreenshotsFromWeb(appId, c);
+
+                    if (info) {
+                        // Priority: API data > Scraped data (API handles localization better than proxies)
+                        const getScreenshots = (apiUrls, scrapedUrls) => {
+                            if (apiUrls && apiUrls.length > 0) return apiUrls;
+                            return scrapedUrls;
+                        };
+
+                        locales[c] = {
+                            title: info.trackName,
+                            description: info.description,
+                            subtitle: info.subtitle,
+                            screenshots: {
+                                iphone: getScreenshots(info.screenshotUrls, webScraped.iphone),
+                                ipad: getScreenshots(info.ipadScreenshotUrls, webScraped.ipad),
+                                mac: getScreenshots(info.screenshotUrls, webScraped.mac) // API usually puts mac shots in screenshotUrls for mac apps
+                            },
+                            rating: info.averageUserRating || 0,
+                            url: info.trackViewUrl // Store localized URL too if available
+                        };
+                    }
+                } catch (e) {
+                    console.warn(`Failed to fetch localized info for ${appId} in ${c}`);
+                }
+            }
+            return locales;
+        };
+
         // Process sequentially to be nice to the API
         for (const app of uniqueApps) {
             console.log(`Processing ${app.title}...`);
-            const [scrapedScreenshots, reviews] = await Promise.all([
+
+            // Fetch validation and additional data
+            const [scrapedScreenshots, reviews, locales] = await Promise.all([
                 fetchAppScreenshotsFromWeb(app.id, country),
-                fetchAppReviews(app.id)
+                fetchAppReviews(app.id),
+                fetchLocalizedData(app.id)
             ]);
 
             let updatedScreenshots = app.screenshots;
@@ -264,7 +351,8 @@ async function main() {
                 ...app,
                 screenshots: updatedScreenshots,
                 rating: scrapedScreenshots.rating || app.rating,
-                reviews: reviews // Keep reviews in app object too if needed, but we'll use global list mostly
+                reviews: reviews, // Keep reviews in app object too if needed, but we'll use global list mostly
+                locales: locales // Add localized data
             });
         }
 

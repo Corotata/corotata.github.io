@@ -1,6 +1,6 @@
 ---
 title: "Markdown 样式展示：探索排版之美"
-date: "2024-05-21"
+date: "2025-05-21"
 description: "这是一篇演示文章，展示了博客对各种 Markdown 语法的支持效果，包括代码、列表、引用、表格和图片。"
 tags: ["Demo", "Design"]
 ---

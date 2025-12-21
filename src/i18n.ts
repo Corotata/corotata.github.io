@@ -61,6 +61,11 @@ const resources = {
                 "rights": "All rights reserved.",
                 "quick_links": "Quick Links",
                 "connect": "Connect"
+            },
+            "tanko_promo": {
+                "title": "Want to create e-books like this?",
+                "description": "This comic is powered by Tanko. Easily package your images into EPUB/PDFs and enjoy an immersive comic reading experience.",
+                "cta": "Download on App Store"
             }
         }
     },
@@ -118,6 +123,11 @@ const resources = {
                 "rights": "版权所有。",
                 "quick_links": "快速链接",
                 "connect": "社交媒体"
+            },
+            "tanko_promo": {
+                "title": "想制作这样的电子书？",
+                "description": "本漫画由 Tanko 制作。轻松将图片打包成 EPUB 或 PDF，并提供沉浸式的漫画阅读体验。",
+                "cta": "前往 App Store 下载"
             }
         }
     },
@@ -175,6 +185,11 @@ const resources = {
                 "rights": "版權所有。",
                 "quick_links": "快速鏈接",
                 "connect": "社交媒體"
+            },
+            "tanko_promo": {
+                "title": "想製作這樣的電子書？",
+                "description": "本漫畫由 Tanko 製作。輕鬆將圖片打包成 EPUB 或 PDF，並提供沉浸式的漫畫閱讀體驗。",
+                "cta": "前往 App Store 下載"
             }
         }
     }

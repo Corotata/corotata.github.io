@@ -1,3 +1,13 @@
+export interface AppLocale {
+  title: string;
+  description: string;
+  subtitle?: string;
+  screenshots?: {
+    iphone: string[];
+    ipad: string[];
+    mac: string[];
+  };
+}
 
 export interface AppData {
   id: number;
@@ -16,6 +26,7 @@ export interface AppData {
   formattedPrice: string;
   device: 'mac' | 'iphone' | 'ipad' | 'universal';
   reviews: AppReview[];
+  locales?: Record<string, AppLocale>;
 }
 
 export interface AppReview {

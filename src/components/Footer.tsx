@@ -48,7 +48,7 @@ const Footer = () => {
                 </div>
 
                 <div className="border-t border-white/5 pt-8 text-center text-gray-500 text-sm">
-                    <p>&copy; {new Date().getFullYear()} DevPortfolio. {t('footer.rights')}</p>
+                    <p>&copy; {new Date().getFullYear()} Corotata. {t('footer.rights')}</p>
                 </div>
             </div>
         </footer>

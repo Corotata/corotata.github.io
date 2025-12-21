@@ -8,6 +8,7 @@ import yaml from 'js-yaml';
 import { ArrowLeft, Calendar, Tag, Languages } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import TankoPromo from '../components/TankoPromo';
 
 interface PostData {
     title: string;
@@ -243,6 +244,9 @@ const BlogPost = () => {
                             {post.content}
                         </ReactMarkdown>
                     </div>
+
+                    {/* Tanko Promo for Comic Posts */}
+                    {post.tags.includes('Comic Creation') && <TankoPromo />}
                 </div>
             </motion.div>
         </article>

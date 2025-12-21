@@ -1,6 +1,6 @@
 ---
 title: "Hello World: My First Post"
-date: "2024-05-20"
+date: "2025-05-20"
 description: "Welcome to my new blog! Here I'll be sharing my thoughts on iOS development and design."
 tags: ["Tech", "Life"]
 ---

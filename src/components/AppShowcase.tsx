@@ -7,13 +7,50 @@ import appData from '../data/apps.json';
 import ImageWithPlaceholder from './ImageWithPlaceholder';
 
 const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number) => void }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+
+    const getLocalizedApp = (app: AppData) => {
+        const lang = i18n.language;
+        let localeKey = 'us';
+        if (lang === 'zh-CN' || lang === 'zh') localeKey = 'cn';
+        else if (lang === 'zh-TW') localeKey = 'tw';
+
+        if (app.locales && app.locales[localeKey]) {
+            const localScreenshots = app.locales[localeKey].screenshots;
+            const hasLocalScreenshots = localScreenshots && (
+                (localScreenshots.iphone && localScreenshots.iphone.length > 0) ||
+                (localScreenshots.mac && localScreenshots.mac.length > 0) ||
+                (localScreenshots.ipad && localScreenshots.ipad.length > 0)
+            );
+
+            // Determine localized URL
+            // If explicit URL exists in locale, use it. Otherwise replace /us/ in the global URL.
+            const localizedUrl = (app.locales[localeKey] as any).url || app.url.replace('/us/', `/${localeKey}/`);
+
+            // Determine localized Rating
+            // If explicit rating exists in locale, use it. Otherwise fallback to global app.rating.
+            const localizedRating = (app.locales[localeKey] as any).rating || app.rating;
+
+            return {
+                ...app,
+                title: app.locales[localeKey].title,
+                description: app.locales[localeKey].description,
+                screenshots: hasLocalScreenshots ? localScreenshots : app.screenshots,
+                url: localizedUrl,
+                rating: localizedRating
+            };
+        }
+        return app;
+    };
     const [apps] = useState<AppData[]>(appData.apps as unknown as AppData[]);
     const [filteredApps, setFilteredApps] = useState<AppData[]>(appData.apps as unknown as AppData[]);
     const [activeApp, setActiveApp] = useState<AppData | null>(appData.apps[0] as unknown as AppData);
     const [filter, setFilter] = useState<'all' | 'mac' | 'iphone' | 'ipad'>('all');
     const [currentScreenshotIndex, setCurrentScreenshotIndex] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [reviewFilter, setReviewFilter] = useState<'all' | 'us' | 'cn' | 'tw' | 'hk'>('all');
+
+    const localizedActiveApp = activeApp ? getLocalizedApp(activeApp) : null;
 
     useEffect(() => {
         if (onAppsCountUpdate) {
@@ -39,6 +76,8 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
             setActiveApp(filteredApps[0]);
         }
         setCurrentScreenshotIndex(0);
+        // Optional: Reset review filter or auto-set based on language
+        // setReviewFilter('all'); 
     }, [filteredApps, activeApp]);
 
     const getDeviceIcon = (device: string) => {
@@ -65,14 +104,14 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
     };
 
     const nextScreenshot = () => {
-        if (!activeApp) return;
-        const screenshots = getCurrentScreenshots(activeApp);
+        if (!localizedActiveApp) return;
+        const screenshots = getCurrentScreenshots(localizedActiveApp);
         setCurrentScreenshotIndex((prev) => (prev + 1) % screenshots.length);
     };
 
     const prevScreenshot = () => {
-        if (!activeApp) return;
-        const screenshots = getCurrentScreenshots(activeApp);
+        if (!localizedActiveApp) return;
+        const screenshots = getCurrentScreenshots(localizedActiveApp);
         setCurrentScreenshotIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
     };
 
@@ -84,7 +123,7 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
         }
     };
 
-    const currentScreenshots = activeApp ? getCurrentScreenshots(activeApp) : [];
+    const currentScreenshots = localizedActiveApp ? getCurrentScreenshots(localizedActiveApp) : [];
     const isLandscape = activeApp?.device === 'mac';
 
 
@@ -136,19 +175,19 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
                             >
                                 <ImageWithPlaceholder
                                     src={app.icon}
-                                    alt={app.title}
+                                    alt={getLocalizedApp(app).title}
                                     className="w-16 h-16 rounded-xl object-cover flex-shrink-0"
                                 />
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-center justify-between mb-1">
                                         <h3 className={`font-bold text-base truncate ${activeApp?.id === app.id ? 'text-primary' : 'text-white'}`}>
-                                            {app.title}
+                                            {getLocalizedApp(app).title}
                                         </h3>
                                         <span className={`text-xs px-2 py-0.5 rounded-full border ${activeApp?.id === app.id ? 'border-primary/30 text-primary' : 'border-white/10 text-gray-400'}`}>
                                             {getDeviceIcon(app.device)}
                                         </span>
                                     </div>
-                                    <p className="text-xs text-gray-400 line-clamp-2">{app.description}</p>
+                                    <p className="text-xs text-gray-400 line-clamp-2">{getLocalizedApp(app).description}</p>
                                 </div>
                             </motion.button>
                         ))}
@@ -186,7 +225,7 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
                                         />
 
                                         {/* Screenshots */}
-                                        <div className="relative z-10 flex gap-4 justify-center w-full overflow-x-auto custom-scrollbar pb-4 items-center">
+                                        <div className="relative z-10 flex gap-4 justify-center w-full items-center">
                                             {isLandscape ? (
                                                 // Mac: Single Large Landscape with Controls
                                                 <div className="relative w-full flex items-center justify-center">
@@ -194,25 +233,25 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
                                                         key={currentScreenshots[currentScreenshotIndex]}
                                                         initial={{ opacity: 0, scale: 0.95 }}
                                                         animate={{ opacity: 1, scale: 1 }}
-                                                        className="relative max-w-full max-h-[400px]"
+                                                        className="relative max-w-full"
                                                     >
                                                         <ImageWithPlaceholder
                                                             src={currentScreenshots[currentScreenshotIndex]}
                                                             alt="App Screenshot"
-                                                            className="max-w-full max-h-[400px] object-contain rounded-lg shadow-2xl"
+                                                            className="max-w-full max-h-[400px] w-auto h-auto object-contain rounded-lg shadow-2xl min-h-[300px] aspect-video"
                                                         />
                                                     </motion.div>
                                                     {currentScreenshots.length > 1 && (
                                                         <>
                                                             <button
                                                                 onClick={(e) => { e.stopPropagation(); prevScreenshot(); }}
-                                                                className="absolute left-0 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                                                                className="absolute left-4 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm"
                                                             >
                                                                 <ChevronLeft className="w-6 h-6" />
                                                             </button>
                                                             <button
                                                                 onClick={(e) => { e.stopPropagation(); nextScreenshot(); }}
-                                                                className="absolute right-0 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                                                                className="absolute right-4 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm"
                                                             >
                                                                 <ChevronRight className="w-6 h-6" />
                                                             </button>
@@ -220,23 +259,25 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
                                                     )}
                                                 </div>
                                             ) : (
-                                                // iPhone/iPad: 3-Column Grid (showing first 3)
-                                                currentScreenshots.slice(0, 3).map((src, idx) => (
-                                                    <motion.div
-                                                        key={src}
-                                                        initial={{ opacity: 0, y: 20 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        transition={{ delay: idx * 0.1 }}
-                                                        className="w-1/3 max-w-[200px]"
-                                                    >
-                                                        <ImageWithPlaceholder
-                                                            src={src}
-                                                            alt={`Screenshot ${idx}`}
-                                                            className="w-full object-contain rounded-xl shadow-xl border border-white/10"
-                                                        />
-                                                    </motion.div>
-                                                ))
+                                                // iPhone/iPad: Horizontal Scroll
+                                                <div className="w-full overflow-x-auto py-8 px-4 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+                                                    <div className="flex gap-4 min-w-min">
+                                                        {currentScreenshots.map((src, idx) => (
+                                                            <div
+                                                                key={src}
+                                                                className="w-[140px] md:w-[200px] flex-shrink-0"
+                                                            >
+                                                                <ImageWithPlaceholder
+                                                                    src={src}
+                                                                    alt={`Screenshot ${idx}`}
+                                                                    className="w-full h-auto object-contain rounded-xl shadow-xl border border-white/10 aspect-[9/19.5]"
+                                                                />
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
                                             )}
+
                                         </div>
 
                                         {/* View Details Overlay */}
@@ -253,20 +294,20 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
                                     {/* Preview Info Bar */}
                                     <div className="p-6 bg-surface border-t border-white/5">
                                         <div className="flex items-start gap-4">
-                                            <ImageWithPlaceholder src={activeApp.icon} alt={activeApp.title} className="w-16 h-16 rounded-xl shadow-lg flex-shrink-0" />
+                                            <ImageWithPlaceholder src={activeApp.icon} alt={getLocalizedApp(activeApp).title} className="w-16 h-16 rounded-xl shadow-lg flex-shrink-0" />
                                             <div className="flex-1 min-w-0">
-                                                <h3 className="text-xl font-bold mb-2 truncate">{activeApp.title}</h3>
+                                                <h3 className="text-xl font-bold mb-2 truncate">{getLocalizedApp(activeApp).title}</h3>
                                                 <div className="flex items-center justify-between flex-wrap gap-4">
                                                     <div className="flex items-center gap-3 text-sm text-gray-400">
                                                         <span className="px-2 py-0.5 bg-white/10 rounded text-xs">{activeApp.version}</span>
                                                         <span>{activeApp.genres[0]}</span>
                                                         <div className="flex items-center gap-1 text-yellow-400">
                                                             <span>★</span>
-                                                            <span>{activeApp.rating.toFixed(1)}</span>
+                                                            <span>{localizedActiveApp?.rating.toFixed(1)}</span>
                                                         </div>
                                                     </div>
                                                     <a
-                                                        href={activeApp.url}
+                                                        href={localizedActiveApp?.url}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary text-white rounded-full font-bold text-xs hover:bg-primary/90 transition-transform hover:scale-105"
@@ -275,7 +316,7 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
                                                     </a>
                                                 </div>
                                                 <p className="mt-3 text-sm text-gray-400 line-clamp-2">
-                                                    {activeApp.description.split('\n')[0]}
+                                                    {getLocalizedApp(activeApp).description.split('\n')[0]}
                                                 </p>
                                             </div>
                                         </div>
@@ -314,20 +355,20 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
                             <div className="p-8 md:p-12">
                                 {/* Header */}
                                 <div className="flex flex-col md:flex-row gap-8 items-start mb-12">
-                                    <ImageWithPlaceholder src={activeApp.icon} alt={activeApp.title} className="w-32 h-32 rounded-3xl shadow-2xl" />
+                                    <ImageWithPlaceholder src={activeApp.icon} alt={getLocalizedApp(activeApp).title} className="w-32 h-32 rounded-3xl shadow-2xl" />
                                     <div className="flex-1 w-full">
                                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
-                                            <h2 className="text-4xl font-bold">{activeApp.title}</h2>
+                                            <h2 className="text-4xl font-bold">{getLocalizedApp(activeApp).title}</h2>
                                         </div>
                                         <div className="flex flex-wrap items-center gap-4 text-gray-400 mb-6">
                                             <span className="px-3 py-1 bg-white/10 rounded-full text-sm">{activeApp.version}</span>
                                             <span>{activeApp.genres.join(', ')}</span>
                                             <div className="flex items-center gap-1 text-yellow-400">
                                                 <span>★</span>
-                                                <span>{activeApp.rating.toFixed(1)}</span>
+                                                <span>{localizedActiveApp?.rating.toFixed(1)}</span>
                                             </div>
                                             <a
-                                                href={activeApp.url}
+                                                href={localizedActiveApp?.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-white rounded-full font-bold text-sm hover:bg-primary/90 transition-transform hover:scale-105 ml-auto md:ml-4"
@@ -336,7 +377,7 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
                                             </a>
                                         </div>
                                         <p className="text-gray-300 text-lg leading-relaxed whitespace-pre-wrap mb-6">
-                                            {activeApp.description}
+                                            {getLocalizedApp(activeApp).description}
                                         </p>
                                     </div>
                                 </div>
@@ -358,28 +399,59 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
                                 {/* Reviews Section */}
                                 {activeApp.reviews && activeApp.reviews.length > 0 && (
                                     <div className="mt-12">
-                                        <h3 className="text-2xl font-bold mb-6">{t('showcase.reviews')}</h3>
+                                        <div className="flex items-center justify-between mb-6">
+                                            <h3 className="text-2xl font-bold">{t('showcase.reviews')}</h3>
+
+                                            {/* Local Review Filter */}
+                                            <div className="flex gap-2 bg-white/5 p-1 rounded-lg">
+                                                {['all', 'us', 'cn', 'tw', 'hk'].map(region => (
+                                                    <button
+                                                        key={region}
+                                                        onClick={() => {
+                                                            // We'll need state for this, but for now let's just use local variable strategy or add state
+                                                            // Since this is inside a map, we need component state.
+                                                            // Let's assume we added [reviewFilter, setReviewFilter] state
+                                                            setReviewFilter(region as any);
+                                                        }}
+                                                        className={`px-3 py-1 rounded-md text-sm transition-colors ${reviewFilter === region
+                                                            ? 'bg-primary text-white'
+                                                            : 'text-gray-400 hover:text-white'
+                                                            }`}
+                                                    >
+                                                        {region.toUpperCase()}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
+
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                            {activeApp.reviews.map((review, idx) => (
-                                                <div key={idx} className="bg-white/5 p-6 rounded-xl border border-white/5">
-                                                    <div className="flex items-center justify-between mb-4">
-                                                        <div className="flex items-center gap-2">
-                                                            <span className="font-bold text-white">{review.title}</span>
-                                                            <div className="flex text-yellow-400 text-xs">
-                                                                {[...Array(5)].map((_, i) => (
-                                                                    <span key={i}>{i < review.rating ? '★' : '☆'}</span>
-                                                                ))}
+                                            {activeApp.reviews
+                                                .filter(review => reviewFilter === 'all' || review.country === reviewFilter)
+                                                .map((review, idx) => (
+                                                    <div key={idx} className="bg-white/5 p-6 rounded-xl border border-white/5">
+                                                        <div className="flex items-center justify-between mb-4">
+                                                            <div className="flex items-center gap-2">
+                                                                <span className="font-bold text-white">{review.title}</span>
+                                                                <div className="flex text-yellow-400 text-xs">
+                                                                    {[...Array(5)].map((_, i) => (
+                                                                        <span key={i}>{i < review.rating ? '★' : '☆'}</span>
+                                                                    ))}
+                                                                </div>
                                                             </div>
+                                                            <span className="text-xs text-gray-500">{review.version}</span>
                                                         </div>
-                                                        <span className="text-xs text-gray-500">{review.version}</span>
+                                                        <p className="text-gray-300 text-sm leading-relaxed mb-4">{review.content}</p>
+                                                        <div className="flex justify-between items-center text-xs text-gray-500">
+                                                            <span>{review.country?.toUpperCase()}</span>
+                                                            <span>- {review.author}</span>
+                                                        </div>
                                                     </div>
-                                                    <p className="text-gray-300 text-sm leading-relaxed mb-4">{review.content}</p>
-                                                    <div className="flex justify-between items-center text-xs text-gray-500">
-                                                        <span>{review.country?.toUpperCase()}</span>
-                                                        <span>- {review.author}</span>
-                                                    </div>
+                                                ))}
+                                            {activeApp.reviews.filter(review => reviewFilter === 'all' || review.country === reviewFilter).length === 0 && (
+                                                <div className="col-span-1 md:col-span-2 text-center py-8 text-gray-500">
+                                                    No reviews found for this region.
                                                 </div>
-                                            ))}
+                                            )}
                                         </div>
                                     </div>
                                 )}

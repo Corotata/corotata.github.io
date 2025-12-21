@@ -1,6 +1,6 @@
 ---
 title: "My 2024 Reading List"
-date: "2024-05-15"
+date: "2025-05-15"
 description: "Books that have influenced my thinking and design philosophy this year."
 tags: ["Reading", "Life"]
 ---
