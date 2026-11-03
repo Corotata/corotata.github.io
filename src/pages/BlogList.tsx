@@ -4,6 +4,7 @@ import yaml from 'js-yaml';
 import { motion } from 'framer-motion';
 import { Calendar, Tag, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { getAllSlugs, resolvePost } from '../services/posts';
 
 interface Post {
     slug: string;
@@ -15,12 +16,6 @@ interface Post {
     lang?: string;
 }
 
-// Load markdown files eagerly at the top level
-// Load markdown files eagerly at the top level
-const enModules = import.meta.glob('../posts/en/*.md', { as: 'raw', eager: true }) || {};
-const zhModules = import.meta.glob('../posts/zh/*.md', { as: 'raw', eager: true }) || {};
-const twModules = import.meta.glob('../posts/tw/*.md', { as: 'raw', eager: true }) || {};
-
 const BlogList = () => {
     const { t, i18n } = useTranslation();
     const [posts, setPosts] = useState<Post[]>([]);
@@ -29,62 +24,13 @@ const BlogList = () => {
 
     useEffect(() => {
         try {
-            console.log('BlogList loading...');
-            console.log('Modules loaded:', {
-                en: Object.keys(enModules).length,
-                zh: Object.keys(zhModules).length,
-                tw: Object.keys(twModules).length
-            });
-
             const loadedPosts: Post[] = [];
             const allTags = new Set<string>(['All']);
-            const processedSlugs = new Set<string>();
 
-            // Helper to get slug from path
-            const getSlug = (path: string) => path.split('/').pop()?.replace('.md', '') || '';
-
-            // 1. Collect all available slugs
-            const allPaths = [
-                ...Object.keys(enModules),
-                ...Object.keys(zhModules),
-                ...Object.keys(twModules)
-            ];
-            allPaths.forEach(path => processedSlugs.add(getSlug(path)));
-
-            // 2. Process each slug
-            processedSlugs.forEach(slug => {
-                const currentLang = i18n.language;
-
-                // Determine which file content to use
-                let content = '';
-                let lang = 'en';
-
-                const enPath = `../posts/en/${slug}.md`;
-                const zhPath = `../posts/zh/${slug}.md`;
-                const twPath = `../posts/tw/${slug}.md`;
-
-                if (currentLang === 'zh-TW') {
-                    if (twModules[twPath]) {
-                        content = twModules[twPath] as string;
-                        lang = 'zh-TW';
-                    } else if (enModules[enPath]) {
-                        content = enModules[enPath] as string;
-                        lang = 'en';
-                    }
-                } else if (currentLang.startsWith('zh')) {
-                    if (zhModules[zhPath]) {
-                        content = zhModules[zhPath] as string;
-                        lang = 'zh';
-                    } else if (enModules[enPath]) {
-                        content = enModules[enPath] as string;
-                        lang = 'en';
-                    }
-                } else {
-                    if (enModules[enPath]) {
-                        content = enModules[enPath] as string;
-                        lang = 'en';
-                    }
-                }
+            getAllSlugs().forEach(slug => {
+                const resolved = resolvePost(slug, i18n.language);
+                const content = resolved?.content || '';
+                const lang = resolved?.lang;
 
                 if (content) {
                     const match = /---\n([\s\S]*?)\n---/.exec(content);
@@ -138,6 +84,7 @@ const BlogList = () => {
             </motion.div>
 
             {/* Tag Filter */}
+            {tags.length > 1 && (
             <div className="flex flex-wrap justify-center gap-3 mb-12">
                 {tags.map(tag => (
                     <button
@@ -152,6 +99,7 @@ const BlogList = () => {
                     </button>
                 ))}
             </div>
+            )}
 
             {/* Posts Grid */}
             <div className="grid gap-8">
@@ -208,7 +156,7 @@ const BlogList = () => {
 
                 {filteredPosts.length === 0 && (
                     <div className="text-center text-gray-500 py-20">
-                        No posts found for this tag.
+                        {posts.length === 0 ? t('blog_page.empty') : 'No posts found for this tag.'}
                     </div>
                 )}
             </div>

@@ -14,7 +14,8 @@ const resources = {
             },
             "blog_page": {
                 "title": "Blog",
-                "description": "Thoughts on iOS development, design, and technology."
+                "description": "Thoughts on iOS development, design, and technology.",
+                "empty": "Dev journal coming soon"
             },
             "hero": {
                 "subtitle": "Building the Future",
@@ -78,6 +79,9 @@ const resources = {
                 "about": "关于",
                 "contact": "联系"
             },
+            "blog_page": {
+                "empty": "开发周记即将开始"
+            },
             "hero": {
                 "subtitle": "构建未来",
                 "title_prefix": "打造极致",
@@ -139,6 +143,9 @@ const resources = {
                 "blog": "博客",
                 "about": "關於",
                 "contact": "聯繫"
+            },
+            "blog_page": {
+                "empty": "開發週記即將開始"
             },
             "hero": {
                 "subtitle": "構建未來",

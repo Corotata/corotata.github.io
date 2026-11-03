@@ -275,6 +275,12 @@ async function main() {
         const allApps = [...iosApps, ...macApps];
         const uniqueApps = Array.from(new Map(allApps.map(app => [app.id, app])).values());
 
+        // Guard: never overwrite apps.json when Apple returns nothing (API hiccup / rate limit).
+        if (uniqueApps.length === 0) {
+            console.error('Apple API returned 0 apps; keeping existing apps.json unchanged.');
+            process.exit(1);
+        }
+
         console.log(`Found ${uniqueApps.length} apps. Fetching details...`);
 
         const appsWithDetails = [];
@@ -365,7 +371,10 @@ async function main() {
             reviews: allReviews.slice(0, 50) // Keep top 50 recent reviews globally
         };
 
-        fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
+        // Write to a temp file first, then rename, so a crash never leaves a half-written apps.json.
+        const tmpFile = `${OUTPUT_FILE}.tmp`;
+        fs.writeFileSync(tmpFile, JSON.stringify(output, null, 2));
+        fs.renameSync(tmpFile, OUTPUT_FILE);
         console.log(`Successfully saved data to ${OUTPUT_FILE}`);
 
     } catch (error) {

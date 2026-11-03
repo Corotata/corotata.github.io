@@ -9,6 +9,7 @@ import { ArrowLeft, Calendar, Tag, Languages } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import TankoPromo from '../components/TankoPromo';
+import { getAvailableLangs, resolvePost } from '../services/posts';
 
 interface PostData {
     title: string;
@@ -17,11 +18,6 @@ interface PostData {
     content: string;
     lang: string;
 }
-
-// Load markdown files eagerly at the top level
-const enModules = import.meta.glob('../posts/en/*.md', { as: 'raw', eager: true }) || {};
-const zhModules = import.meta.glob('../posts/zh/*.md', { as: 'raw', eager: true }) || {};
-const twModules = import.meta.glob('../posts/tw/*.md', { as: 'raw', eager: true }) || {};
 
 const BlogPost = () => {
     const { slug } = useParams();
@@ -36,47 +32,13 @@ const BlogPost = () => {
         const loadPost = async () => {
             console.log('Loading post:', slug, 'Language:', contentLang);
             try {
-                const zhPath = `../posts/zh/${slug}.md`;
-                const enPath = `../posts/en/${slug}.md`;
-                const twPath = `../posts/tw/${slug}.md`;
+                const available = getAvailableLangs(slug || '');
+                setAvailableLangs(available);
 
-                console.log('Checking paths:', { enPath, zhPath, twPath });
-
-                const hasZh = !!zhModules[zhPath];
-                const hasEn = !!enModules[enPath];
-                const hasZhTw = !!twModules[twPath];
-
-                console.log('Available versions:', { hasEn, hasZh, hasZhTw });
-
-                setAvailableLangs({ en: hasEn, zh: hasZh, zhTW: hasZhTw });
-
-                // Try to find the best match based on contentLang
-                let content = '';
-                let lang = 'en';
-
-                if (contentLang === 'zh-TW' && hasZhTw) {
-                    content = twModules[twPath] as string;
-                    lang = 'zh-TW';
-                } else if (contentLang === 'zh' && hasZh) {
-                    content = zhModules[zhPath] as string;
-                    lang = 'zh';
-                } else if (contentLang === 'en' && hasEn) {
-                    content = enModules[enPath] as string;
-                    lang = 'en';
-                } else {
-                    // Fallback logic if current contentLang is not available
-                    if (hasZhTw && contentLang === 'zh-TW') {
-                        // Should have matched above, but just in case
-                        content = twModules[twPath] as string;
-                        lang = 'zh-TW';
-                    } else if (hasZh && contentLang.startsWith('zh')) {
-                        content = zhModules[zhPath] as string;
-                        lang = 'zh';
-                    } else if (hasEn) {
-                        content = enModules[enPath] as string;
-                        lang = 'en';
-                    }
-                }
+                // Best match for contentLang, with shared fallback rules
+                const resolved = resolvePost(slug || '', contentLang);
+                const content = resolved?.content || '';
+                const lang = resolved?.lang || 'en';
 
                 if (content) {
                     console.log('Content found for lang:', lang);
