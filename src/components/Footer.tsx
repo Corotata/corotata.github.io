@@ -24,22 +24,19 @@ const Footer = () => {
                             <li><a href="/#showcase" className="text-gray-400 hover:text-primary transition-colors">{t('showcase.title')}</a></li>
                             <li><a href="/blog" className="text-gray-400 hover:text-primary transition-colors">{t('nav.blog')}</a></li>
                             <li><a href="/#about" className="text-gray-400 hover:text-primary transition-colors">{t('nav.about')}</a></li>
-                            <li><a href="/#contact" className="text-gray-400 hover:text-primary transition-colors">{t('nav.contact')}</a></li>
+                            <li><a href="/contact" className="text-gray-400 hover:text-primary transition-colors">{t('nav.contact')}</a></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="text-white font-bold mb-6">{t('footer.connect')}</h4>
                         <div className="flex space-x-4">
-                            {/* <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-primary hover:text-white transition-all">
-                                <Github className="w-5 h-5" />
+                            {/* 小红书使用文字图标，与邮箱保持相同的圆形触达区域。 */}
+                            <a href="https://www.xiaohongshu.com/user/profile/5eb65cb60000000001000ce9"
+                                target="_blank" rel="noopener noreferrer" aria-label="小红书 / Xiaohongshu" title="小红书 / Xiaohongshu"
+                                className="w-11 h-11 inline-flex items-center justify-center bg-white/5 rounded-full hover:bg-primary hover:text-white transition-all">
+                                <span aria-hidden="true" className="text-[10px] font-bold tracking-tighter whitespace-nowrap">小红书</span>
                             </a>
-                            <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-primary hover:text-white transition-all">
-                                <Twitter className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-primary hover:text-white transition-all">
-                                <Linkedin className="w-5 h-5" />
-                            </a> */}
                             <a href="mailto:myhdify@gmail.com" className="p-3 bg-white/5 rounded-full hover:bg-primary hover:text-white transition-all">
                                 <Mail className="w-5 h-5" />
                             </a>

@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
+import ContactPage from './pages/ContactPage';
 import LegalPage from './pages/LegalPage';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/privacy" element={<LegalPage mode="privacy" />} />
             <Route path="/privacy/*" element={<LegalPage mode="privacy" />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/support" element={<LegalPage mode="support" />} />
             <Route path="/support/*" element={<Navigate to="/support" replace />} />
           </Routes>

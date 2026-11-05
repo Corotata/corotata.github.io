@@ -36,14 +36,14 @@ const Navbar = () => {
                     <a href="/#showcase" className="text-gray-300 hover:text-white transition-colors">{t('nav.apps')}</a>
                     <Link to="/blog" className="text-gray-300 hover:text-white transition-colors">{t('nav.blog')}</Link>
                     <a href="/#about" className="text-gray-300 hover:text-white transition-colors">{t('nav.about')}</a>
-                    <a href="/#contact" className="text-gray-300 hover:text-white transition-colors">{t('nav.contact')}</a>
+                    <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">{t('nav.contact')}</Link>
                 </div>
 
                 <div className="flex items-center space-x-4">
                     <LanguageSwitcher />
-                    <a href="mailto:myhdify@gmail.com" className="p-2 hover:bg-white/10 rounded-full transition-colors">
+                    <Link to="/contact" aria-label={t('nav.contact')} className="p-2 hover:bg-white/10 rounded-full transition-colors">
                         <Mail className="w-5 h-5" />
-                    </a>
+                    </Link>
                     {/* <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-white/10 rounded-full transition-colors">
                         <Github className="w-5 h-5" />
                     </a>
