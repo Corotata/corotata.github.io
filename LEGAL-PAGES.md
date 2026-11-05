@@ -14,9 +14,9 @@
 
 | 类型 | 链接 | 选它的条件 | 现有 App |
 |---|---|---|---|
-| 本地型 | `/privacy` | 不联网，文件和内容只在本机处理 | TXT转EPUB、EPUB转文档、EPUB繁简通（Pro 和旧版）、EPUB封面制作、心流方格、ShotFit、GridSplit、PicHD Plus、兜兜世界、Wasabi 50、DSearch、ScanWifi、找快递、OMG相机、BookSend、EPUB OMG |
+| 本地型 | `/privacy` | 核心文件和内容在本机处理；可选 iCloud 同步需由用户开启 | TXT转EPUB、EPUB转文档、EPUB繁简通（Pro 和旧版）、EPUB封面制作、心流方格、ShotFit、GridSplit、PicHD Plus、兜兜世界、Wasabi 50、DSearch、ScanWifi、找快递、OMG相机、BookSend、EPUB OMG |
 | 翻译类 | `/privacy/translation` | 把用户的文字发给 Google / Microsoft 翻译，或用户自己填 API Key 调 AI 服务 | EPUB翻译官、字幕翻译助手、本地化大师 |
-| 网页导入 | `/privacy/web-import` | 按用户输入的网址直接抓取网页 | Tanko、TinyDrawer |
+| 网页导入 | `/privacy/web-import` | 按用户输入的网址导入内容；TinyDrawer 同时说明在线翻译、快捷指令 AI 和可选 iCloud | Tanko、TinyDrawer |
 | 微软语音 | `/privacy/voice` | 用微软在线语音生成声音 | VoiceSmith |
 | 微信读书 | `/privacy/weread` | 数据只存本机，开启后只存用户自己的 iCloud | BookLines |
 

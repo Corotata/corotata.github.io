@@ -70,10 +70,11 @@ export const PRIVACY: Record<LegalLang, Copy> = {
         collectLocal: (a) => [
             `We do not collect or store any personal information or usage data. ${a} works entirely on your device, and your files and content are never uploaded to us.`,
             'The App contains no advertising or analytics SDKs.',
+            'If the App offers optional iCloud sync, enabling it stores the selected data in your own iCloud account. Apple handles that service; we cannot access your private iCloud database.',
         ],
         collectNet: (a) => [
             `We do not collect, store or have access to your personal information, content or usage data. ${a} has no account system and contains no advertising or analytics SDKs.`,
-            'The only network requests are the ones described in the next section. They go directly from your device to the third-party services named there, never through our servers.',
+            'Content requests for online features go from your device to the services described below. App Store purchases, app information and support links may also require network access.',
         ],
         netTitle: {
             mt: 'Translation services (third parties)',
@@ -92,6 +93,8 @@ export const PRIVACY: Record<LegalLang, Copy> = {
             webparse: [
                 'When you enter or paste a web page address to import images or content, your device requests that page directly from the website itself (for example ArtStation or Bilibili), as a browser would. That website can see your IP address and the request, under its own privacy policy.',
                 'The addresses you enter and the content fetched are processed on your device and are not sent to us.',
+                'TinyDrawer also offers online translation. When you use it, the selected text is sent to Microsoft Edge Translator. If you run an AI task through a configured shortcut, the task content is passed to that shortcut and any service it uses; review the shortcut before running it.',
+                'In apps that offer optional iCloud sync, enabling it stores selected data in your own iCloud account. We cannot access your private iCloud database.',
                 'If you do not want to contact any website, import only local files.',
             ],
             tts: [
@@ -123,10 +126,11 @@ export const PRIVACY: Record<LegalLang, Copy> = {
         collectLocal: (a) => [
             `我们不收集、不存储任何个人信息或使用数据。${a}完全在你的设备上运行，你的文件和内容不会上传给我们。`,
             '本应用不含任何广告或统计 SDK。',
+            '如应用提供可选的 iCloud 同步，开启后所选数据会保存在你自己的 iCloud 账户中，由 Apple 提供服务，我们无法访问你的私人 iCloud 数据库。',
         ],
         collectNet: (a) => [
             `我们不收集、不存储、也无法访问你的个人信息、内容或使用数据。${a}没有账号体系，也不含任何广告或统计 SDK。`,
-            '本应用唯一的网络请求就是下一节所述的那些，它们由你的设备直接发往所列的第三方服务，不经过我们的服务器。',
+            '在线功能的内容请求由你的设备发往下文说明的服务。App Store 购买、应用信息和支持链接也可能需要网络连接。',
         ],
         netTitle: {
             mt: '翻译服务（第三方）',
@@ -145,6 +149,8 @@ export const PRIVACY: Record<LegalLang, Copy> = {
             webparse: [
                 '当你输入或粘贴网页地址来导入图片或内容时，你的设备会像浏览器一样直接向该网站（例如 ArtStation、哔哩哔哩）请求页面。该网站会看到你的 IP 地址和这次请求，并由其自己的隐私政策约束。',
                 '你输入的地址和抓取到的内容都在你的设备上处理，不会发送给我们。',
+                'TinyDrawer 还提供在线翻译：使用时，所选文字会发送到 Microsoft Edge 翻译服务。如你通过已配置的快捷指令执行 AI 任务，任务内容会交给该快捷指令及其使用的服务；运行前请检查快捷指令的处理方式。',
+                '如应用提供可选的 iCloud 同步，开启后所选数据会保存在你自己的 iCloud 账户中，我们无法访问你的私人 iCloud 数据库。',
                 '如果不希望访问任何网站，请只导入本地文件。',
             ],
             tts: [
@@ -176,10 +182,11 @@ export const PRIVACY: Record<LegalLang, Copy> = {
         collectLocal: (a) => [
             `我們不蒐集、不儲存任何個人資訊或使用資料。${a}完全在你的裝置上執行，你的檔案和內容不會上傳給我們。`,
             '本應用程式不含任何廣告或統計 SDK。',
+            '如應用程式提供選用的 iCloud 同步，開啟後所選資料會保存在你自己的 iCloud 帳戶中，由 Apple 提供服務，我們無法存取你的私人 iCloud 資料庫。',
         ],
         collectNet: (a) => [
             `我們不蒐集、不儲存，也無法存取你的個人資訊、內容或使用資料。${a}沒有帳號系統，也不含任何廣告或統計 SDK。`,
-            '本應用程式唯一的網路請求就是下一節所述的那些，它們由你的裝置直接傳送到所列的第三方服務，不經過我們的伺服器。',
+            '線上功能的內容請求由你的裝置傳送到下文說明的服務。App Store 購買、應用程式資訊和支援連結也可能需要網路連線。',
         ],
         netTitle: {
             mt: '翻譯服務（第三方）',
@@ -198,6 +205,8 @@ export const PRIVACY: Record<LegalLang, Copy> = {
             webparse: [
                 '當你輸入或貼上網頁網址來匯入圖片或內容時，你的裝置會像瀏覽器一樣直接向該網站（例如 ArtStation、嗶哩嗶哩）請求頁面。該網站會看到你的 IP 位址和這次請求，並由其自己的隱私權政策規範。',
                 '你輸入的網址和擷取到的內容都在你的裝置上處理，不會傳送給我們。',
+                'TinyDrawer 也提供線上翻譯：使用時，所選文字會傳送到 Microsoft Edge 翻譯服務。如你透過已設定的捷徑執行 AI 任務，任務內容會交給該捷徑及其使用的服務；執行前請檢查捷徑的處理方式。',
+                '如應用程式提供選用的 iCloud 同步，開啟後所選資料會保存在你自己的 iCloud 帳戶中，我們無法存取你的私人 iCloud 資料庫。',
                 '如果不希望連線任何網站，請只匯入本機檔案。',
             ],
             tts: [
