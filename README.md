@@ -71,3 +71,7 @@ export default defineConfig([
   },
 ])
 ```
+
+## 隐私政策与技术支持页
+
+App 上架时填的隐私政策、技术支持链接，见 [LEGAL-PAGES.md](LEGAL-PAGES.md)。
