@@ -43,6 +43,13 @@ h3{font-size:17px;margin:22px 0 4px}
 p{margin:10px 0}ul,ol{padding-left:1.2em}li{margin:6px 0}
 a{color:var(--accent)}
 .faq h3{margin:20px 0 2px}.faq p{margin:0 0 6px;color:var(--muted)}
+.reviews ul{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:12px}
+.reviews li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0}
+.reviews .note{color:var(--muted);font-size:14px;margin:0}
+.reviews .stars{color:var(--accent);letter-spacing:2px;font-size:15px;line-height:1.4}
+.reviews blockquote{margin:6px 0 0;padding:0}.reviews blockquote b{display:block;font-size:16px;line-height:1.5}
+.reviews blockquote p{margin:4px 0 0;font-size:16px;line-height:1.7}
+.reviews .by{color:var(--muted);font-size:13px;margin:10px 0 0;line-height:1.5}
 .rel{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .rel a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:var(--fg)}
 .rel img{width:48px;height:48px;border-radius:11px;border:1px solid var(--line);display:block;margin-bottom:8px}
@@ -64,6 +71,7 @@ footer a{color:var(--muted);margin-right:16px}footer .lang{margin-bottom:10px}fo
 <a class="btn" href="https://apps.apple.com/cn/app/id6755611046">在 App Store 下载</a><span class="meta">含 App 内购买</span>
 <div class="shots"><img src="/apps/tanko/img/zh-Hans-1.webp" width="540" height="1169" alt="我的图书馆：书架里的作品封面，右下角可新建或打开内置浏览器" decoding="async"><img src="/apps/tanko/img/zh-Hans-2.webp" width="540" height="1169" alt="编排页面：以网格排列漫画页面，可拖拽排序" loading="lazy" decoding="async"><img src="/apps/tanko/img/zh-Hans-3.webp" width="540" height="1169" alt="阅读器：全屏显示漫画页面，支持日漫模式" loading="lazy" decoding="async"><img src="/apps/tanko/img/zh-Hans-4.webp" width="540" height="1169" alt="导出电子书：选择 EPUB 或 PDF，并设置标题、作者、语言与阅读版面" loading="lazy" decoding="async"><img src="/apps/tanko/img/zh-Hans-5.webp" width="540" height="1169" alt="内置浏览器：输入网址后加载网页，收集网络图片" loading="lazy" decoding="async"></div>
 <h2>核心功能</h2><p><b>灵活导入：</b>从相册批量导入，或使用内置浏览器，收集您在网页上发现的灵感素材。</p><p><b>强大编排：</b>直观的拖拽即可排序，轻松裁剪、旋转，让每个页面都如您所愿。</p><p><b>沉浸阅读：</b>我们为阅读爱好者设计！支持右→左的日漫模式、横屏双页显示、以及深浅色主题，还原最纯粹的阅读乐趣。</p><p><b>专业导出：</b>一键生成国际标准的 EPUB 或通用的 PDF 文件，在任何设备上与朋友分享您的“大作”。</p><section class="faq"><h2>常见问题</h2><h3>可以导出什么格式？</h3><p>一键生成国际标准的 EPUB，或通用的 PDF 文件。</p><h3>免费版有哪些限制？</h3><p>免费版提供项目创建、图片导入、编辑和带水印导出。升级到 Pro 可解锁无限项目、无限导出次数和无水印导出。</p><h3>图片从哪里导入？</h3><p>可从相册批量导入，也可使用内置浏览器收集网页上的图片素材。</p><h3>支持日漫阅读吗？</h3><p>支持。阅读器提供从右到左的日漫模式、横向双页显示，以及深浅色主题。</p></section><h2>免费版与 Pro 版</h2><p><b>免费体验：</b>Tanko 提供强大的基础功能，包括项目创建、图片导入、编辑和带水印导出，满足您的基本需求。</p><p><b>升级到 Pro：</b>解锁无限！享受无限量的项目、无限导出次数、以及最重要的——无水印导出，让您的作品更专业。</p><p>立即下载 Tanko，开始构建您的第一本专属电子书！</p>
+<!--reviews--><!--/reviews-->
 <h2>相关 App</h2><div class="rel"><a href="/apps/epub-omg/"><img src="/apps/epub-omg/img/icon.webp" width="48" height="48" alt="EPUB OMG" loading="lazy"><b>EPUB OMG</b><span>封面设计美化、目录正文修改、广告清理、简繁转换与字体嵌入</span></a><a href="/apps/epub-cover-maker/"><img src="/apps/epub-cover-maker/img/icon.webp" width="48" height="48" alt="EPUB封面制作" loading="lazy"><b>EPUB封面制作</b><span>精美封面模板，修改书名、作者与出版社</span></a><a href="/apps/booksend/"><img src="/apps/booksend/img/icon.webp" width="48" height="48" alt="BookSend" loading="lazy"><b>BookSend</b><span>免电脑免数据线，手机无线推送电子书，换封面改书名与竖排排版</span></a><a href="/apps/epub-converter/"><img src="/apps/epub-converter/img/icon.webp" width="48" height="48" alt="EPUB转文档" loading="lazy"><b>EPUB转文档</b><span>EPUB转Word、PDF、TXT与Markdown</span></a><a href="/apps/txt-to-epub/"><img src="/apps/txt-to-epub/img/icon.webp" width="48" height="48" alt="TXT转EPUB" loading="lazy"><b>TXT转EPUB</b><span>自动分章目录生成，支持简繁互转与封面制作</span></a><a href="/apps/epub-translator/"><img src="/apps/epub-translator/img/icon.webp" width="48" height="48" alt="EPUB翻译官" loading="lazy"><b>EPUB翻译官</b><span>原版书翻译，生成原文译文对照版</span></a><a href="/apps/fan-jian-tong/"><img src="/apps/fan-jian-tong/img/icon.webp" width="48" height="48" alt="Epub繁简通Pro" loading="lazy"><b>Epub繁简通Pro</b><span>台版港版繁体电子书转简体，横排竖排互转，字幕文档也能转</span></a></div>
 </main>
 <footer>

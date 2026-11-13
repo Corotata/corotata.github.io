@@ -34,6 +34,11 @@ jobs:
         continue-on-error: true
         run: npm run update-data
 
+      - name: Update App reviews on static pages
+        # Apple RSS may rate-limit; on failure the committed app-reviews.json / pages are used as-is
+        continue-on-error: true
+        run: python3 scripts/app-pages/reviews.py update
+
       - name: Build
         run: npm run build
 

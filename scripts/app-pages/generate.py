@@ -7,6 +7,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from sources import APPS
 import store
+import reviews
 from data import SHORT, PLATFORM, DEFAULT_PLATFORM, PRIVACY_PATH, RELATED, ALT, FAQ
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -179,6 +180,13 @@ h3{font-size:17px;margin:22px 0 4px}
 p{margin:10px 0}ul,ol{padding-left:1.2em}li{margin:6px 0}
 a{color:var(--accent)}
 .faq h3{margin:20px 0 2px}.faq p{margin:0 0 6px;color:var(--muted)}
+.reviews ul{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:12px}
+.reviews li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0}
+.reviews .note{color:var(--muted);font-size:14px;margin:0}
+.reviews .stars{color:var(--accent);letter-spacing:2px;font-size:15px;line-height:1.4}
+.reviews blockquote{margin:6px 0 0;padding:0}.reviews blockquote b{display:block;font-size:16px;line-height:1.5}
+.reviews blockquote p{margin:4px 0 0;font-size:16px;line-height:1.7}
+.reviews .by{color:var(--muted);font-size:13px;margin:10px 0 0;line-height:1.5}
 .rel{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .rel a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:var(--fg)}
 .rel img{width:48px;height:48px;border-radius:11px;border:1px solid var(--line);display:block;margin-bottom:8px}
@@ -398,6 +406,7 @@ def page(slug, lk):
 <a class="btn" href="{store}">{ui['dl']}</a>{'' if is_store(slug) else f'<span class="meta">{ui["iap"]}</span>'}
 <div class="shots">{imgs}</div>
 {body_html}
+<!--reviews-->{reviews.section(slug, lk, app['id'])}<!--/reviews-->
 {rel_html}
 </main>
 <footer>
