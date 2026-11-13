@@ -6,6 +6,32 @@ import type { AppData } from '../services/appStore';
 import appData from '../data/apps.json';
 import ImageWithPlaceholder from './ImageWithPlaceholder';
 
+// 有独立静态介绍页的 App（public/apps/<slug>/），点击直接跳转；其余仍在页内展示
+const APP_PAGES: Record<number, { slug: string; langs: string[] }> = {
+    6824231150: { slug: 'epub-omg', langs: ['', 'zh-hant/', 'en/'] },
+    6799873889: { slug: 'epub-converter', langs: ['', 'zh-hant/', 'en/'] },
+    6751633451: { slug: 'txt-to-epub', langs: ['', 'zh-hant/', 'en/'] },
+    6748774714: { slug: 'epub-translator', langs: ['', 'zh-hant/', 'en/'] },
+    6759366987: { slug: 'epub-cover-maker', langs: ['', 'zh-hant/', 'en/'] },
+    6746181003: { slug: 'fan-jian-tong', langs: ['', 'zh-hant/'] },
+    6825868252: { slug: 'booksend', langs: ['', 'zh-hant/', 'en/'] },
+    6755611046: { slug: 'tanko', langs: ['', 'zh-hant/', 'en/'] },
+    6739570522: { slug: 'daodejing', langs: ['', 'zh-hant/'] },
+    6670189381: { slug: 'images-extractor', langs: ['', 'zh-hant/', 'en/'] },
+    6746525636: { slug: 'dsearch', langs: ['', 'zh-hant/', 'en/'] },
+    6754076767: { slug: 'voicesmith', langs: ['', 'en/'] },
+    6504551887: { slug: 'subtitle-translator', langs: ['', 'en/'] },
+    6755658248: { slug: 'schulte-table', langs: ['', 'zh-hant/', 'en/'] },
+    6504154553: { slug: 'localization-master', langs: ['', 'zh-hant/', 'en/'] },
+    6758496623: { slug: 'tinydrawer', langs: ['', 'zh-hant/', 'en/'] },
+    6760543478: { slug: 'kiddoworld', langs: ['', 'zh-hant/', 'en/'] },
+    6749874426: { slug: 'shotfit', langs: ['', 'en/'] },
+    6741735460: { slug: 'gridsplit', langs: ['', 'zh-hant/', 'en/'] },
+    6746719522: { slug: 'scanwifi', langs: ['', 'en/'] },
+    1370721516: { slug: 'pichd-plus', langs: ['', 'en/'] },
+    6742366538: { slug: 'wasabi-50', langs: ['', 'zh-hant/', 'en/'] },
+};
+
 const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number) => void }) => {
     const { t, i18n } = useTranslation();
 
@@ -116,6 +142,18 @@ const AppShowcase = ({ onAppsCountUpdate }: { onAppsCountUpdate?: (count: number
     };
 
     const handleAppClick = (app: AppData) => {
+        const page = APP_PAGES[app.id];
+        if (page) {
+            const lang = i18n.language;
+            let suffix = 'en/';
+            if (lang === 'zh-CN' || lang === 'zh') suffix = '';
+            else if (lang === 'zh-TW') suffix = 'zh-hant/';
+            // 该 App 没有对应语言的介绍页时，回到原来的内联面板
+            if (page.langs.includes(suffix)) {
+                window.location.href = `/apps/${page.slug}/${suffix}`;
+                return;
+            }
+        }
         setActiveApp(app);
         // On mobile/tablet (small screens), open modal immediately
         if (window.innerWidth < 1024) {

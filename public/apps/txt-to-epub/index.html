@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TXT转EPUB - 小说精排、乱码修复、Kindle传书 | Corotata</title>
+<meta name="description" content="TXT转EPUB 是一款将 TXT 小说整理为 EPUB 电子书的工具，适合需要在 Apple Books、Kindle 及其他阅读器中阅读 TXT 内容的用户。">
+<link rel="canonical" href="https://corotata.com/apps/txt-to-epub/">
+<link rel="alternate" hreflang="zh-Hans" href="https://corotata.com/apps/txt-to-epub/">
+<link rel="alternate" hreflang="zh-Hant" href="https://corotata.com/apps/txt-to-epub/zh-hant/">
+<link rel="alternate" hreflang="en" href="https://corotata.com/apps/txt-to-epub/en/">
+<link rel="alternate" hreflang="x-default" href="https://corotata.com/apps/txt-to-epub/en/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Corotata">
+<meta property="og:title" content="TXT转EPUB - 小说精排、乱码修复、Kindle传书 | Corotata">
+<meta property="og:description" content="TXT转EPUB 是一款将 TXT 小说整理为 EPUB 电子书的工具，适合需要在 Apple Books、Kindle 及其他阅读器中阅读 TXT 内容的用户。">
+<meta property="og:url" content="https://corotata.com/apps/txt-to-epub/">
+<meta property="og:image" content="https://corotata.com/apps/txt-to-epub/img/icon.webp">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "TXT转EPUB", "alternateName": "TXT转EPUB - 小说精排、乱码修复、Kindle传书", "description": "TXT转EPUB 是一款将 TXT 小说整理为 EPUB 电子书的工具，适合需要在 Apple Books、Kindle 及其他阅读器中阅读 TXT 内容的用户。", "url": "https://corotata.com/apps/txt-to-epub/", "image": "https://corotata.com/apps/txt-to-epub/img/icon.webp", "operatingSystem": "iOS, iPadOS", "applicationCategory": "UtilitiesApplication", "inLanguage": "zh-Hans", "downloadUrl": "https://apps.apple.com/cn/app/id6751633451", "installUrl": "https://apps.apple.com/cn/app/id6751633451", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "含 App 内购买"}, "author": {"@type": "Organization", "name": "Corotata", "url": "https://corotata.com"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh-Hans", "mainEntity": [{"@type": "Question", "name": "Apple Books 能直接读 TXT 吗？", "acceptedAnswer": {"@type": "Answer", "text": "不能直接读。TXT 小说通常缺少阅读器可识别的结构化目录，导入后难以跳转。TXT转EPUB 会自动识别章节标题并分章，生成可跳转的目录，输出标准 EPUB，方便导入 Apple Books、Kindle 和其他阅读器。"}}, {"@type": "Question", "name": "TXT 乱码能修复吗？", "acceptedAnswer": {"@type": "Answer", "text": "支持乱码修复与常见编码文本的处理，减少编码差异带来的阅读问题。"}}, {"@type": "Question", "name": "能做封面和排版吗？", "acceptedAnswer": {"@type": "Answer", "text": "内置 39 套封面模板，也可自定义 AI 生成封面图；提供多种横排、竖排版式和 8 套阅读主题，并支持章节头图、简繁互转与 Kindle 传书。"}}, {"@type": "Question", "name": "文件会上传吗？", "acceptedAnswer": {"@type": "Answer", "text": "TXT转EPUB 以本地转换为主，兼顾稳定性与隐私。"}}]}</script>
+<style>
+:root{--bg:#faf8f4;--fg:#1d1b18;--muted:#6b665e;--line:#e6e1d8;--card:#fff;--accent:#b4532a;--accent-fg:#fff}
+@media(prefers-color-scheme:dark){:root{--bg:#171512;--fg:#f1ede6;--muted:#a39d92;--line:#2e2a24;--card:#1f1c18;--accent:#e08a5f;--accent-fg:#1a0e07}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","PingFang TC","Noto Sans SC","Noto Sans TC","Segoe UI",system-ui,sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+nav{border-bottom:1px solid var(--line);padding:14px 0;font-size:14px;color:var(--muted)}
+nav a{color:var(--muted);text-decoration:none;margin-right:16px}nav a.brand{color:var(--fg);font-weight:700;margin-right:20px}
+header{display:flex;gap:20px;align-items:center;padding:48px 0 24px}
+header img{width:96px;height:96px;border-radius:22px;border:1px solid var(--line);flex:none}
+h1{font-size:30px;line-height:1.25;margin:0 0 4px}
+.sub{color:var(--muted);margin:0;font-size:16px;line-height:1.5}
+.plat{color:var(--muted);font-size:14px;margin:6px 0 0}
+.lead{font-size:19px;margin:8px 0 24px}
+.btn{display:inline-block;background:#6366f1;color:#fff;padding:12px 22px;border-radius:12px;font-weight:600;text-decoration:none}
+.meta{color:var(--muted);font-size:14px;margin-left:14px}
+.shots{display:flex;gap:12px;overflow-x:auto;padding:36px 0 8px;scroll-snap-type:x mandatory}
+.shots img{height:360px;width:auto;border-radius:14px;border:1px solid var(--line);scroll-snap-align:start;flex:none}
+h2{font-size:21px;margin:44px 0 10px;padding-top:24px;border-top:1px solid var(--line)}
+h3{font-size:17px;margin:22px 0 4px}
+p{margin:10px 0}ul,ol{padding-left:1.2em}li{margin:6px 0}
+a{color:var(--accent)}
+.faq h3{margin:20px 0 2px}.faq p{margin:0 0 6px;color:var(--muted)}
+.rel{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rel a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:var(--fg)}
+.rel img{width:48px;height:48px;border-radius:11px;border:1px solid var(--line);display:block;margin-bottom:8px}
+.rel b{display:block;font-size:15px;line-height:1.4}.rel span{display:block;color:var(--muted);font-size:13px;line-height:1.5;margin-top:2px}
+footer{border-top:1px solid var(--line);margin-top:56px;padding:24px 0 48px;color:var(--muted);font-size:14px}
+footer a{color:var(--muted);margin-right:16px}footer .lang{margin-bottom:10px}footer .lang b{color:var(--fg);margin-right:16px}
+@media(max-width:560px){.rel{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}.shots img{height:300px}h1{font-size:26px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="brand" href="/">Corotata</a><a href="/">全部 App</a><a href="/support">技术支持</a><a href="/privacy?lang=zh">隐私政策</a></nav>
+<header>
+<img src="/apps/txt-to-epub/img/icon.webp" width="96" height="96" alt="TXT转EPUB" fetchpriority="high">
+<div><h1>TXT转EPUB</h1><p class="sub">自动分章目录生成，支持简繁互转与封面制作</p><p class="plat">适用设备：iPhone / iPad</p></div>
+</header>
+<main>
+<p class="lead">TXT转EPUB 是一款将 TXT 小说整理为 EPUB 电子书的工具，适合需要在 Apple Books、Kindle 及其他阅读器中阅读 TXT 内容的用户。</p>
+<a class="btn" href="https://apps.apple.com/cn/app/id6751633451">在 App Store 下载</a><span class="meta">含 App 内购买</span>
+<div class="shots"><img src="/apps/txt-to-epub/img/zh-Hans-1.webp" width="540" height="1173" alt="把 TXT 文件做成 EPUB：书籍排版预览，含章节标题与插图" decoding="async"><img src="/apps/txt-to-epub/img/zh-Hans-2.webp" width="540" height="1173" alt="自动识别章节后生成的书籍目录，可勾选导出范围" loading="lazy" decoding="async"><img src="/apps/txt-to-epub/img/zh-Hans-3.webp" width="540" height="1173" alt="聊天气泡排版：把人物对话排成左右气泡" loading="lazy" decoding="async"><img src="/apps/txt-to-epub/img/zh-Hans-4.webp" width="540" height="1173" alt="选中一段文字，弹出精排菜单，可换上喜欢的样式" loading="lazy" decoding="async"><img src="/apps/txt-to-epub/img/zh-Hans-5.webp" width="540" height="1173" alt="章首插图设置：自选图片，搭配版式与边缘效果" loading="lazy" decoding="async"></div>
+<p>它主要解决几类高频问题：Apple Books 不支持直接阅读 TXT；TXT 小说通常缺少可供阅读器识别的结构化目录与导航信息，即使文本中包含章节标题，导入后仍难以实现高效跳转；同时，原始 TXT 在排版表现、编码一致性与电子书完整性方面也常常存在不足，容易出现乱码、章节识别不准、封面缺失，以及跨设备阅读体验不完整等情况。</p><h2>典型使用场景</h2><ul><li>将 TXT 小说转换为标准 EPUB，方便导入 Apple Books、Kindle 和其他阅读器</li><li>修复 TXT 文本乱码，处理常见编码差异带来的阅读问题</li><li>自动识别章节标题并完成分章，减少手动整理长篇小说的成本</li><li>为缺少结构化目录的 TXT 自动生成可跳转目录，提升阅读器中的导航体验</li><li>对 TXT 小说进行精排，补足标题层级、段落、留白与整体阅读观感</li><li>进行简繁互转，适配简体中文与繁体中文阅读场景</li><li>为电子书补充封面、主题与章节头图，统一整本书的视觉风格</li><li>使用 39 套封面模板，或自定义 AI 生成封面图</li><li>将整理后的 EPUB 发送到 Kindle，或导入其他电子书阅读器继续阅读</li></ul><h2>核心功能</h2><ul><li>TXT 转 EPUB，生成标准 EPUB 电子书</li><li>章节识别、自动分章、目录生成</li><li>乱码修复与常见编码文本处理</li><li>小说精排与多种横排、竖排版式</li><li>8 套阅读主题与实时预览</li><li>章节头图、贴图与自定义图片</li><li>39 套封面模板，支持自定义 AI 生成封面图</li><li>简繁互转与 Kindle 传书</li><li>本地转换为主，兼顾稳定性与隐私</li></ul><section class="faq"><h2>常见问题</h2><h3>Apple Books 能直接读 TXT 吗？</h3><p>不能直接读。TXT 小说通常缺少阅读器可识别的结构化目录，导入后难以跳转。TXT转EPUB 会自动识别章节标题并分章，生成可跳转的目录，输出标准 EPUB，方便导入 Apple Books、Kindle 和其他阅读器。</p><h3>TXT 乱码能修复吗？</h3><p>支持乱码修复与常见编码文本的处理，减少编码差异带来的阅读问题。</p><h3>能做封面和排版吗？</h3><p>内置 39 套封面模板，也可自定义 AI 生成封面图；提供多种横排、竖排版式和 8 套阅读主题，并支持章节头图、简繁互转与 Kindle 传书。</p><h3>文件会上传吗？</h3><p>TXT转EPUB 以本地转换为主，兼顾稳定性与隐私。</p></section><h2>适合的用户</h2><ul><li>想把 TXT 小说导入 Apple Books 或 Kindle 阅读的用户</li><li>需要把纯文本小说整理成带目录 EPUB 的网文读者</li><li>需要修复乱码、整理章节、优化排版的用户</li><li>需要制作电子书封面与排版的作者、编辑</li></ul><p>TXT转EPUB 的重点不是单纯完成格式转换，而是把缺少目录结构、排版粗糙、阅读体验有限的 TXT 小说，整理成更适合阅读器长期阅读的 EPUB 电子书。</p>
+<h2>相关 App</h2><div class="rel"><a href="/apps/epub-omg/"><img src="/apps/epub-omg/img/icon.webp" width="48" height="48" alt="EPUB OMG" loading="lazy"><b>EPUB OMG</b><span>封面设计美化、目录正文修改、广告清理、简繁转换与字体嵌入</span></a><a href="/apps/booksend/"><img src="/apps/booksend/img/icon.webp" width="48" height="48" alt="BookSend" loading="lazy"><b>BookSend</b><span>免电脑免数据线，手机无线推送电子书，换封面改书名与竖排排版</span></a><a href="/apps/epub-cover-maker/"><img src="/apps/epub-cover-maker/img/icon.webp" width="48" height="48" alt="EPUB封面制作" loading="lazy"><b>EPUB封面制作</b><span>精美封面模板，修改书名、作者与出版社</span></a><a href="/apps/epub-converter/"><img src="/apps/epub-converter/img/icon.webp" width="48" height="48" alt="EPUB转文档" loading="lazy"><b>EPUB转文档</b><span>EPUB转Word、PDF、TXT与Markdown</span></a><a href="/apps/epub-translator/"><img src="/apps/epub-translator/img/icon.webp" width="48" height="48" alt="EPUB翻译官" loading="lazy"><b>EPUB翻译官</b><span>原版书翻译，生成原文译文对照版</span></a><a href="/apps/fan-jian-tong/"><img src="/apps/fan-jian-tong/img/icon.webp" width="48" height="48" alt="Epub繁简通Pro" loading="lazy"><b>Epub繁简通Pro</b><span>台版港版繁体电子书转简体，横排竖排互转，字幕文档也能转</span></a><a href="/apps/tanko/"><img src="/apps/tanko/img/icon.webp" width="48" height="48" alt="Tanko" loading="lazy"><b>Tanko</b><span>智能照片整理，一键制作高清画集</span></a></div>
+</main>
+<footer>
+<div class="lang"><b>简体</b> <a href="/apps/txt-to-epub/zh-hant/" hreflang="zh-Hant" lang="zh-Hant">繁體</a> <a href="/apps/txt-to-epub/en/" hreflang="en" lang="en">English</a></div>
+<a href="/privacy?lang=zh">隐私政策</a><a href="/support">技术支持</a><br>© Corotata
+</footer>
+</div>
+</body>
+</html>

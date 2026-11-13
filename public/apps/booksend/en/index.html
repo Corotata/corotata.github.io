@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BookSend: EPUB to Kindle | Corotata</title>
+<meta name="description" content="BookSend is an iPhone and iPad app that converts EPUB ebooks to AZW3 and transfers them to your Kindle over Wi-Fi.">
+<link rel="canonical" href="https://corotata.com/apps/booksend/en/">
+<link rel="alternate" hreflang="zh-Hans" href="https://corotata.com/apps/booksend/">
+<link rel="alternate" hreflang="zh-Hant" href="https://corotata.com/apps/booksend/zh-hant/">
+<link rel="alternate" hreflang="en" href="https://corotata.com/apps/booksend/en/">
+<link rel="alternate" hreflang="x-default" href="https://corotata.com/apps/booksend/en/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Corotata">
+<meta property="og:title" content="BookSend: EPUB to Kindle | Corotata">
+<meta property="og:description" content="BookSend is an iPhone and iPad app that converts EPUB ebooks to AZW3 and transfers them to your Kindle over Wi-Fi.">
+<meta property="og:url" content="https://corotata.com/apps/booksend/en/">
+<meta property="og:image" content="https://corotata.com/apps/booksend/img/icon.webp">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "BookSend", "alternateName": "BookSend: EPUB to Kindle", "description": "BookSend is an iPhone and iPad app that converts EPUB ebooks to AZW3 and transfers them to your Kindle over Wi-Fi.", "url": "https://corotata.com/apps/booksend/en/", "image": "https://corotata.com/apps/booksend/img/icon.webp", "operatingSystem": "iOS, iPadOS", "applicationCategory": "UtilitiesApplication", "inLanguage": "en", "downloadUrl": "https://apps.apple.com/us/app/id6825868252", "installUrl": "https://apps.apple.com/us/app/id6825868252", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Includes in-app purchases"}, "author": {"@type": "Organization", "name": "Corotata", "url": "https://corotata.com"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "How is BookSend different from Send to Kindle?", "acceptedAnswer": {"@type": "Answer", "text": "Send to Kindle delivers files through your Amazon account. BookSend converts the book on your iPhone or iPad, and your Kindle downloads it directly over local Wi-Fi — no Amazon sign-in, no email setup. The cover and metadata you edit in BookSend are what you see on your Kindle."}}, {"@type": "Question", "name": "How do I transfer an EPUB to Kindle without a computer?", "acceptedAnswer": {"@type": "Answer", "text": "Import and convert the EPUB to AZW3 on your iPhone or iPad, turn on Wireless Library, and open the displayed address in your Kindle's browser on the same Wi-Fi network to download the book."}}, {"@type": "Question", "name": "Why convert EPUB to AZW3?", "acceptedAnswer": {"@type": "Answer", "text": "A Kindle cannot open an EPUB file copied onto it directly. AZW3 (KF8) is a native Kindle format that preserves the table of contents, cover, and typography."}}, {"@type": "Question", "name": "Which Kindle models work?", "acceptedAnswer": {"@type": "Answer", "text": "A Kindle that can download files over Wi-Fi using its built-in browser is required. Compatibility and layout vary by model, firmware, and book."}}, {"@type": "Question", "name": "Are my books uploaded to a server?", "acceptedAnswer": {"@type": "Answer", "text": "Ebooks are converted on your device and transferred over your local network, without uploading to our servers. If you enable iCloud sync for highlights, those highlights sync between your own devices through your private iCloud."}}, {"@type": "Question", "name": "Do I need Pro?", "acceptedAnswer": {"@type": "Answer", "text": "Books up to 5 MB convert and transfer without Pro, with no limit on the number of books. Converting larger books requires Pro."}}]}</script>
+<style>
+:root{--bg:#faf8f4;--fg:#1d1b18;--muted:#6b665e;--line:#e6e1d8;--card:#fff;--accent:#b4532a;--accent-fg:#fff}
+@media(prefers-color-scheme:dark){:root{--bg:#171512;--fg:#f1ede6;--muted:#a39d92;--line:#2e2a24;--card:#1f1c18;--accent:#e08a5f;--accent-fg:#1a0e07}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","PingFang TC","Noto Sans SC","Noto Sans TC","Segoe UI",system-ui,sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+nav{border-bottom:1px solid var(--line);padding:14px 0;font-size:14px;color:var(--muted)}
+nav a{color:var(--muted);text-decoration:none;margin-right:16px}nav a.brand{color:var(--fg);font-weight:700;margin-right:20px}
+header{display:flex;gap:20px;align-items:center;padding:48px 0 24px}
+header img{width:96px;height:96px;border-radius:22px;border:1px solid var(--line);flex:none}
+h1{font-size:30px;line-height:1.25;margin:0 0 4px}
+.sub{color:var(--muted);margin:0;font-size:16px;line-height:1.5}
+.plat{color:var(--muted);font-size:14px;margin:6px 0 0}
+.lead{font-size:19px;margin:8px 0 24px}
+.btn{display:inline-block;background:#6366f1;color:#fff;padding:12px 22px;border-radius:12px;font-weight:600;text-decoration:none}
+.meta{color:var(--muted);font-size:14px;margin-left:14px}
+.shots{display:flex;gap:12px;overflow-x:auto;padding:36px 0 8px;scroll-snap-type:x mandatory}
+.shots img{height:360px;width:auto;border-radius:14px;border:1px solid var(--line);scroll-snap-align:start;flex:none}
+h2{font-size:21px;margin:44px 0 10px;padding-top:24px;border-top:1px solid var(--line)}
+h3{font-size:17px;margin:22px 0 4px}
+p{margin:10px 0}ul,ol{padding-left:1.2em}li{margin:6px 0}
+a{color:var(--accent)}
+.faq h3{margin:20px 0 2px}.faq p{margin:0 0 6px;color:var(--muted)}
+.rel{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rel a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:var(--fg)}
+.rel img{width:48px;height:48px;border-radius:11px;border:1px solid var(--line);display:block;margin-bottom:8px}
+.rel b{display:block;font-size:15px;line-height:1.4}.rel span{display:block;color:var(--muted);font-size:13px;line-height:1.5;margin-top:2px}
+footer{border-top:1px solid var(--line);margin-top:56px;padding:24px 0 48px;color:var(--muted);font-size:14px}
+footer a{color:var(--muted);margin-right:16px}footer .lang{margin-bottom:10px}footer .lang b{color:var(--fg);margin-right:16px}
+@media(max-width:560px){.rel{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}.shots img{height:300px}h1{font-size:26px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="brand" href="/">Corotata</a><a href="/">All apps</a><a href="/support">Support</a><a href="/privacy?lang=en">Privacy Policy</a></nav>
+<header>
+<img src="/apps/booksend/img/icon.webp" width="96" height="96" alt="BookSend" fetchpriority="high">
+<div><h1>BookSend</h1><p class="sub">AZW3 via Wi-Fi, no PC or cable</p><p class="plat">Works on：iPhone / iPad</p></div>
+</header>
+<main>
+<p class="lead">BookSend is an iPhone and iPad app that converts EPUB ebooks to AZW3 and transfers them to your Kindle over Wi-Fi. No computer, USB cable, or Amazon sign-in needed.</p>
+<a class="btn" href="https://apps.apple.com/us/app/id6825868252">Download on the App Store</a><span class="meta">Includes in-app purchases</span>
+<div class="shots"><img src="/apps/booksend/img/en-US-1.webp" width="540" height="1173" alt="BookSend shelf showing a grid of book covers and the wireless library address" decoding="async"><img src="/apps/booksend/img/en-US-2.webp" width="540" height="1173" alt="Wireless Library screen with the address to open in the Kindle browser and an auto-convert switch" loading="lazy" decoding="async"><img src="/apps/booksend/img/en-US-3.webp" width="540" height="1173" alt="Cover editor with template, photo library and import options" loading="lazy" decoding="async"><img src="/apps/booksend/img/en-US-4.webp" width="540" height="1173" alt="Layout switcher previewing a Chinese book in vertical text, with original, horizontal and vertical options" loading="lazy" decoding="async"><img src="/apps/booksend/img/en-US-5.webp" width="540" height="1173" alt="Book details editor for title, author, language, publisher and description" loading="lazy" decoding="async"></div>
+<h2>TRANSFER FROM YOUR PHONE, DOWNLOAD ON KINDLE</h2><p>Import an EPUB from the Files app or Share sheet, convert it, and turn on Wireless Library. Connect your phone and Kindle to the same Wi-Fi, then open the displayed address in the Kindle&#x27;s built-in browser to download your books.</p><p>Import books in batches and optionally enable automatic conversion. Conversion happens on your device, and transfers stay on your local network. Your ebooks are never uploaded to our servers. Keep BookSend in the foreground while downloading.</p><h2>GET YOUR BOOKS READY BEFORE YOU SEND</h2><p>Adjust the cover, book details, and reading layout before transferring, so your Kindle library is easier to browse and your books have the layout you prefer.</p><ul><li>Change covers using built-in templates, your photos, or illustrations from the book. You can also generate an image prompt to use in your preferred AI app</li><li>Edit the title, author, publisher, description, and export filename to make books easier to identify</li><li>Keep the original layout or choose horizontal or vertical text for Chinese books, with a preview of real chapters before conversion</li></ul><h2>ORGANIZE YOUR KINDLE HIGHLIGHTS</h2><p>Import My Clippings.txt to browse and search highlights by book. Export Markdown or plain text, and optionally sync highlights between your own devices using iCloud.</p><h2>INCLUDED FEATURES AND BOOKSEND PRO</h2><ul><li>Convert and transfer books up to 5 MB without Pro, with no limit on the number of books</li><li>BookSend Pro removes the file size limit, with monthly, yearly, or one-time lifetime options</li><li>Books converted while on Pro remain available to download and transfer after it ends</li></ul><p>Supports EPUB files without DRM. For TXT novels, use our TXT to EPUB app to create an EPUB before importing it into BookSend.</p><section class="faq"><h2>FAQ</h2><h3>How is BookSend different from Send to Kindle?</h3><p>Send to Kindle delivers files through your Amazon account. BookSend converts the book on your iPhone or iPad, and your Kindle downloads it directly over local Wi-Fi — no Amazon sign-in, no email setup. The cover and metadata you edit in BookSend are what you see on your Kindle.</p><h3>How do I transfer an EPUB to Kindle without a computer?</h3><p>Import and convert the EPUB to AZW3 on your iPhone or iPad, turn on Wireless Library, and open the displayed address in your Kindle&#x27;s browser on the same Wi-Fi network to download the book.</p><h3>Why convert EPUB to AZW3?</h3><p>A Kindle cannot open an EPUB file copied onto it directly. AZW3 (KF8) is a native Kindle format that preserves the table of contents, cover, and typography.</p><h3>Which Kindle models work?</h3><p>A Kindle that can download files over Wi-Fi using its built-in browser is required. Compatibility and layout vary by model, firmware, and book.</p><h3>Are my books uploaded to a server?</h3><p>Ebooks are converted on your device and transferred over your local network, without uploading to our servers. If you enable iCloud sync for highlights, those highlights sync between your own devices through your private iCloud.</p><h3>Do I need Pro?</h3><p>Books up to 5 MB convert and transfer without Pro, with no limit on the number of books. Converting larger books requires Pro.</p></section><p><b>Disclaimer:</b> BookSend is an independent third-party utility and is not affiliated with, endorsed by, or sponsored by Amazon or Kindle.</p><p>Subscriptions renew automatically. Payment is charged to your Apple Account at confirmation of purchase. To cancel renewal, turn off auto-renewal in your Apple Account settings at least 24 hours before the current subscription period ends.</p>
+<h2>Related apps</h2><div class="rel"><a href="/apps/txt-to-epub/en/"><img src="/apps/txt-to-epub/img/icon.webp" width="48" height="48" alt="TXT to EPUB" loading="lazy"><b>TXT to EPUB</b><span>Auto chapters and TOC</span></a><a href="/apps/epub-cover-maker/en/"><img src="/apps/epub-cover-maker/img/icon.webp" width="48" height="48" alt="EPUB Cover Maker" loading="lazy"><b>EPUB Cover Maker</b><span>Edit Title, Author &amp; Metadata</span></a><a href="/apps/epub-omg/en/"><img src="/apps/epub-omg/img/icon.webp" width="48" height="48" alt="EPUB OMG" loading="lazy"><b>EPUB OMG</b><span>Style novels, chapters &amp; fonts</span></a><a href="/apps/epub-converter/en/"><img src="/apps/epub-converter/img/icon.webp" width="48" height="48" alt="EPUB Converter" loading="lazy"><b>EPUB Converter</b><span>Markdown &amp; image export</span></a><a href="/apps/epub-translator/en/"><img src="/apps/epub-translator/img/icon.webp" width="48" height="48" alt="EPUB Translator" loading="lazy"><b>EPUB Translator</b><span>Bilingual eBook, Parallel Text</span></a><a href="/apps/tanko/en/"><img src="/apps/tanko/img/icon.webp" width="48" height="48" alt="Tanko" loading="lazy"><b>Tanko</b><span>Organize Photos, Create EPUB</span></a></div>
+</main>
+<footer>
+<div class="lang"><a href="/apps/booksend/" hreflang="zh-Hans" lang="zh-Hans">简体</a> <a href="/apps/booksend/zh-hant/" hreflang="zh-Hant" lang="zh-Hant">繁體</a> <b>English</b></div>
+<a href="/privacy?lang=en">Privacy Policy</a><a href="/support">Support</a><br>© Corotata
+</footer>
+</div>
+</body>
+</html>

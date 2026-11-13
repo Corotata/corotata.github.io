@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TXT to EPUB - eBook Converter | Corotata</title>
+<meta name="description" content="TxtToEpub is a tool for turning TXT novels into EPUB ebooks, especially for users who want to read TXT content in Apple Books, Kindle, and other reading apps.">
+<link rel="canonical" href="https://corotata.com/apps/txt-to-epub/en/">
+<link rel="alternate" hreflang="zh-Hans" href="https://corotata.com/apps/txt-to-epub/">
+<link rel="alternate" hreflang="zh-Hant" href="https://corotata.com/apps/txt-to-epub/zh-hant/">
+<link rel="alternate" hreflang="en" href="https://corotata.com/apps/txt-to-epub/en/">
+<link rel="alternate" hreflang="x-default" href="https://corotata.com/apps/txt-to-epub/en/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Corotata">
+<meta property="og:title" content="TXT to EPUB - eBook Converter | Corotata">
+<meta property="og:description" content="TxtToEpub is a tool for turning TXT novels into EPUB ebooks, especially for users who want to read TXT content in Apple Books, Kindle, and other reading apps.">
+<meta property="og:url" content="https://corotata.com/apps/txt-to-epub/en/">
+<meta property="og:image" content="https://corotata.com/apps/txt-to-epub/img/icon.webp">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "TXT to EPUB", "alternateName": "TXT to EPUB - eBook Converter", "description": "TxtToEpub is a tool for turning TXT novels into EPUB ebooks, especially for users who want to read TXT content in Apple Books, Kindle, and other reading apps.", "url": "https://corotata.com/apps/txt-to-epub/en/", "image": "https://corotata.com/apps/txt-to-epub/img/icon.webp", "operatingSystem": "iOS, iPadOS", "applicationCategory": "UtilitiesApplication", "inLanguage": "en", "downloadUrl": "https://apps.apple.com/us/app/id6751633451", "installUrl": "https://apps.apple.com/us/app/id6751633451", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Includes in-app purchases"}, "author": {"@type": "Organization", "name": "Corotata", "url": "https://corotata.com"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Can Apple Books read TXT files directly?", "acceptedAnswer": {"@type": "Answer", "text": "No. TXT novels usually lack a structured table of contents that reading apps can recognize. TXT to EPUB detects chapter titles, splits chapters, builds a navigable table of contents and exports a standard EPUB for Apple Books, Kindle and other readers."}}, {"@type": "Question", "name": "Can it fix garbled TXT text?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It repairs garbled text and handles common encoding differences."}}, {"@type": "Question", "name": "Can I add a cover and adjust the layout?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Choose from 39 cover templates or create a custom AI-generated cover, pick horizontal or vertical layouts and one of 8 reading themes, add chapter-opening images, convert between Simplified and Traditional Chinese and send the book to Kindle."}}, {"@type": "Question", "name": "Are my files uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "Conversion is mainly done locally, for stability and privacy."}}]}</script>
+<style>
+:root{--bg:#faf8f4;--fg:#1d1b18;--muted:#6b665e;--line:#e6e1d8;--card:#fff;--accent:#b4532a;--accent-fg:#fff}
+@media(prefers-color-scheme:dark){:root{--bg:#171512;--fg:#f1ede6;--muted:#a39d92;--line:#2e2a24;--card:#1f1c18;--accent:#e08a5f;--accent-fg:#1a0e07}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","PingFang TC","Noto Sans SC","Noto Sans TC","Segoe UI",system-ui,sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+nav{border-bottom:1px solid var(--line);padding:14px 0;font-size:14px;color:var(--muted)}
+nav a{color:var(--muted);text-decoration:none;margin-right:16px}nav a.brand{color:var(--fg);font-weight:700;margin-right:20px}
+header{display:flex;gap:20px;align-items:center;padding:48px 0 24px}
+header img{width:96px;height:96px;border-radius:22px;border:1px solid var(--line);flex:none}
+h1{font-size:30px;line-height:1.25;margin:0 0 4px}
+.sub{color:var(--muted);margin:0;font-size:16px;line-height:1.5}
+.plat{color:var(--muted);font-size:14px;margin:6px 0 0}
+.lead{font-size:19px;margin:8px 0 24px}
+.btn{display:inline-block;background:#6366f1;color:#fff;padding:12px 22px;border-radius:12px;font-weight:600;text-decoration:none}
+.meta{color:var(--muted);font-size:14px;margin-left:14px}
+.shots{display:flex;gap:12px;overflow-x:auto;padding:36px 0 8px;scroll-snap-type:x mandatory}
+.shots img{height:360px;width:auto;border-radius:14px;border:1px solid var(--line);scroll-snap-align:start;flex:none}
+h2{font-size:21px;margin:44px 0 10px;padding-top:24px;border-top:1px solid var(--line)}
+h3{font-size:17px;margin:22px 0 4px}
+p{margin:10px 0}ul,ol{padding-left:1.2em}li{margin:6px 0}
+a{color:var(--accent)}
+.faq h3{margin:20px 0 2px}.faq p{margin:0 0 6px;color:var(--muted)}
+.rel{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rel a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:var(--fg)}
+.rel img{width:48px;height:48px;border-radius:11px;border:1px solid var(--line);display:block;margin-bottom:8px}
+.rel b{display:block;font-size:15px;line-height:1.4}.rel span{display:block;color:var(--muted);font-size:13px;line-height:1.5;margin-top:2px}
+footer{border-top:1px solid var(--line);margin-top:56px;padding:24px 0 48px;color:var(--muted);font-size:14px}
+footer a{color:var(--muted);margin-right:16px}footer .lang{margin-bottom:10px}footer .lang b{color:var(--fg);margin-right:16px}
+@media(max-width:560px){.rel{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}.shots img{height:300px}h1{font-size:26px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="brand" href="/">Corotata</a><a href="/">All apps</a><a href="/support">Support</a><a href="/privacy?lang=en">Privacy Policy</a></nav>
+<header>
+<img src="/apps/txt-to-epub/img/icon.webp" width="96" height="96" alt="TXT to EPUB" fetchpriority="high">
+<div><h1>TXT to EPUB</h1><p class="sub">Auto chapters and TOC</p><p class="plat">Works on：iPhone / iPad</p></div>
+</header>
+<main>
+<p class="lead">TxtToEpub is a tool for turning TXT novels into EPUB ebooks, especially for users who want to read TXT content in Apple Books, Kindle, and other reading apps.</p>
+<a class="btn" href="https://apps.apple.com/us/app/id6751633451">Download on the App Store</a><span class="meta">Includes in-app purchases</span>
+<div class="shots"><img src="/apps/txt-to-epub/img/en-US-1.webp" width="540" height="1173" alt="Preview of a TXT novel turned into an EPUB, with a chapter title and illustration" decoding="async"><img src="/apps/txt-to-epub/img/en-US-2.webp" width="540" height="1173" alt="Table of contents generated from detected chapters, with checkboxes for export" loading="lazy" decoding="async"><img src="/apps/txt-to-epub/img/en-US-3.webp" width="540" height="1173" alt="Chat-bubble layout turning character dialogue into left and right bubbles" loading="lazy" decoding="async"><img src="/apps/txt-to-epub/img/en-US-4.webp" width="540" height="1173" alt="Selecting a passage opens a styling menu to change its look" loading="lazy" decoding="async"><img src="/apps/txt-to-epub/img/en-US-5.webp" width="540" height="1173" alt="Chapter-opening image settings with layout and edge effects" loading="lazy" decoding="async"></div>
+<p>It addresses several common problems: Apple Books does not support TXT directly; TXT novels usually lack the structured table of contents and navigation metadata required by reading apps, so chapter titles in plain text still do not provide efficient navigation after import; and raw TXT files often fall short in layout quality, encoding consistency, and ebook completeness, which can result in garbled text, inaccurate chapter detection, missing covers, and an incomplete cross-device reading experience.</p><p>Typical use cases</p><ul><li>Convert TXT novels into standard EPUB files for Apple Books, Kindle, and other reading apps</li><li>Fix garbled text and handle common encoding differences</li><li>Detect chapter headings and split long novels automatically to reduce manual cleanup</li><li>Generate a navigable table of contents for TXT files that lack structured TOC data</li><li>Reformat plain TXT novels with better headings, paragraphs, spacing, and reading flow</li><li>Convert between Simplified Chinese and Traditional Chinese for different reading preferences</li><li>Add covers, themes, and chapter header artwork for a more consistent book presentation</li><li>Use 39 cover templates or create custom AI-generated cover art</li><li>Send the processed EPUB to Kindle or import it into other ebook readers</li></ul><p>Core features</p><ul><li>TXT to EPUB conversion</li><li>Chapter detection, auto chapter split, and TOC generation</li><li>Garbled text fix and common encoding handling</li><li>Novel formatting with horizontal and vertical layouts</li><li>8 reading themes with live preview</li><li>Chapter header images, stickers, and custom images</li><li>39 cover templates with support for custom AI-generated cover art</li><li>Chinese conversion and Kindle send</li><li>Mostly local processing for stability and privacy</li></ul><h2>Best for</h2><ul><li>Users who want to read TXT novels in Apple Books or Kindle</li><li>Web novel readers who want to turn plain TXT into EPUB with a usable table of contents</li><li>Users who need garbled text fix, chapter cleanup, and layout improvement</li><li>Writers and editors who need ebook formatting and cover creation</li></ul><p>TxtToEpub is not just a file converter. It helps turn TXT novels with limited structure, rough layout, and weak navigation into EPUB ebooks that are better suited for long-form reading.</p><section class="faq"><h2>FAQ</h2><h3>Can Apple Books read TXT files directly?</h3><p>No. TXT novels usually lack a structured table of contents that reading apps can recognize. TXT to EPUB detects chapter titles, splits chapters, builds a navigable table of contents and exports a standard EPUB for Apple Books, Kindle and other readers.</p><h3>Can it fix garbled TXT text?</h3><p>Yes. It repairs garbled text and handles common encoding differences.</p><h3>Can I add a cover and adjust the layout?</h3><p>Yes. Choose from 39 cover templates or create a custom AI-generated cover, pick horizontal or vertical layouts and one of 8 reading themes, add chapter-opening images, convert between Simplified and Traditional Chinese and send the book to Kindle.</p><h3>Are my files uploaded?</h3><p>Conversion is mainly done locally, for stability and privacy.</p></section>
+<h2>Related apps</h2><div class="rel"><a href="/apps/epub-omg/en/"><img src="/apps/epub-omg/img/icon.webp" width="48" height="48" alt="EPUB OMG" loading="lazy"><b>EPUB OMG</b><span>Style novels, chapters &amp; fonts</span></a><a href="/apps/booksend/en/"><img src="/apps/booksend/img/icon.webp" width="48" height="48" alt="BookSend" loading="lazy"><b>BookSend</b><span>AZW3 via Wi-Fi, no PC or cable</span></a><a href="/apps/epub-cover-maker/en/"><img src="/apps/epub-cover-maker/img/icon.webp" width="48" height="48" alt="EPUB Cover Maker" loading="lazy"><b>EPUB Cover Maker</b><span>Edit Title, Author &amp; Metadata</span></a><a href="/apps/epub-converter/en/"><img src="/apps/epub-converter/img/icon.webp" width="48" height="48" alt="EPUB Converter" loading="lazy"><b>EPUB Converter</b><span>Markdown &amp; image export</span></a><a href="/apps/epub-translator/en/"><img src="/apps/epub-translator/img/icon.webp" width="48" height="48" alt="EPUB Translator" loading="lazy"><b>EPUB Translator</b><span>Bilingual eBook, Parallel Text</span></a><a href="/apps/tanko/en/"><img src="/apps/tanko/img/icon.webp" width="48" height="48" alt="Tanko" loading="lazy"><b>Tanko</b><span>Organize Photos, Create EPUB</span></a></div>
+</main>
+<footer>
+<div class="lang"><a href="/apps/txt-to-epub/" hreflang="zh-Hans" lang="zh-Hans">简体</a> <a href="/apps/txt-to-epub/zh-hant/" hreflang="zh-Hant" lang="zh-Hant">繁體</a> <b>English</b></div>
+<a href="/privacy?lang=en">Privacy Policy</a><a href="/support">Support</a><br>© Corotata
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>圖片提取 | Corotata</title>
+<meta name="description" content="我致力於成為蘋果區的頭部開發者。服務億萬用戶，幫助他們節省時間，提升效率，提高生命質量，繁瑣重複的事情通通我來搞定。">
+<link rel="canonical" href="https://corotata.com/apps/images-extractor/zh-hant/">
+<link rel="alternate" hreflang="zh-Hans" href="https://corotata.com/apps/images-extractor/">
+<link rel="alternate" hreflang="zh-Hant" href="https://corotata.com/apps/images-extractor/zh-hant/">
+<link rel="alternate" hreflang="en" href="https://corotata.com/apps/images-extractor/en/">
+<link rel="alternate" hreflang="x-default" href="https://corotata.com/apps/images-extractor/en/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Corotata">
+<meta property="og:title" content="圖片提取 | Corotata">
+<meta property="og:description" content="我致力於成為蘋果區的頭部開發者。服務億萬用戶，幫助他們節省時間，提升效率，提高生命質量，繁瑣重複的事情通通我來搞定。">
+<meta property="og:url" content="https://corotata.com/apps/images-extractor/zh-hant/">
+<meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/73/4c/b4/734cb411-f856-b076-808b-6eda6cc35bd6/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "圖片提取", "alternateName": "圖片提取", "description": "我致力於成為蘋果區的頭部開發者。服務億萬用戶，幫助他們節省時間，提升效率，提高生命質量，繁瑣重複的事情通通我來搞定。", "url": "https://corotata.com/apps/images-extractor/zh-hant/", "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/73/4c/b4/734cb411-f856-b076-808b-6eda6cc35bd6/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp", "operatingSystem": "iOS, iPadOS", "applicationCategory": "UtilitiesApplication", "inLanguage": "zh-Hant", "downloadUrl": "https://apps.apple.com/tw/app/id6670189381", "installUrl": "https://apps.apple.com/tw/app/id6670189381", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "Corotata", "url": "https://corotata.com"}}</script>
+
+<style>
+:root{--bg:#faf8f4;--fg:#1d1b18;--muted:#6b665e;--line:#e6e1d8;--card:#fff;--accent:#b4532a;--accent-fg:#fff}
+@media(prefers-color-scheme:dark){:root{--bg:#171512;--fg:#f1ede6;--muted:#a39d92;--line:#2e2a24;--card:#1f1c18;--accent:#e08a5f;--accent-fg:#1a0e07}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","PingFang TC","Noto Sans SC","Noto Sans TC","Segoe UI",system-ui,sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+nav{border-bottom:1px solid var(--line);padding:14px 0;font-size:14px;color:var(--muted)}
+nav a{color:var(--muted);text-decoration:none;margin-right:16px}nav a.brand{color:var(--fg);font-weight:700;margin-right:20px}
+header{display:flex;gap:20px;align-items:center;padding:48px 0 24px}
+header img{width:96px;height:96px;border-radius:22px;border:1px solid var(--line);flex:none}
+h1{font-size:30px;line-height:1.25;margin:0 0 4px}
+.sub{color:var(--muted);margin:0;font-size:16px;line-height:1.5}
+.plat{color:var(--muted);font-size:14px;margin:6px 0 0}
+.lead{font-size:19px;margin:8px 0 24px}
+.btn{display:inline-block;background:#6366f1;color:#fff;padding:12px 22px;border-radius:12px;font-weight:600;text-decoration:none}
+.meta{color:var(--muted);font-size:14px;margin-left:14px}
+.shots{display:flex;gap:12px;overflow-x:auto;padding:36px 0 8px;scroll-snap-type:x mandatory}
+.shots img{height:360px;width:auto;border-radius:14px;border:1px solid var(--line);scroll-snap-align:start;flex:none}
+h2{font-size:21px;margin:44px 0 10px;padding-top:24px;border-top:1px solid var(--line)}
+h3{font-size:17px;margin:22px 0 4px}
+p{margin:10px 0}ul,ol{padding-left:1.2em}li{margin:6px 0}
+a{color:var(--accent)}
+.faq h3{margin:20px 0 2px}.faq p{margin:0 0 6px;color:var(--muted)}
+.rel{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rel a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:var(--fg)}
+.rel img{width:48px;height:48px;border-radius:11px;border:1px solid var(--line);display:block;margin-bottom:8px}
+.rel b{display:block;font-size:15px;line-height:1.4}.rel span{display:block;color:var(--muted);font-size:13px;line-height:1.5;margin-top:2px}
+footer{border-top:1px solid var(--line);margin-top:56px;padding:24px 0 48px;color:var(--muted);font-size:14px}
+footer a{color:var(--muted);margin-right:16px}footer .lang{margin-bottom:10px}footer .lang b{color:var(--fg);margin-right:16px}
+@media(max-width:560px){.rel{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}.shots img{height:300px}h1{font-size:26px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="brand" href="/">Corotata</a><a href="/">全部 App</a><a href="/support">技術支援</a></nav>
+<header>
+<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/73/4c/b4/734cb411-f856-b076-808b-6eda6cc35bd6/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.webp" width="96" height="96" alt="圖片提取" fetchpriority="high">
+<div><h1>圖片提取</h1><p class="plat">適用裝置：iPhone / iPad</p></div>
+</header>
+<main>
+<p class="lead"><b>我致力於成為蘋果區的頭部開發者。</b> 服務億萬用戶，幫助他們節省時間，提升效率，提高生命質量，繁瑣重複的事情通通我來搞定。</p>
+<a class="btn" href="https://apps.apple.com/tw/app/id6670189381">在 App Store 下載</a>
+<div class="shots"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/45/30/ac/4530ac26-6ebf-b6af-d518-21250549624e/2469e135-57e0-4693-b3f1-0e4ac9cd06da__U7e41_U4f53_U4e2d_U6587_-_5.5_-_1.png/540x0w.webp" width="540" height="959" alt="圖片提取 截圖 1" decoding="async"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ad/59/54/ad595424-6483-d769-9eb8-e6ef8e5cdd51/263fc522-ac30-4eae-9c67-94f9e486fac5__U7e41_U4f53_U4e2d_U6587_-_5.5_-_2.png/540x0w.webp" width="540" height="959" alt="圖片提取 截圖 2" loading="lazy" decoding="async"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e9/6d/10/e96d1067-d203-b618-8aae-3dee68ba280a/f7f70aee-cad1-4d76-9be2-f5aa4acb9adc__U7e41_U4f53_U4e2d_U6587_-_5.5_-_3.png/540x0w.webp" width="540" height="959" alt="圖片提取 截圖 3" loading="lazy" decoding="async"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/34/b3/ff/34b3ffc1-9f90-9a17-7826-c9d9ec62f705/0da28ab8-21e8-4bcd-bffd-12aa92033384__U7e41_U4f53_U4e2d_U6587_-_5.5_-_4.png/540x0w.webp" width="540" height="959" alt="圖片提取 截圖 4" loading="lazy" decoding="async"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/12/d5/6d/12d56ded-8f77-d008-1269-bac7199a94e4/216ffa37-ebe8-40c4-bb13-b0784c34a3e4__U7e41_U4f53_U4e2d_U6587_-_5.5_-_5.png/540x0w.webp" width="540" height="959" alt="圖片提取 截圖 5" loading="lazy" decoding="async"></div>
+<p>「圖片提取」是一款功能強大的工具，幫助您輕鬆從各種文件和網頁中批量提取圖片，支持多種常見文件格式和公開網頁內容。無論是工作中的報告、個人收藏的電子書，還是從網頁獲取的公開圖片，您都可以快速提取並批量導出，節省時間與精力。</p><p>主要功能：</p><ul><li><b>支持多種文件格式：</b>支持從 EPUB、PDF、PPT、Word、Excel、Pages、Keynote、Numbers 文件及網頁中提取圖片。</li><li><b>支持網頁圖片提取：</b>幫助您從公開的網頁和內容中提取可訪問的圖片。</li><li><b>批量處理：</b>快速批量提取圖片，無需重複操作。</li><li><b>本地操作：</b>所有數據處理均在本地設備上完成，確保您的隱私安全。</li><li><b>導出便利：</b>一鍵導出提取的圖片，方便後續使用。</li><li><b>簡潔界面：</b>直觀易用的界面設計，讓您無需複雜學習即可輕鬆上手。</li></ul><p>適用場景：</p><ul><li>快速從 PDF 文件中提取報告中的圖片。</li><li>批量導出電子書中的插圖，用於個人收藏或研究。</li><li>在演示文稿或文件中提取有用的圖表和圖片。</li><li>從公開網頁中提取圖片，方便保存或分享。</li></ul><p>立即下載「圖片提取」，體驗高效、便捷的圖片提取服務！</p><p>聯繫我們： 如果您有任何疑問或建議，請隨時通過 myhdify@gmail.com 與我們聯繫。我們非常樂意聽取您的反饋，並將持續改進應用功能。</p><p>服務條款：</p><p><a href="https://hdify.notion.site/Terms-of-Service-ac53ad97c7454f6282e44817ab990804" rel="noopener">https://hdify.notion.site/Terms-of-Service-ac53ad97c7454f6282e44817ab990804</a></p><p>隱私政策：</p><p><a href="https://hdify.notion.site/Privacy-Policy-e82c629542fa45638e05f6c2a44de94f" rel="noopener">https://hdify.notion.site/Privacy-Policy-e82c629542fa45638e05f6c2a44de94f</a></p>
+<h2>相關 App</h2><div class="rel"><a href="/apps/gridsplit/zh-hant/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/80/85/52/80855296-e1a1-35cf-ad46-e1833a9c7b13/AppIcon-0-0-85-220-0-1-0-2x.png/256x256bb.webp" width="48" height="48" alt="GridSplit" loading="lazy"><b>GridSplit</b><span>一鍵折開MJ AI圖片，快速保存AI作品！ GridSplit讓你輕鬆折開四宮格AI圖片，只需拖拽選擇，立即選取並保…</span></a></div>
+</main>
+<footer>
+<div class="lang"><a href="/apps/images-extractor/" hreflang="zh-Hans" lang="zh-Hans">简体</a> <b>繁體</b> <a href="/apps/images-extractor/en/" hreflang="en" lang="en">English</a></div>
+<a href="/support">技術支援</a><br>© Corotata
+</footer>
+</div>
+</body>
+</html>
