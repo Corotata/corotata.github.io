@@ -14,17 +14,18 @@ sys.path.insert(0, str(Path(__file__).parent))
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "src/data/app-reviews.json"
 E = html.escape
-MAX_SHOW = 3
+MAX_SHOW = 3   # 默认展开的条数
+MAX_ALL = 50   # 含折叠部分的总条数上限
 MIN_STARS = 4
 # 拉取的国家（2026-11-14 实测 42 国后收窄）：
 COUNTRIES = "cn tw hk us gb ca au nz ie fr de it es br mx ru tr".split()  # 实测有评论的国家 + 翻译官下载靠前的国家
 PAGE_LANG = {"hans": "zh-Hans", "hant": "zh-Hant", "en": "en"}
 
 TXT = {
-    "hans": dict(h="部分用户评价", note="以下评价来自 App Store 用户，原文照录，未翻译。", view="在 App Store 查看评价", sep="，"),
-    "hant": dict(h="部分用戶評價", note="以下評價來自 App Store 用戶，原文照錄，未翻譯。", view="在 App Store 查看評價", sep="，"),
+    "hans": dict(h="部分用户评价", note="以下评价来自 App Store 用户，原文照录，未翻译。", view="在 App Store 查看评价", sep="，", more="展开更多评价（{n} 条）"),
+    "hant": dict(h="部分用戶評價", note="以下評價來自 App Store 用戶，原文照錄，未翻譯。", view="在 App Store 查看評價", sep="，", more="展開更多評價（{n} 則）"),
     "en": dict(h="What some users say", note="Reviews from App Store users, quoted as written and not translated.",
-               view="See reviews on the App Store", sep=", "),
+               view="See reviews on the App Store", sep=", ", more="Show more reviews ({n})"),
 }
 COUNTRY = {  # 代码: (简体, 繁体, 英文)
     "cn": ("中国大陆", "中國大陸", "China mainland"), "tw": ("台湾", "台灣", "Taiwan"), "hk": ("香港", "香港", "Hong Kong"),
@@ -142,7 +143,7 @@ def pick(items, lk):
     """同一 App 三个语言页共用一个池子：本页语言优先，其次内容不太短的优先，再按日期新到旧。"""
     want = PAGE_LANG[lk]
     ranked = sorted(items, key=lambda r: (guess_lang(r["body"], r["country"]) != want, len(r["body"]) < 30, "".join(chr(255 - ord(c)) for c in r["date"])))
-    return ranked[:MAX_SHOW]
+    return ranked[:MAX_ALL]
 
 
 def section(slug, lk, app_id, items=None):
@@ -163,7 +164,10 @@ def section(slug, lk, app_id, items=None):
             f'<blockquote>{title}<p{la}>{E(body).replace(chr(10), "<br>")}</p></blockquote>'
             f'<p class="by">— {E(r["author"] or "App Store")}{t["sep"]}{E(cname)}{t["sep"]}<time datetime="{r["date"]}">{r["date"]}</time>'
             f' · <a href="{link}" rel="noopener">{t["view"]}</a></p></li>')
-    return f'<section class="reviews"><h2>{t["h"]}</h2><p class="note">{t["note"]}</p><ul>{"".join(lis)}</ul></section>'
+    top = f'<ul>{"".join(lis[:MAX_SHOW])}</ul>'
+    rest = lis[MAX_SHOW:]
+    more = (f'<details><summary>{t["more"].format(n=len(rest))}</summary><ul>{"".join(rest)}</ul></details>' if rest else "")
+    return f'<section class="reviews"><h2>{t["h"]}</h2><p class="note">{t["note"]}</p>{top}{more}</section>'
 
 
 MARK = re.compile(r"<!--reviews-->.*?<!--/reviews-->", re.S)
