@@ -4,7 +4,7 @@ import yaml from 'js-yaml';
 import { motion } from 'framer-motion';
 import { Calendar, Tag, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { getAllSlugs, resolvePost, type PostLang } from '../services/posts';
+import { getAllSlugs, getPostPath, resolvePost, type PostLang } from '../services/posts';
 
 interface Post {
     slug: string;
@@ -15,12 +15,6 @@ interface Post {
     content: string;
     lang: PostLang;
 }
-
-/** Link to the static article in the language resolved for the listing. */
-const postPath = (post: Post) => {
-    const suffix = post.lang === 'en' ? 'en/' : post.lang === 'zh-TW' ? 'zh-hant/' : '';
-    return `/blog/${post.slug}/${suffix}`;
-};
 
 const BlogList = () => {
     const { t, i18n } = useTranslation();
@@ -138,7 +132,7 @@ const BlogList = () => {
                                 </div>
                             </div>
 
-                            <Link to={postPath(post)} reloadDocument>
+                            <Link to={getPostPath(post.slug, post.lang)} reloadDocument>
                                 <h2 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
                                     {post.title}
                                 </h2>
@@ -149,7 +143,7 @@ const BlogList = () => {
                             </p>
 
                             <Link
-                                to={postPath(post)}
+                                to={getPostPath(post.slug, post.lang)}
                                 reloadDocument
                                 className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
                             >

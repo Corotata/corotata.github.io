@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -9,79 +8,47 @@ import { ArrowLeft, Calendar, Tag, Languages } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import TankoPromo from '../components/TankoPromo';
-import { getAvailableLangs, resolvePost } from '../services/posts';
+import { getAvailableLangs, getPostLangForSuffix, getPostPath, postLocales, resolvePost, type PostLang } from '../services/posts';
 
 interface PostData {
     title: string;
     date: string;
     tags: string[];
     content: string;
-    lang: string;
+    lang: PostLang;
 }
 
-const BlogPost = () => {
-    const { slug, locale } = useParams();
-    const { i18n } = useTranslation();
-    const [post, setPost] = useState<PostData | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [availableLangs, setAvailableLangs] = useState<{ en: boolean, zh: boolean, zhTW: boolean }>({ en: false, zh: false, zhTW: false });
-    // Honor the article URL when opening a localized page on the Vite dev server.
-    const [contentLang, setContentLang] = useState(() => {
-        if (locale === 'en') return 'en';
-        if (locale === 'zh-hant') return 'zh-TW';
-        return getAvailableLangs(slug ?? '').zh ? 'zh' : i18n.language;
-    });
-
-    useEffect(() => {
-        const loadPost = async () => {
-            console.log('Loading post:', slug, 'Language:', contentLang);
-            try {
-                const available = getAvailableLangs(slug || '');
-                setAvailableLangs(available);
-
-                // Best match for contentLang, with shared fallback rules
-                const resolved = resolvePost(slug || '', contentLang);
-                const content = resolved?.content || '';
-                const lang = resolved?.lang || 'en';
-
-                if (content) {
-                    console.log('Content found for lang:', lang);
-                    const match = /---\n([\s\S]*?)\n---/.exec(content);
-                    if (match) {
-                        const frontmatter = yaml.load(match[1]) as any;
-                        const markdownBody = content.replace(/---\n[\s\S]*?\n---/, '').trim();
-
-                        setPost({
-                            title: frontmatter.title,
-                            date: frontmatter.date instanceof Date
-                                ? frontmatter.date.toISOString().split('T')[0]
-                                : String(frontmatter.date || ''),
-                            tags: frontmatter.tags || [],
-                            content: markdownBody,
-                            lang
-                        });
-                    }
-                } else {
-                    console.log('No content found');
-                    setPost(null);
-                }
-            } catch (error) {
-                console.error('Error loading post:', error);
-            } finally {
-                setLoading(false);
-            }
+/** Parse the chosen Markdown translation for the client-rendered article. */
+const parsePost = (resolved: ReturnType<typeof resolvePost>): PostData | null => {
+    const match = resolved && /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/.exec(resolved.content);
+    if (!resolved || !match) return null;
+    try {
+        const { title, date, tags = [] } = yaml.load(match[1]) as {
+            title: string;
+            date: string | Date;
+            tags?: string[];
         };
-
-        loadPost();
-    }, [slug, contentLang]);
-
-    const switchLanguage = (lang: string) => {
-        setContentLang(lang);
-    };
-
-    if (loading) {
-        return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+        return {
+            title,
+            date: date instanceof Date ? date.toISOString().split('T')[0] : String(date || ''),
+            tags,
+            content: match[2].trim(),
+            lang: resolved.lang,
+        };
+    } catch (error) {
+        console.error('Error loading post:', error);
+        return null;
     }
+};
+
+/** Render the article selected by the URL, including navigation between translations. */
+const BlogPost = () => {
+    const { slug = '', locale } = useParams();
+    const { i18n } = useTranslation();
+    const availableLangs = getAvailableLangs(slug);
+    const routeLang = locale ? getPostLangForSuffix(locale.toLowerCase()) : undefined;
+    const contentLang = routeLang ?? (availableLangs.includes('zh') ? 'zh' : i18n.language);
+    const post = parsePost(resolvePost(slug, contentLang));
 
     if (!post) {
         return (
@@ -95,7 +62,7 @@ const BlogPost = () => {
     const isZhContent = contentLang.startsWith('zh');
 
     return (
-        <article className="min-h-screen pt-24 pb-20 px-6">
+        <article lang={postLocales[post.lang].code} className="min-h-screen pt-24 pb-20 px-6">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -106,15 +73,15 @@ const BlogPost = () => {
                         to="/blog"
                         className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
                     >
-                        <ArrowLeft className="w-4 h-4" /> Back to Blog
+                        <ArrowLeft className="w-4 h-4" /> {postLocales[post.lang].blog}
                     </Link>
                 </div>
 
                 {/* Content Card */}
                 <div className="bg-surface border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
                     <header className="mb-12 border-b border-white/10 pb-12">
-                        <div className="flex justify-between items-start mb-6">
-                            <div className="flex items-center gap-4 text-sm text-gray-400">
+                        <div className="flex flex-wrap justify-between items-start gap-4 mb-6">
+                            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400">
                                 <div className="flex items-center gap-1">
                                     <Calendar className="w-4 h-4" />
                                     {post.date}
@@ -134,35 +101,20 @@ const BlogPost = () => {
                                 )}
                             </div>
 
-                            <div className="flex gap-2">
-                                {availableLangs.en && contentLang !== 'en' && (
-                                    <button
-                                        onClick={() => switchLanguage('en')}
+                            <nav className="flex flex-wrap gap-2" aria-label="Languages">
+                                {availableLangs.filter(lang => lang !== post.lang).map(lang => (
+                                    <Link
+                                        key={lang}
+                                        to={getPostPath(slug, lang)}
+                                        hrefLang={postLocales[lang].code}
+                                        lang={postLocales[lang].code}
                                         className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 hover:text-white hover:bg-white/10 hover:border-primary/50 transition-all"
                                     >
                                         <Languages className="w-4 h-4" />
-                                        English
-                                    </button>
-                                )}
-                                {availableLangs.zh && contentLang !== 'zh' && (
-                                    <button
-                                        onClick={() => switchLanguage('zh')}
-                                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 hover:text-white hover:bg-white/10 hover:border-primary/50 transition-all"
-                                    >
-                                        <Languages className="w-4 h-4" />
-                                        简体中文
-                                    </button>
-                                )}
-                                {availableLangs.zhTW && contentLang !== 'zh-TW' && (
-                                    <button
-                                        onClick={() => switchLanguage('zh-TW')}
-                                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 hover:text-white hover:bg-white/10 hover:border-primary/50 transition-all"
-                                    >
-                                        <Languages className="w-4 h-4" />
-                                        繁體中文
-                                    </button>
-                                )}
-                            </div>
+                                        {postLocales[lang].label}
+                                    </Link>
+                                ))}
+                            </nav>
                         </div>
                         <h1 className="text-3xl md:text-5xl font-bold leading-tight text-white mb-4">
                             {post.title}

@@ -1,0 +1,10 @@
+{
+    "zh": { "folder": "zh", "suffix": "", "code": "zh-Hans", "label": "简体中文", "blog": "全部文章" },
+    "en": { "folder": "en", "suffix": "en", "code": "en", "label": "English", "blog": "All articles" },
+    "zh-TW": { "folder": "tw", "suffix": "zh-hant", "code": "zh-Hant", "label": "繁體中文", "blog": "所有文章" },
+    "ja": { "folder": "ja", "suffix": "ja", "code": "ja", "label": "日本語", "blog": "記事一覧" },
+    "de": { "folder": "de", "suffix": "de", "code": "de", "label": "Deutsch", "blog": "Alle Artikel" },
+    "fr": { "folder": "fr", "suffix": "fr", "code": "fr", "label": "Français", "blog": "Tous les articles" },
+    "es": { "folder": "es", "suffix": "es", "code": "es", "label": "Español", "blog": "Todos los artículos" },
+    "ko": { "folder": "ko", "suffix": "ko", "code": "ko", "label": "한국어", "blog": "전체 글" }
+}

@@ -11,12 +11,9 @@ import yaml from 'js-yaml';
 const root = fileURLToPath(new URL('..', import.meta.url));
 const site = 'https://corotata.com';
 
-/** Match each source directory to the same language codes used on app pages. */
-const languages = [
-    { folder: 'zh', suffix: '', code: 'zh-Hans', label: '简体中文', blog: '全部文章' },
-    { folder: 'en', suffix: 'en/', code: 'en', label: 'English', blog: 'All articles' },
-    { folder: 'tw', suffix: 'zh-hant/', code: 'zh-Hant', label: '繁體中文', blog: '所有文章' },
-];
+/** Use the same source directories, language codes, and URL suffixes as the frontend. */
+const locales = JSON.parse(await readFile(join(root, 'src/data/blog-locales.json'), 'utf8'));
+const languages = Object.values(locales);
 const styles = [
     ':root{color-scheme:light dark;font-family:system-ui,sans-serif;line-height:1.7}',
     'body{max-width:48rem;margin:auto;padding:1.5rem 1.25rem 3rem;overflow-wrap:anywhere}',
@@ -42,7 +39,7 @@ async function collectPosts() {
             if (typeof title !== 'string' || typeof description !== 'string' || typeof date !== 'string') {
                 throw new Error('Expected title, description, and a quoted date in ' + join(directory, name));
             }
-            const path = '/blog/' + slug + '/' + language.suffix;
+            const path = '/blog/' + slug + '/' + (language.suffix ? language.suffix + '/' : '');
             const post = { path, url: site + path, title, description, date, body: match[2], language };
             if (!posts.has(slug)) posts.set(slug, []);
             posts.get(slug).push(post);
@@ -98,8 +95,13 @@ async function writeIndexes(groups, output) {
             '<xhtml:link rel="alternate" hreflang="' + other.language.code + '" href="' + other.url + '"/>'),
         '</url>',
     ].join('\n'))).join('\n');
-    const llmsEntries = groups.flatMap(group => group.map(post =>
-        '- [' + post.title + '（' + post.language.label + '）](' + post.url + '): ' + post.description)).join('\n');
+    // Keep every published translation under its language heading.
+    const posts = groups.flat();
+    const llmsEntries = languages.map(language => {
+        const entries = posts.filter(post => post.language === language).map(post =>
+            '- [' + post.title + '](' + post.url + '): ' + post.description);
+        return ['### ' + language.label, '', ...entries].join('\n');
+    }).join('\n\n');
     const sitemap = oldSitemap.replace(/<!-- Blog posts -->[\s\S]*?<!-- \/Blog posts -->\n/, '');
     const llms = oldLlms.split('\n## 实战攻略\n', 1)[0].trimEnd();
     await Promise.all([

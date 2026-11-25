@@ -69,15 +69,53 @@
 
 ## 实战攻略
 
-- [AO3 同人 EPUB 怎么整本翻译和精排？从双语对照到 Apple Books（简体中文）](https://corotata.com/blog/ao3-epub-translate-and-format-guide/): 在 iPhone 或 iPad 用 EPUB翻译官整本翻译 AO3 同人，再用 EPUB OMG 制作聊天气泡、换封面，导入 Apple Books。
-- [How to Translate an AO3 EPUB and Format It for Apple Books（English）](https://corotata.com/blog/ao3-epub-translate-and-format-guide/en/): Translate a saved AO3 fanfic as a bilingual EPUB on iPhone or iPad, then style text messages, replace the cover, and import it into Apple Books.
-- [AO3 同人 EPUB 整本翻譯與精排教學：雙語對照、聊天氣泡與換封面（繁體中文）](https://corotata.com/blog/ao3-epub-translate-and-format-guide/zh-hant/): 用 iPhone 或 iPad 把 AO3 同人 EPUB 翻成繁體中文，保留逐段對照，再用 EPUB OMG 排版並匯入 Apple Books。
-- [怎么给 EPUB 换封面？33 套模板与书名、作者修改教程（简体中文）](https://corotata.com/blog/change-epub-cover-design-templates-guide/): 在 iPhone、iPad 或 Mac 上用 EPUB封面制作换封面、调整图片比例和 EPUB 元数据，再导出到 Apple Books。
-- [How to Change an EPUB Cover and Edit Book Metadata on iPhone or iPad（English）](https://corotata.com/blog/change-epub-cover-design-templates-guide/en/): Replace an EPUB cover with one of 33 templates or your own image, edit the title and series details, and export an updated book.
-- [简体 EPUB 怎么转繁体和竖排？台湾、香港用词设置指南（简体中文）](https://corotata.com/blog/epub-simplified-traditional-vertical-guide/): 用 Epub繁简通Pro 把简体 EPUB 转成台湾或香港繁体，在本机预览并按需导出右起竖排版。
-- [簡體 EPUB 轉繁體、橫排轉直排教學：台灣與香港用詞怎麼選（繁體中文）](https://corotata.com/blog/epub-simplified-traditional-vertical-guide/zh-hant/): 用 Epub繁簡通Pro 將簡體電子書轉為台灣或香港繁體，預覽直排並在 Apple Books 等閱讀器確認翻頁。
-- [Kindle 中国电子书店停运后，怎么用 iPhone 无线传 EPUB？（简体中文）](https://corotata.com/blog/send-epub-to-kindle-china-wireless-guide/): 用 BookSend 在 iPhone 或 iPad 将无 DRM 的 EPUB 转成 AZW3，通过同一 Wi-Fi 传到 Kindle，传前还能换封面。
-- [iPhone、iPad 和 Mac 怎么翻译整本 EPUB？逐段双语对照教程（简体中文）](https://corotata.com/blog/translate-whole-epub-bilingual-iphone-mac/): 用 EPUB翻译官把无 DRM 的外文 EPUB 整本翻成双语或仅译文版，保留原文件并在 Apple Books 继续阅读。
-- [How to Translate a Whole EPUB into a Bilingual Book on iPhone, iPad, or Mac（English）](https://corotata.com/blog/translate-whole-epub-bilingual-iphone-mac/en/): Translate a DRM-free EPUB chapter by chapter in one job and export a paragraph-by-paragraph bilingual edition or a translation-only EPUB.
-- [TXT 小说怎么转 EPUB 导入 Apple Books？乱码、目录与聊天气泡教程（简体中文）](https://corotata.com/blog/txt-novel-to-epub-apple-books-formatting/): 用 TXT转EPUB 在 iPhone 或 iPad 处理乱码、自动分章并生成可跳转目录，给聊天段落精排后导入 Apple Books。
-- [TXT 小說轉 EPUB 教學：修復亂碼、建立目錄並匯入 Apple Books（繁體中文）](https://corotata.com/blog/txt-novel-to-epub-apple-books-formatting/zh-hant/): 用 TXT轉EPUB 在 iPhone 或 iPad 整理純文字小說，自動分章、手動製作聊天氣泡，再匯入 Apple Books。
+### 简体中文
+
+- [AO3 同人 EPUB 怎么整本翻译和精排？从双语对照到 Apple Books](https://corotata.com/blog/ao3-epub-translate-and-format-guide/): 在 iPhone 或 iPad 用 EPUB翻译官整本翻译 AO3 同人，再用 EPUB OMG 制作聊天气泡、换封面，导入 Apple Books。
+- [怎么给 EPUB 换封面？33 套模板与书名、作者修改教程](https://corotata.com/blog/change-epub-cover-design-templates-guide/): 在 iPhone、iPad 或 Mac 上用 EPUB封面制作换封面、调整图片比例和 EPUB 元数据，再导出到 Apple Books。
+- [简体 EPUB 怎么转繁体和竖排？台湾、香港用词设置指南](https://corotata.com/blog/epub-simplified-traditional-vertical-guide/): 用 Epub繁简通Pro 把简体 EPUB 转成台湾或香港繁体，在本机预览并按需导出右起竖排版。
+- [Kindle 中国电子书店停运后，怎么用 iPhone 无线传 EPUB？](https://corotata.com/blog/send-epub-to-kindle-china-wireless-guide/): 用 BookSend 在 iPhone 或 iPad 将无 DRM 的 EPUB 转成 AZW3，通过同一 Wi-Fi 传到 Kindle，传前还能换封面。
+- [iPhone、iPad 和 Mac 怎么翻译整本 EPUB？逐段双语对照教程](https://corotata.com/blog/translate-whole-epub-bilingual-iphone-mac/): 用 EPUB翻译官把无 DRM 的外文 EPUB 整本翻成双语或仅译文版，保留原文件并在 Apple Books 继续阅读。
+- [TXT 小说怎么转 EPUB 导入 Apple Books？乱码、目录与聊天气泡教程](https://corotata.com/blog/txt-novel-to-epub-apple-books-formatting/): 用 TXT转EPUB 在 iPhone 或 iPad 处理乱码、自动分章并生成可跳转目录，给聊天段落精排后导入 Apple Books。
+
+### English
+
+- [How to Translate an AO3 EPUB and Format It for Apple Books](https://corotata.com/blog/ao3-epub-translate-and-format-guide/en/): Translate a saved AO3 fanfic as a bilingual EPUB on iPhone or iPad, then style text messages, replace the cover, and import it into Apple Books.
+- [How to Change an EPUB Cover and Edit Book Metadata on iPhone or iPad](https://corotata.com/blog/change-epub-cover-design-templates-guide/en/): Replace an EPUB cover with one of 33 templates or your own image, edit the title and series details, and export an updated book.
+- [How to Translate a Whole EPUB into a Bilingual Book on iPhone, iPad, or Mac](https://corotata.com/blog/translate-whole-epub-bilingual-iphone-mac/en/): Translate a DRM-free EPUB chapter by chapter in one job and export a paragraph-by-paragraph bilingual edition or a translation-only EPUB.
+
+### 繁體中文
+
+- [AO3 同人 EPUB 整本翻譯與精排教學：雙語對照、聊天氣泡與換封面](https://corotata.com/blog/ao3-epub-translate-and-format-guide/zh-hant/): 用 iPhone 或 iPad 把 AO3 同人 EPUB 翻成繁體中文，保留逐段對照，再用 EPUB OMG 排版並匯入 Apple Books。
+- [簡體 EPUB 轉繁體、橫排轉直排教學：台灣與香港用詞怎麼選](https://corotata.com/blog/epub-simplified-traditional-vertical-guide/zh-hant/): 用 Epub繁簡通Pro 將簡體電子書轉為台灣或香港繁體，預覽直排並在 Apple Books 等閱讀器確認翻頁。
+- [TXT 小說轉 EPUB 教學：修復亂碼、建立目錄並匯入 Apple Books](https://corotata.com/blog/txt-novel-to-epub-apple-books-formatting/zh-hant/): 用 TXT轉EPUB 在 iPhone 或 iPad 整理純文字小說，自動分章、手動製作聊天氣泡，再匯入 Apple Books。
+
+### 日本語
+
+- [AO3の小説をEPUBで翻訳し、Apple Booksで読みやすくする方法](https://corotata.com/blog/ao3-epub-translate-and-format-guide/ja/): 保存済みのAO3小説を日本語との対訳EPUBにして、会話を吹き出しで整え、Apple Booksで読む手順。
+- [EPUBの表紙を変更する方法｜テンプレートと写真で電子書籍の表紙を作る](https://corotata.com/blog/change-epub-cover-design-templates-guide/ja/): 33種類のテンプレートや手持ちの画像でEPUBの表紙を変更し、書名や著者、シリーズ情報を整える手順。
+- [EPUBを一冊まるごと翻訳する方法｜iPhone・iPad・Macで対訳電子書籍に](https://corotata.com/blog/translate-whole-epub-bilingual-iphone-mac/ja/): DRMのないEPUBを一冊分翻訳し、原文と日本語訳を段落ごとに並べた版や、訳文だけの版を書き出す手順。
+
+### Deutsch
+
+- [AO3-Fanfics als EPUB übersetzen und für Apple Books formatieren](https://corotata.com/blog/ao3-epub-translate-and-format-guide/de/): Eine gespeicherte AO3-Fanfiction als zweisprachiges EPUB exportieren, Chatverläufe gestalten und das E-Book in Apple Books lesen.
+- [EPUB-Cover ändern und Buchdaten bearbeiten auf iPhone, iPad oder Mac](https://corotata.com/blog/change-epub-cover-design-templates-guide/de/): Das Buchcover eines vorhandenen EPUBs mit einer von 33 Vorlagen oder einem Bild ersetzen und Angaben zu Titel, Autor und Reihe pflegen.
+- [Ein ganzes EPUB übersetzen und zweisprachig lesen auf iPhone, iPad oder Mac](https://corotata.com/blog/translate-whole-epub-bilingual-iphone-mac/de/): Ein DRM-freies E-Book komplett übersetzen und als zweisprachige EPUB-Datei oder nur auf Deutsch exportieren.
+
+### Français
+
+- [Traduire une fanfiction AO3 en EPUB et la mettre en page pour Apple Books](https://corotata.com/blog/ao3-epub-translate-and-format-guide/fr/): Créer une version bilingue d’une fanfiction AO3 déjà téléchargée, mettre en forme ses conversations et la lire dans Apple Books.
+- [Changer la couverture d’un EPUB et modifier les informations du livre](https://corotata.com/blog/change-epub-cover-design-templates-guide/fr/): Remplacer la couverture d’un EPUB à l’aide de 33 modèles ou d’une image, puis mettre à jour le titre, l’auteur et la série.
+- [Traduire un livre EPUB entier et créer une version bilingue sur iPhone, iPad ou Mac](https://corotata.com/blog/translate-whole-epub-bilingual-iphone-mac/fr/): Traduire intégralement un EPUB sans DRM et exporter le texte original avec sa traduction paragraphe par paragraphe, ou la traduction seule.
+
+### Español
+
+- [Cómo traducir una fanfic de AO3 en EPUB y maquetarla para Apple Books](https://corotata.com/blog/ao3-epub-translate-and-format-guide/es/): Traduce al español una fanfic de AO3 ya descargada en EPUB, da formato a los chats y abre la versión bilingüe en Apple Books.
+- [Cómo cambiar la portada de un EPUB y editar los datos del libro](https://corotata.com/blog/change-epub-cover-design-templates-guide/es/): Cambia la portada de un libro electrónico con una de 33 plantillas o con una imagen, y actualiza el título, el autor y la colección.
+- [Cómo traducir un libro EPUB completo y leerlo en dos idiomas en el iPhone, iPad o Mac](https://corotata.com/blog/translate-whole-epub-bilingual-iphone-mac/es/): Traduce un EPUB entero sin DRM y exporta una edición bilingüe por párrafos o una copia que solo contiene la traducción.
+
+### 한국어
+
+- [AO3 팬픽 EPUB 번역하고 Apple Books에서 읽기 좋게 편집하는 법](https://corotata.com/blog/ao3-epub-translate-and-format-guide/ko/): 저장해 둔 AO3 팬픽을 원문과 한국어 번역을 담은 EPUB으로 만들고, 채팅 장면과 표지를 다듬어 Apple Books에 넣는 방법입니다.
+- [EPUB 전자책 표지 변경하는 법 | 템플릿으로 만들고 책 정보 수정하기](https://corotata.com/blog/change-epub-cover-design-templates-guide/ko/): 33종 템플릿이나 이미지를 써서 EPUB 표지를 바꾸고 제목, 저자, 시리즈 정보를 정리하는 방법입니다.
+- [EPUB 전자책 한 권을 통째로 번역하는 법 | iPhone·iPad·Mac에서 원문과 함께 읽기](https://corotata.com/blog/translate-whole-epub-bilingual-iphone-mac/ko/): DRM이 없는 EPUB 전체를 번역하고, 문단별 원문 대조본이나 번역문만 담긴 전자책으로 내보내는 방법입니다.
