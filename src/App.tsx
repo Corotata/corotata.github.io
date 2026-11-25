@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<BlogList />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/blog/:slug/:locale?" element={<BlogPost />} />
             <Route path="/privacy" element={<LegalPage mode="privacy" />} />
             <Route path="/privacy/*" element={<LegalPage mode="privacy" />} />
             <Route path="/contact" element={<ContactPage />} />

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """生成 public/apps/<slug>/{,zh-hant/,en/}index.html、sitemap.xml、llms.txt。
 文案来自各 App 的 fastlane/metadata/<语言>/description.txt，不改写；用法：python3 scripts/app-pages/generate.py"""
-import html, json, re, sys
+import html, json, re, subprocess, sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
@@ -440,7 +440,7 @@ def main():
     (OUT / "sitemap.xml").write_text("\n".join(sm) + "\n", encoding="utf-8")
     # llms.txt
     L = ["# Corotata", "",
-         "> Corotata 是独立开发者的 App 作品集：EPUB 电子书的编辑、转换、翻译与传输工具，以及其他效率与创意 App。以下是各 App 的介绍页（简体中文、繁体中文、英文，视 App 而定）。", ""]
+         "> Corotata 是独立开发者的 App 作品集：EPUB 电子书的编辑、转换、翻译与传输工具，以及其他效率与创意 App。以下收录 App 介绍页与实战攻略（语言视页面而定）。", ""]
     LN = {'hans': '简体', 'hant': '繁體', 'en': 'English'}
     for title, grp in (("EPUB 系列", [x for x in APPS if not is_store(x)]), ("其他 App", [x for x in APPS if is_store(x)])):
         L += [f"## {title}", ""]
@@ -450,7 +450,9 @@ def main():
                 L.append(f"- [{short_of(slug, lk)}（{LN[lk]}）]({url(slug, lk)}): {blurb(slug, lk, m)}")
         L.append("")
     (OUT / "llms.txt").write_text("\n".join(L) + "\n", encoding="utf-8")
-    print(len(urls), "pages")
+    # Reattach articles after regenerating both app indexes.
+    subprocess.run(["node", str(ROOT / "scripts" / "generate-blog.mjs")], check=True)
+    print(len(urls), "app pages")
 
 
 if __name__ == "__main__":

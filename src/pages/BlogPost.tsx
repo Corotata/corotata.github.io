@@ -20,13 +20,17 @@ interface PostData {
 }
 
 const BlogPost = () => {
-    const { slug } = useParams();
+    const { slug, locale } = useParams();
     const { i18n } = useTranslation();
     const [post, setPost] = useState<PostData | null>(null);
     const [loading, setLoading] = useState(true);
     const [availableLangs, setAvailableLangs] = useState<{ en: boolean, zh: boolean, zhTW: boolean }>({ en: false, zh: false, zhTW: false });
-    // Local state for content language, initialized with global language but independent
-    const [contentLang, setContentLang] = useState(i18n.language);
+    // Honor the article URL when opening a localized page on the Vite dev server.
+    const [contentLang, setContentLang] = useState(() => {
+        if (locale === 'en') return 'en';
+        if (locale === 'zh-hant') return 'zh-TW';
+        return getAvailableLangs(slug ?? '').zh ? 'zh' : i18n.language;
+    });
 
     useEffect(() => {
         const loadPost = async () => {

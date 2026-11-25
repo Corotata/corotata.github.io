@@ -4,7 +4,7 @@ import yaml from 'js-yaml';
 import { motion } from 'framer-motion';
 import { Calendar, Tag, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { getAllSlugs, resolvePost } from '../services/posts';
+import { getAllSlugs, resolvePost, type PostLang } from '../services/posts';
 
 interface Post {
     slug: string;
@@ -13,8 +13,14 @@ interface Post {
     description: string;
     tags: string[];
     content: string;
-    lang?: string;
+    lang: PostLang;
 }
+
+/** Link to the static article in the language resolved for the listing. */
+const postPath = (post: Post) => {
+    const suffix = post.lang === 'en' ? 'en/' : post.lang === 'zh-TW' ? 'zh-hant/' : '';
+    return `/blog/${post.slug}/${suffix}`;
+};
 
 const BlogList = () => {
     const { t, i18n } = useTranslation();
@@ -29,10 +35,8 @@ const BlogList = () => {
 
             getAllSlugs().forEach(slug => {
                 const resolved = resolvePost(slug, i18n.language);
-                const content = resolved?.content || '';
-                const lang = resolved?.lang;
-
-                if (content) {
+                if (resolved) {
+                    const { content, lang } = resolved;
                     const match = /---\n([\s\S]*?)\n---/.exec(content);
                     if (match) {
                         const frontmatter = yaml.load(match[1]) as any;
@@ -55,7 +59,7 @@ const BlogList = () => {
             });
 
             // Sort by date descending
-            loadedPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+            loadedPosts.sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
 
             setPosts(loadedPosts);
             setTags(Array.from(allTags));
@@ -134,7 +138,7 @@ const BlogList = () => {
                                 </div>
                             </div>
 
-                            <Link to={`/blog/${post.slug}`}>
+                            <Link to={postPath(post)} reloadDocument>
                                 <h2 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
                                     {post.title}
                                 </h2>
@@ -145,7 +149,8 @@ const BlogList = () => {
                             </p>
 
                             <Link
-                                to={`/blog/${post.slug}`}
+                                to={postPath(post)}
+                                reloadDocument
                                 className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
                             >
                                 Read Article <ArrowRight className="w-4 h-4" />
